@@ -28,7 +28,8 @@ const users = [{
 
 
 
-let sortByAge = function (a, b) {
+function myFunForArr(users) {
+  let sortByAge = function (a, b) {
   return a.age > b.age ? 1 : -1;
 }
 
@@ -37,4 +38,9 @@ let resMapUsers = users.map(function (item) {
   return item;
 }).sort(sortByAge);
 
-console.log(resMapUsers);
+  return resMapUsers; 
+}
+
+let resFun = myFunForArr(users);
+
+console.log(resFun); 
