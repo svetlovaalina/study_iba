@@ -53,15 +53,15 @@ const obj3 = {...obj1, ...obj2}; // {x: 2}
 
 let resFun = myFunForArr(users);
 
-console.log(resFun);
+// console.log(resFun);
 
 // ****************************************************************
 // ****************************************************************
 // ****************************************************************
 
-const foo = number => number2 => number3 => number + number2 + number3;
+// const foo = number => number2 => number3 => number + number2 + number3;
 
-foo(1)(2)(3); // 6
+// foo(1)(2)(3); // 6
 
 // ****************************************************************
 // ****************************************************************
@@ -70,8 +70,12 @@ foo(1)(2)(3); // 6
 const obj = { x: 1 };
 
 function foo(number) {
-  return this.x + number;
+  return  this.x + number;
+  
 }
+ foo.bind(obj)()
+
+ //Object.foo.bind(obj)()
 
 // foo.... ...
 
