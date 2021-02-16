@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Календарь</title>
+</head>
+
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	.header {
+		background-color: rgb(95, 85, 156);
+		height: 77px;
+		font-size: 1.2em;
+		margin-left: 0px;
+		margin-right: 0px;
+		min-width: 900px;
+		text-decoration: dashed;
+		position:sticky;
+
+	}
+
+h1{
+	padding-left: 200px;
+}
+
+	h2 {
+		font: normal 170% 'century gothic', arial;
+		margin: 0 0 15px 0;
+		padding: 15px 0 5px 20px;
+		color: rgb(221, 181, 247);
+	}
+
+	.reference {
+		display: none;
+	}
+
+	/* Первый story после reference на том же уровне*/
+	.reference~.story,
+	.reference~.story2 {
+		display: none;
+	}
+
+	/* для label, который размещен  сразу после reference */
+	.reference+label {
+		font-size: 16px;
+		padding: 2px 2px 2px 15px;
+		color: rgb(119, 7, 224);
+		cursor: pointer;
+		display: inline-block;
+		font-family: monospace;
+	}
+
+	.reference:checked~.story,
+	.reference:checked~.story2 {
+		display: block;
+		background: rgba(255, 250, 250, 0.767);
+		padding: 3px 0px 2px 10px;
+
+	}
+
+	.month>.monthsLabel {
+		color: rgb(70, 0, 60);
+		font-size: 18px;
+
+	}
+	.footer {
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(243, 179, 240);
+  color: white;
+  text-align: center;
+} 
+
+
+</style>
+
+<body>
+
+	<div class="main">
+
+		<div class="header">
+			<h2>Календарь 2021</h2>
+		</div>
+	</div>
+
+	<div class="month">
+		<h1>Праздники 2021 года по месяцам</h1>
+		<input type="checkbox" id="hd-1" class="reference" />
+
+		<label for="hd-1" class="monthsLabel">Январь</label>
+
+		<div class="story">
+			<input type="checkbox" id="Jan1" class="reference" />
+			<label for="Jan1"> 1 Января</label>
+			<div class="story">
+				<li>Новый год</li>
+				<li>Всемирный день мира</li>
+				<li>День общественного достояния</li>
+				<li>День заплыва «полярных медведей» – Канада</li>
+				<li>День коктейля «Кровавая Мэри</li>
+				<li>День дарения яблок</li>
+
+			</div>
+		</div>
+
+		<div class="story">
+			<input type="checkbox" id="Jan2" class="reference" />
+			<label for="Jan2"> 2 Января</label>
+			<div class="story">
+
+				<li>День научной фантастики</li>
+				<li>День профитролей</li>
+				<li>День шведского стола</li>
+
+			</div>
+		</div>
+
+
+		<div class="story">
+			<input type="checkbox" id="Jan3" class="reference" />
+			<label for="Jan3"> 3 Января</label>
+			<div class="story">
+
+
+				<li>День рождения соломинки для коктейлей</li>
+				<li>День банковских и финансовых работников – Беларусь</li>
+				<li>Фестиваль сонного дня</li>
+
+			</div>
+		</div>
+	</div>
+	<!-- ***********************************************************************// -->
+	<div class="month">
+		<input type="checkbox" id="hd-2" class="reference" />
+		<label for="hd-2" class="monthsLabel">Февраль</label>
+
+		<div class="story">
+			<input type="checkbox" id="Fe2" class="reference" />
+			<label for="Fe2"> 2 Февраля</label>
+			<div class="story">
+				<li>День сурка </li>
+				<li>День ежа</li>
+
+			</div>
+		</div>
+		<div class="story">
+			<input type="checkbox" id="Fe16" class="reference" />
+			<label for="Fe16"> 16 Февраля</label>
+			<div class="story">
+				<li>День поиска запахов</li>
+				<li>День свежего ананаса </li>
+
+			</div>
+		</div>
+	</div>
+	<!-- ***********************************************************************// -->
+	<div class="month">
+		<input type="checkbox" id="hd-3" class="reference" />
+		<label for="hd-3" class="monthsLabel">Март</label>
+
+		<div class="story">
+			<input type="checkbox" id="Mar1" class="reference" />
+			<label for="Mar1"> 1 Марта</label>
+			<div class="story">
+				<li>Всемирный день гражданской обороны </li>
+				<li>День любителей арахисового масла</li>
+
+
+			</div>
+		</div>
+	</div>
+
+	<!-- ***********************************************************************// -->
+	<div class="month">
+		<input type="checkbox" id="hd-4" class="reference" />
+		<label for="hd-4" class="monthsLabel">Апрель</label>
+
+		<div class="story">
+			<input type="checkbox" id="apr1" class="reference" />
+			<label for="apr1"> 1 Апреля</label>
+			<div class="story">
+				<li>День дурака </li>
+
+
+			</div>
+		</div>
+	</div>
+
+	<!-- ***********************************************************************// -->
+	<div class="month">
+		<input type="checkbox" id="hd-5" class="reference" />
+		<label for="hd-5" class="monthsLabel">Май</label>
+
+		<div class="story">
+			<input type="checkbox" id="may1" class="reference" />
+			<label for="may1"> 1 Мая</label>
+			<div class="story">
+				<li>День труда </li>
+
+
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<p>Зафиксированный Footer</p>
+	  </div>
+</body>
+
+</html>
