@@ -28,7 +28,7 @@ const users = [{
 
 
 
-function myFunForArr(users) {
+/*function myFunForArr(users) {
   let sortByAge = function (a, b) {
   return a.age > b.age ? 1 : -1;
 }
@@ -38,9 +38,23 @@ let resMapUsers = users.map(function (item) {
   return item;
 }).sort(sortByAge);
 
-  return resMapUsers; 
-}
+  return resMapUsers;
+}*/
+
+
+
+
+const myFunForArr = users =>
+  users.map(user => ({...user, fullName: `${user.name} ${user.surname}` })).sort((a, b) => a.age > b.age ? 1 : -1);
+
+const obj1 = {x: 1};
+const obj2 = {x: 2};
+const obj3 = {...obj1, ...obj2}; // {x: 2}
 
 let resFun = myFunForArr(users);
 
-console.log(resFun); 
+console.log(resFun);
+
+// ****************************************************************
+// ****************************************************************
+// ****************************************************************
