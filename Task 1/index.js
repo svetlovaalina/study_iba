@@ -63,6 +63,24 @@ let resFun = myFunForArr(users);
 
 // foo(1)(2)(3); // 6
 
+function fooTask1(f) { // fooTask1(f) выполняет каррирование
+  return function(a) {
+    return function(b) {
+      {return function(c){
+        return f(a,b,c)  
+        };
+      };
+    };
+  };
+}
+
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+let fooRes = fooTask1(sum);
+console.log(fooRes(1)(2)(3))
+
 // ****************************************************************
 // ****************************************************************
 // ****************************************************************
@@ -71,11 +89,17 @@ const obj = { x: 1 };
 
 function foo(number) {
   return  this.x + number;
-  
 }
- foo.bind(obj)()
+ 
 
- //Object.foo.bind(obj)()
+ const objGeneral = {
+   x: 3,
+   callfooTest:foo
+ }
+ 
+obj.foo.call(this,1)
+objGeneral.callfooTest.call(obj,1)
+
 
 // foo.... ...
 
