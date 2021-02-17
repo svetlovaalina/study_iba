@@ -96,8 +96,12 @@ function foo(number) {
    x: 3,
    callfooTest:foo
  }
+
+ foo.call(obj,1)
+ foo.bind(obj,1)()
+ foo.apply(obj,[1])
  
-obj.foo.call(this,1)
+
 objGeneral.callfooTest.call(obj,1)
 
 
