@@ -63,24 +63,15 @@ let resFun = myFunForArr(users);
 
 // foo(1)(2)(3); // 6
 
-function fooTask1(f) { // fooTask1(f) выполняет каррирование
-  return function(a) {
-    return function(b) {
-      {return function(c){
-        return f(a,b,c)  
-        };
+function fooTask1(a) { // fooTask1(f) выполняет каррирование
+  return function(b) {
+    return function(c) {
+      return a+b+c
       };
-    };
   };
 }
 
-function sum(a, b, c) {
-  return a + b + c;
-}
-
-let fooRes = fooTask1(sum);
-console.log(fooRes(1)(2)(3))
-
+console.log(fooTask1(1)(2)(3))
 // ****************************************************************
 // ****************************************************************
 // ****************************************************************
