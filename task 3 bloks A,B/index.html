@@ -10,7 +10,7 @@
             background: red;
             position: absolute;
             z-index: 10;
-            left: 233px;
+            left: 383px;
             top: 33px;
             /*25+8*/
         }
@@ -21,7 +21,7 @@
             background: white;
             position: relative;
             z-index: 5;
-            left: 200px;
+            left: 350px;
         }
 
         .block3 {
@@ -66,6 +66,27 @@
 
 
 
+        /* overlay styles, all needed */
+        .block8::after {
+            width: 60px;
+            height: 60px;
+            top: 20px;
+            left: 15px;
+            content: "";
+            display: block;
+            position: fixed;
+            background-color: rgba(226, 13, 13, 0.5);
+        }
+
+        /* just some content with arbitrary styles for explanation purposes */
+        .block8 {
+            width: 30px;
+            height: 30px;
+            position: fixed;
+            left: 30px;
+            top: 35px;
+            background-color: #f1c40f;
+        }
         body {
             background-color: rgb(143, 186, 241);
         }
@@ -83,6 +104,8 @@
             <div class="block5"></div>
             <div class="block6"></div>
         </div>
+        <div class="block8"></div>
+        
     </div>
 
 </body>
