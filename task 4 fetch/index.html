@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Fetch </title>
+</head>
+
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+</style>
+
+<body>
+    <div class="container"></div>
+</body>
+
+<script>
+    fetch('https://dog.ceo/api/breed/hound/images')
+        .then(response => response.json())
+        .then(responseResult => {
+
+            let arr = responseResult.message;
+
+            arr.length = 20;
+            console.log(responseResult);
+            let containerJS = document.getElementsByClassName('container')[0]
+            arr.forEach(image => {
+                let img = document.createElement('img');
+                img.style = 'height:200px;width:200px;margin:10px';
+                img.src = image;
+
+                containerJS.append(img);
+
+
+            });
+        })
+</script>
+
+</html>
