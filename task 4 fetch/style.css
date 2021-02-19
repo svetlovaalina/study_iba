@@ -1,0 +1,20 @@
+.message_list {
+    /* list-style: none; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.collapse_buttons {
+    text-align: right;
+    border-top: solid 1px #138509;
+    padding: 5px 0;
+    width: 883px;
+}
+
+
+.show_recent_only {
+    display: none;
+ 
+}
