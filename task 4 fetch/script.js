@@ -90,3 +90,9 @@ function funAfterFetch() {
     });
 }
 */
+
+// 1. Add styles
+// 2. 'Загрузка...'
+// 3. 'Error message'
+// 4. Add bootstrap
+// 5. Use async/await

@@ -8,11 +8,6 @@
 
 .collapse_buttons {
     text-align: right;
-<<<<<<< HEAD
-    border-top: solid 1px #16940b;
-=======
-    border-top: solid 1px #138509;
->>>>>>> 3c25fbdcb4e2e085dca97c4e487df8bfd0862d08
     padding: 5px 0;
     width: 883px;
 }
@@ -20,5 +15,5 @@
 
 .show_recent_only {
     display: none;
- 
+
 }
