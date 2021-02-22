@@ -12,7 +12,7 @@ fetch('https://dog.ceo/api/breed/hound/images')
             let li = document.createElement('li');
             img.style = 'margin:10px';
             img.src = image;
-            
+
             li.appendChild(img);
             containerJS.append(li);
         });
@@ -28,9 +28,8 @@ function funAfterFetch() {
     $(".message_list li:gt(4)").hide();
 
 
-    //show all messages
+    //show next 5 messages
     $(".show_next5_message").click(function () {
-
         $(`.message_list li:lt(${counterFun()})`).slideDown()
         counter++;
         return false;
