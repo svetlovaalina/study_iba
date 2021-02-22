@@ -1,6 +1,3 @@
-// Избавиться от документ рэди 
-// Заставить отработать фетч 
-// только этого можно разрешить работать jquery
 
 fetch('https://dog.ceo/api/breed/hound/images')
     .then(response => response.json())
