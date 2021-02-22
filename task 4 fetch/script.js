@@ -12,6 +12,7 @@ fetch('https://dog.ceo/api/breed/hound/images')
             let li = document.createElement('li');
             img.style = 'margin:10px';
             img.src = image;
+            
             li.appendChild(img);
             containerJS.append(li);
         });
