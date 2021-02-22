@@ -4,50 +4,86 @@ const showMoreButton = document.querySelector('#show_more_button');
 let currentPage = 0;
 let allDogs = [];
 const dogsPerPage = 5;
-const dogsAmount = 10;
+let dogsTotal = 30;
+const fetchDogs = async () => {
 
-const fetchDogs = async() => {
-
-  try {
-    const fetchedDogs = await fetch('https://dog.ceo/api/breed/hound/images');
-    const fetchedDogsJSON = await fetchedDogs.json();
-    allDogs = fetchedDogsJSON.message.slice(0, dogsAmount);
-  } catch (error) {
-    console.error(error);
-    // do smth
-  }
+    try {
+        //  throw "Text error";
+        $("#dvloader").show();
+        const fetchedDogs = await fetch('https://dog.ceo/api/breed/hound/images');
+        const fetchedDogsJSON = await fetchedDogs.json();
+        allDogs = fetchedDogsJSON.message.slice(0, dogsTotal);
+        // debugger;
+        $("#dvloader").hide();
+    } catch (error) {
+        console.error(error);
+        // do smth
+    }
 }
 
-const addDogs = () => {
-  const dogsToAdd = allDogs.splice(currentPage * dogsPerPage, dogsPerPage);
-  dogsToAdd.forEach(image => {
-    let img = document.createElement('img');
-    let li = document.createElement('li');
-    img.style = 'margin:10px';
-    img.src = image;
+const addDogs = async () => {
+    const dogsToAdd = allDogs.slice(currentPage * dogsPerPage, (currentPage * dogsPerPage)+dogsPerPage);
+    dogsToAdd.forEach(image => {
+        let img = document.createElement('img');
+        //     let li = document.createElement('li');
+        let div = document.createElement('div')
+        div.className = 'card';
+        img.style = 'margin:10px';
+        img.src = image;
 
-    li.appendChild(img);
-    messageList.append(li);
-  });
+        // li.appendChild(img);
+        // messageList.append(li);
+        div.appendChild(img);
+        messageList.append(div);
+            
+    });
 
-  if (++currentPage * dogsPerPage >= dogsAmount) {
-    showMoreButton.remove();
-  }
+    if (++currentPage * dogsPerPage >= dogsTotal) {
+        showMoreButton.remove();
+    }
 }
 
-const start = () => {
-  fetchDogs().then(() => {
-    addDogs();
-    showMoreButton.style = 'display: block;'
-  });
-  console.log(2);
+
+const startApp = async () => {
+    // addLoader();
+    try {
+        // throw "Text error";
+        await fetchDogs();
+        await addDogs();
+        showMoreButton.style = 'display: inline-block';
+    } catch (err) {
+        var errorElem = document.getElementById('error-block-id');
+        errorElem.innerHTML = err;
+        // do smth
+    }
+
 }
 
 showMoreButton.addEventListener('click', addDogs);
 
 
-start();
+// start();
+startApp();
 
+
+// function addLoader() {
+//     $("#dvloader").show();
+//     $(".message_list").load("index.html", function () {
+//         $("#dvloader").hide();
+//     });
+//     return false;
+// };
+
+// const start = () => {
+//     addLoader();
+//     fetchDogs().then(() => {
+//         addDogs();
+//         showMoreButton.style = 'display: block;'
+
+//     });
+
+//     console.log(2);
+// }
 
 
 /*
