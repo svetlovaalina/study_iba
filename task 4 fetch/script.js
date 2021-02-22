@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+// Избавиться от документ рэди 
+// Заставить отработать фетч 
+// только этого можно разрешить работать jquery
+>>>>>>> 3c25fbdcb4e2e085dca97c4e487df8bfd0862d08
 
 fetch('https://dog.ceo/api/breed/hound/images')
     .then(response => response.json())
@@ -12,7 +18,10 @@ fetch('https://dog.ceo/api/breed/hound/images')
             let li = document.createElement('li');
             img.style = 'margin:10px';
             img.src = image;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3c25fbdcb4e2e085dca97c4e487df8bfd0862d08
             li.appendChild(img);
             containerJS.append(li);
         });
@@ -28,8 +37,14 @@ function funAfterFetch() {
     $(".message_list li:gt(4)").hide();
 
 
+<<<<<<< HEAD
     //show next 5 messages
     $(".show_next5_message").click(function () {
+=======
+    //show all messages
+    $(".show_next5_message").click(function () {
+
+>>>>>>> 3c25fbdcb4e2e085dca97c4e487df8bfd0862d08
         $(`.message_list li:lt(${counterFun()})`).slideDown()
         counter++;
         return false;
