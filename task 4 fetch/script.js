@@ -1,6 +1,7 @@
 const messageList = document.querySelector('#message_list');
 const showMoreButton = document.querySelector('#show_more_button');
 const dvloader = document.querySelector('#dvloader');
+const errorElem = document.getElementById('error-block-id');
 let currentPage = 0;
 let allDogs = [];
 const dogsPerPage = 5;
@@ -11,6 +12,7 @@ const fetchDogs = async () => {
     try {
         //  throw "Text error";
         // $("#dvloader").show();
+        showLoader();
         const fetchedDogs = await fetch('https://dog.ceo/api/breed/hound/images');
         const fetchedDogsJSON = await fetchedDogs.json();
         allDogs = fetchedDogsJSON.message.slice(0, dogsTotal);
@@ -33,7 +35,7 @@ const addDogs = async () => {
 
         div.appendChild(img);
         messageList.append(div);
-            
+
     });
 
     if (++currentPage * dogsPerPage >= dogsTotal) {
@@ -41,17 +43,25 @@ const addDogs = async () => {
     }
 }
 
+const hideLoader = () => {
+    dvloader.classList.add('hidden');
+}
+
+const showLoader = () => {
+    dvloader.classList.remove('hidden');
+}
+
 
 const startApp = async () => {
     try {
-        // throw "Text error";
+       // throw "Text error";
         await fetchDogs();
         await addDogs();
         showMoreButton.style = 'display: inline-block';
     } catch (err) {
-        var errorElem = document.getElementById('error-block-id');
         errorElem.innerHTML = err;
-        // do smth
+    } finally {
+        hideLoader();
     }
 
 }
@@ -129,3 +139,17 @@ function funAfterFetch() {
 // 3. 'Error message'
 // 4. Add bootstrap
 // 5. Use async/await
+
+class Validator {
+
+}
+
+const validator = new Validator({age: 17, name: 'Bob'});
+
+console.log(validator.isEmail('123123')); // false
+console.log(validator.isEmail('test@gmail.com')); // true
+console.log(validator.isAdult()); // true (age >=18)
+validator.addLastName('Tester')
+console.log(validator.getFullName()); // Bob Tester
+
+

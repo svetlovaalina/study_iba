@@ -1,50 +1,90 @@
 .message_list {
-    /* list-style: none; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* list-style: none; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
 .collapse_buttons {
-    text-align: right;
-    padding: 5px 0;
-    width: 883px;
+  text-align: right;
+  padding: 5px 0;
+  width: 883px;
 }
 
 
 .show_recent_only {
-    display: none;
+  display: none;
 
 }
 
-#dvloader {
-    visibility: 'hidden';
-    display: 'block';
-    position: absolute;
-    left: 40%;
-    top: 30%;
-    z-index: 99;    
+.dvloader {
+  display: block;
+  position: absolute;
+  left: 40%;
+  top: 30%;
+  z-index: 99;
 }
 
 #show_more_button {
-    margin-left: 45%;
-    margin-bottom: 1%;
-    display: none;
+  margin-left: 45%;
+  margin-bottom: 1%;
+  display: none;
 }
 
 .card {
-    margin: 0.4%;
+  margin: 0.4%;
 }
 
 #error-block-id {
-    font-size: 2em;
-    margin-left: 40%;
-    margin-top: 1%;
+  font-size: 2em;
+  margin-left: 40%;
+  margin-top: 1%;
 }
- img {
-    margin:10px;
- }
- .dvloader {
-     display: inline;
- }
+
+img {
+  margin: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+body {
+    padding: 1rem;
+}
+
+.block-1 {
+  font-size: 16px;
+}
+
+.block-2 {
+  font-size: 1rem;
+}
+
+.block-3 {
+  font-size: 1em;
+}
+
+.block-4 {
+    background: red;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+@media screen and (max-width: 600px) {
+  .block-4 {
+    background: green;
+  }
+}
+
+@media print {
+  .block-4 {
+    background: #f1c40f;
+  }
+  body {
+    background: #f1c40f;
+  }
+}
