@@ -11,17 +11,22 @@ const fetchDogs = async () => {
 
     try {
         //  throw "Text error";
+<<<<<<< Updated upstream
         // $("#dvloader").show();
         showLoader();
+=======
+>>>>>>> Stashed changes
         const fetchedDogs = await fetch('https://dog.ceo/api/breed/hound/images');
         const fetchedDogsJSON = await fetchedDogs.json();
         allDogs = fetchedDogsJSON.message.slice(0, dogsTotal);
-        // debugger;
-        dvloader.style= 'display: none';
-        // $("#dvloader").hide();
+    
+      
     } catch (error) {
         console.error(error);
         // do smth
+    }
+    finally {
+       dvloader.remove();
     }
 }
 
@@ -54,7 +59,12 @@ const showLoader = () => {
 
 const startApp = async () => {
     try {
+<<<<<<< Updated upstream
        // throw "Text error";
+=======
+         throw "Text error";
+    
+>>>>>>> Stashed changes
         await fetchDogs();
         await addDogs();
         showMoreButton.style = 'display: inline-block';
@@ -63,8 +73,12 @@ const startApp = async () => {
     } finally {
         hideLoader();
     }
+    finally {
+        dvloader.remove();
+    }
 
 }
+
 
 showMoreButton.addEventListener('click', addDogs);
 
@@ -73,13 +87,6 @@ showMoreButton.addEventListener('click', addDogs);
 startApp();
 
 
-// function addLoader() {
-//     $("#dvloader").show();
-//     $(".message_list").load("index.html", function () {
-//         $("#dvloader").hide();
-//     });
-//     return false;
-// };
 
 // const start = () => {
 //     addLoader();

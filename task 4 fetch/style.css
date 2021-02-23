@@ -18,12 +18,21 @@
 
 }
 
+<<<<<<< Updated upstream
 .dvloader {
   display: block;
   position: absolute;
   left: 40%;
   top: 30%;
   z-index: 99;
+=======
+#dvloader {
+
+    position: absolute;
+    left: 40%;
+    top: 30%;
+
+>>>>>>> Stashed changes
 }
 
 #show_more_button {
@@ -37,6 +46,7 @@
 }
 
 #error-block-id {
+<<<<<<< Updated upstream
   font-size: 2em;
   margin-left: 40%;
   margin-top: 1%;
@@ -88,3 +98,13 @@ body {
     background: #f1c40f;
   }
 }
+=======
+    font-size: 2em;
+    margin-left: 40%;
+    margin-top: 1%;
+}
+ img {
+    margin:10px;
+ }
+ 
+>>>>>>> Stashed changes
