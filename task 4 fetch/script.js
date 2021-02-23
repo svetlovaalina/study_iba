@@ -25,14 +25,10 @@ const addDogs = async () => {
     const dogsToAdd = allDogs.slice(currentPage * dogsPerPage, (currentPage * dogsPerPage)+dogsPerPage);
     dogsToAdd.forEach(image => {
         let img = document.createElement('img');
-        //     let li = document.createElement('li');
         let div = document.createElement('div')
         div.className = 'card';
-        img.style = 'margin:10px';
         img.src = image;
 
-        // li.appendChild(img);
-        // messageList.append(li);
         div.appendChild(img);
         messageList.append(div);
             
@@ -45,7 +41,6 @@ const addDogs = async () => {
 
 
 const startApp = async () => {
-    // addLoader();
     try {
         // throw "Text error";
         await fetchDogs();
