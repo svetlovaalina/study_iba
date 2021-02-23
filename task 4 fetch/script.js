@@ -1,20 +1,22 @@
 const messageList = document.querySelector('#message_list');
 const showMoreButton = document.querySelector('#show_more_button');
-
+const dvloader = document.querySelector('#dvloader');
 let currentPage = 0;
 let allDogs = [];
 const dogsPerPage = 5;
 let dogsTotal = 30;
+
 const fetchDogs = async () => {
 
     try {
         //  throw "Text error";
-        $("#dvloader").show();
+        // $("#dvloader").show();
         const fetchedDogs = await fetch('https://dog.ceo/api/breed/hound/images');
         const fetchedDogsJSON = await fetchedDogs.json();
         allDogs = fetchedDogsJSON.message.slice(0, dogsTotal);
         // debugger;
-        $("#dvloader").hide();
+        dvloader.style= 'display: none';
+        // $("#dvloader").hide();
     } catch (error) {
         console.error(error);
         // do smth
