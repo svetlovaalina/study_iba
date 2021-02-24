@@ -2,27 +2,24 @@ class Validator {
     constructor({name, age}) {
         this.name = name;
         this.age = age;
-
+        this.email = '';
+        this.surName = '';
     }
-email= "";
+
     addLastName(value) {
         this.surName = value
     }
 
     getFullName() {
-        return `Full name: ${this.name}  ${this.surName}`
+        return `Full name: ${this.name} ${this.surName}`
     }
 
     isEmail(email) {
-        if (/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i.test(email)) {
-            return console.log('true! All good!')
-        } else {
-            return console.log('false')
-        }
+        return /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i.test(email);
     }
 
     isAdult() {
-        return this.age > 18 ? true : false;
+        return this.age > 18;
     }
 
 
@@ -39,9 +36,13 @@ let validator = new Validator({
 
 validator.isEmail('123123'); // false
 // Понять почему отрабатывает с undefined?
-console.log(validator.isEmail('test@gmail.com')); // true 
+console.log(validator.isEmail('test@gmail.com')); // true
 // При вводе в консоль строчки ниже, также будет undefined. Почему?:(
-validator.isEmail('test@gmail.com'); 
+validator.isEmail('test@gmail.com');
+
+console.log('isEmail:' + validator.isEmail('test@gmail.com'))
+
+
 console.log(validator.isAdult()); // true (age >=18)
 validator.addLastName('Tester')
 console.log(validator.getFullName()); // Bob Tester
