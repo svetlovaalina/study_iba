@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.wrapper {
+  position: relative;
+  margin-top: 3%
+}
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+  margin-left: 1%;
+}

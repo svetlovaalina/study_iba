@@ -1,6 +1,4 @@
-import React, {
-  Component
-} from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
 
@@ -18,7 +16,6 @@ class App extends Component {
 class Counter extends React.Component {
   state = {
     count: 0,
-    
      divStyle: {
        backgroundColor: '#B3CCFF',
        fontSize: '38pt'
