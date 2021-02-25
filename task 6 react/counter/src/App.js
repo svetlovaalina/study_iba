@@ -1,44 +1,26 @@
 import React, {Component} from 'react';
-import './App.css';
+import classes from './App.module.css';
+import { Counter } from './components/Counter';
 
 
 class App extends Component {
 
+  state = {
+    isVisible: true
+  }
+
+
+
   render() {
     return (
-      <div className="App">
-        <Counter />
+      <div className={classes.App}>
+        <h1 className={classes.Header}>При каждом пятом нажатии на кнопку она меняет цвет:</h1>
+        {this.state.isVisible && <Counter count={2} />}
+        <button onClick={() => this.setState({isVisible: false})}>Hide</button>
+
       </div>
     );
   }
 }
-
-class Counter extends React.Component {
-  state = {
-    count: 0,
-     divStyle: {
-       backgroundColor: '#B3CCFF',
-       fontSize: '38pt'
-      }
-  };
-
-  
-  handleClick = () => {
-   
-      this.setState((prevState, {
-          count
-        }) => ({
-          count: prevState.count + 1
-        }));
-      if ((this.state.count+1) % 5 === 0 && this.state.count>1) {
-        var randomColor = "#"+((1<<24)*Math.random()|0).toString(16); 
-          this.setState((state)=> {
-            return {divStyle:{backgroundColor: randomColor, fontSize:"38pt"} }
-          });
-        };
-    };
-
-  render() { return <button style={this.state.divStyle} onClick={this.handleClick}>{this.state.count}</button>; }
-  }
 
 export default App;
