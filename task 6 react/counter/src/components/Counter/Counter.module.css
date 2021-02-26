@@ -1,8 +1,4 @@
-/* .button {
-  font-size: 3822pt;
-} */
-
-.buttonStyle{
+.buttonStyle {
   font-size: 38pt;
-  background-color: rgb(97, 255, 255);
+  border-radius: 20%;
 }
