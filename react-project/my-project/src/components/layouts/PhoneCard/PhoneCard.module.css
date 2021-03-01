@@ -1,32 +1,30 @@
-.phone li {
- background: white;
-}
-.mobileContainer {
-    height: 15rem;
+.container {
+    min-height: 15rem;
     column-count: 2;
     display: flex;
     justify-content: space-around;
     border: 1px solid #ddd;
     border-radius: 4px;
-    margin: 1% 2% 0% 15%;
 }
+
+
 img {
     width:17%;
 }
+
 .mobileDescription{
     width: 80%;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     align-self: center;
 }
+
 .mobileName {
     display: flex;
     vertical-align: top;
     font-size: large;
 }
-.mobileSnippet{
-background: white;
-}
-body{
-    font-size: 14pt;
+
+.mobileSnippet {
+    background: white;
 }

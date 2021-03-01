@@ -1,14 +1,11 @@
-// import './App.css';
-import React, {Component} from 'react';
+import React from 'react';
 import classes from './App.module.css';
-import {List} from './components/List';
-
+import {Home} from './components/pages/Home/Home';
 
 function App() {
   return (
     <div className={classes.App}>
-    <h1 className={classes.Header}></h1>
-    <List />
+      <Home/>
     </div>
   );
 }
