@@ -1,18 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React  from 'react';
 import classes from './PhoneCardList.module.css'
 import {PhoneCard} from '../PhoneCard';
+import useFetch from "react-fetch-hook";
 
 export const PhoneCardList = () => {
-  const [list, setList] = useState([]);
+  // const [list, setList] = useState([]);
+const {isLoading, error, data:list} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json')
+if (isLoading) return "Loading!";
+if (error) return "Error loading data!";
 
-  useEffect(() => {
-    fetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json')
-      .then(response => response.json())
-      .then(result => {
-        setList(result)
-        console.log(result)
-      })
-  }, [])
 
   return (
     <div className={classes.container}>
