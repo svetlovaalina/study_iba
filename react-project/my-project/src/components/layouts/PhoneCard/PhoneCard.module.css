@@ -1,30 +1,24 @@
 .container {
     min-height: 15rem;
-    column-count: 2;
     display: flex;
-    justify-content: space-around;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
+.image {
+    width: 15rem;
+}
 
-img {
-    width:17%;
+.imageContainer {
+    margin-right: 2rem;
 }
 
 .mobileDescription{
-    width: 80%;
     display: flex;
     flex-direction: column;
     align-self: center;
 }
 
 .mobileName {
-    display: flex;
-    vertical-align: top;
     font-size: large;
-}
-
-.mobileSnippet {
-    background: white;
 }
