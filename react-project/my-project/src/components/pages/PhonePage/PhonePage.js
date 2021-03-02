@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './PhonePage.module.css'
 import {useParams} from "react-router-dom";
 import useFetch from "react-fetch-hook";
-// import { Carousel } from 'react-responsive-carousel';
+//  import Carousel from 'react-responsive-carousel';
 
 export const PhonePage = () => {
     const {id} = useParams()
@@ -19,8 +19,8 @@ export const PhonePage = () => {
      
         {phoneData.images.map((item, i) =>
             {
-            <div>
-                <img src={`http://angular.github.io/angular-phonecat/step-14/app/img/phones/${item.id}.${item.Carouseli}.jpg`} />
+            <div key={i}>
+                <img src={`http://angular.github.io/angular-phonecat/step-14/app/img/phones/${item.id}.${i}.jpg`} />
                 <p className="legend">Legend 1</p>
             </div>
             }   
