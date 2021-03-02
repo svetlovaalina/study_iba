@@ -1,10 +1,11 @@
-.App {
-    position: relative;
-    margin-top: 3%
-  }
-
 
 .Header {
     font-family: 'Courier New', Courier, monospace;
+    margin-left: 1%;
+}
+
+.linkHome {
+    font-family: sans-serif;
+    font-size: 18px;
     margin-left: 1%;
 }
