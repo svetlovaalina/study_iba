@@ -22,12 +22,6 @@ export const NavBar = () => {
     const SearchFun = () => {
         const phoneListNavBar = phoneList.filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchText.toLowerCase()));
         setPhoneList(phoneListNavBar)
-
-    // const HomePage = (props) => {
-    //         useEffect(() => {
-    //             setPhoneList(phoneListNavBar)
-    //         })
-    // }
     }
     return (
         <div>
@@ -37,7 +31,7 @@ export const NavBar = () => {
                         My-project</Link>
                 </Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
+                    {/* <Nav.Link href="/">Home</Nav.Link>*/}
                 </Nav>
                 <Form inline>
                     <input

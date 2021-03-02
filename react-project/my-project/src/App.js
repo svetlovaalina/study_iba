@@ -14,7 +14,6 @@ export const Context = React.createContext({
 function App() {
     const [phoneList,setPhoneList] = useState([]);
     return (
-
         <div className={classes.App}>
             <Context.Provider value={{phoneList,setPhoneList}}>
                 <Router >
