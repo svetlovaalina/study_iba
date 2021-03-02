@@ -1,20 +1,20 @@
 import React from 'react';
 import classes from './RouterPage.module.css'
-import {PhonePage} from '../PhonePage/PhonePage';
-import {Home} from '../Home/Home';
+import {PhonePage} from '../PhonePage';
+import {Home} from '../Home';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 
 export const RouterPage = () => {
-  return ( 
-  <Router > 
+  return (
+  <Router >
          <a href='/'> Main page</a>
       <Switch>
-      <Route  path = "/phonePage/:id">  
-        <PhonePage /> 
+      <Route  path = "/phonePage/:id">
+        <PhonePage />
       </Route>
-      <Route  path = "/">  
-        <Home/> 
+      <Route  path = "/">
+        <Home/>
       </Route>
 
       </Switch>
