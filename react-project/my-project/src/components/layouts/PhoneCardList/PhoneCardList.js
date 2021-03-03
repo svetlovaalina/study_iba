@@ -12,11 +12,7 @@ export const PhoneCardList = () => {
     const {phoneList, setPhoneList} = useContext(Context);
     
     let {isLoading, error, data: list} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json')
-    useEffect(() => {
-        if(phoneList && phoneList.length && phoneList !== list) {
-            list = phoneList;
-        }
-    }, [phoneList])
+    
     if (isLoading) 
         return (<Spinner animation="border" className='spinner'/>);
     if (error) {
@@ -34,7 +30,7 @@ export const PhoneCardList = () => {
 
         <div className={classes.container}>
 
-            {list.map(item => <PhoneCard
+            {phoneList.map(item => <PhoneCard
                 className={classes.phoneCard}
                 key={item.id}
                 id={item.id}

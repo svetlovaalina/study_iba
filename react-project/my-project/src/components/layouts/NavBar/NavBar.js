@@ -12,8 +12,7 @@ import {Context} from "../../../App";
 
 export const NavBar = () => {
     const {phoneList, setPhoneList} = useContext(Context);
-    const [searchText,
-        setSearchText] = useState('');
+    const [searchText,setSearchText] = useState('');
 
     const onInputChange = (event) => {
         setSearchText(event.currentTarget.value)
@@ -39,7 +38,7 @@ export const NavBar = () => {
                         className='form-control'
                         value={searchText}
                         onChange={onInputChange}/>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2"/>
+                    {/* <FormControl type="text" placeholder="Search" className="mr-sm-2"/> */}
 
                     <Button variant="outline-light" onClick={SearchFun}>
                         Search
