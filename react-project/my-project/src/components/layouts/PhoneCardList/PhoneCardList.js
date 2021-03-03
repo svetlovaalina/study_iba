@@ -7,7 +7,7 @@ import Alert from 'react-bootstrap/Alert';
 import {Context} from "../../../App";
 
 export const PhoneCardList = () => {
-    const {phoneList, setPhoneList} = useContext(Context);
+    const {phoneList, setPhoneList, filterPhoneList, setFilterPhoneList} = useContext(Context);
 
     let {isLoading, error, data: list} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json')
 
@@ -20,14 +20,16 @@ export const PhoneCardList = () => {
             </Alert>
         );
     }
-    if (isLoading === false) {
+    if (!phoneList.length) {
+        if(!filterPhoneList.length){
+        setFilterPhoneList(list)
         setPhoneList(list)
-    }
+    }}
 
     return (
         <div className={classes.container}>
 
-            {phoneList.map(item => <PhoneCard
+            {filterPhoneList.map(item => <PhoneCard
                 className={classes.phoneCard}
                 key={item.id}
                 id={item.id}

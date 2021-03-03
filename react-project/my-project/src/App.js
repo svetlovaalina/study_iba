@@ -8,14 +8,18 @@ import {NavBar} from "./components/layouts/NavBar";
 
 export const Context = React.createContext({
     phoneList: [],
-    setPhoneList: () => {}
+    setPhoneList: () => {},
+    filterPhoneList: [],
+    setFilterPhoneList: () => {}
+
 });
 
 function App() {
     const [phoneList,setPhoneList] = useState([]);
+    const [filterPhoneList,setFilterPhoneList] = useState([]);
     return (
         <div className={classes.App}>
-            <Context.Provider value={{phoneList,setPhoneList}}>
+            <Context.Provider value={{phoneList,setPhoneList, filterPhoneList, setFilterPhoneList}}>
                 <Router >
                     <NavBar/>
                     <Switch>

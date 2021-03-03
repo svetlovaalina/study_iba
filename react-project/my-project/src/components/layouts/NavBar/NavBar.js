@@ -11,7 +11,7 @@ import Form from 'react-bootstrap/Form';
 import {Context} from "../../../App";
 
 export const NavBar = () => {
-    const {phoneList, setPhoneList} = useContext(Context);
+    const {phoneList, setPhoneList, filterPhoneList, setFilterPhoneList} = useContext(Context);
     const [searchText,setSearchText] = useState('');
 
     const onInputChange = (event) => {
@@ -20,7 +20,7 @@ export const NavBar = () => {
     }
     const SearchFun = () => {
         const phoneListNavBar = phoneList.filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchText.toLowerCase()));
-        setPhoneList(phoneListNavBar)
+        setFilterPhoneList(phoneListNavBar)
     }
     return (
         <div>
