@@ -21,24 +21,24 @@
 }
 
 .CardDescription p {
-    margin: 1% ;
+    margin: 1%;
     font-family: 'CENTURY SCHOOLBOOK';
     font-size: 1.4em;
-  
+
 }
-.IdandDescription h1 {
+.IdAndDescription h1 {
     font-family: 'COURIER NEW';
     font-size: 3em;
     margin-bottom: 5%;
 }
- .CardDescription {
+.CardDescription {
 
-     margin-right: 5%;
- }
+    margin-right: 5%;
+}
 
-.detailsDescription{
+.detailsDescription {
     display: flex;
-    flex-wrap:  wrap;
+    flex-wrap: wrap;
 }
 
 .ProrDescription {
@@ -54,6 +54,6 @@
     font-size: 1.5rem;
 }
 
-.ProrDescription p{
+.ProrDescription p {
     font-size: 1.2rem;
 }
