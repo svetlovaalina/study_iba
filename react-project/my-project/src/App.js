@@ -21,11 +21,15 @@ function App() {
         <div className={classes.App}>
             <Context.Provider value={{phoneList,setPhoneList, filterPhoneList, setFilterPhoneList}}>
                 <Router >
-                    <NavBar/>
+                <NavBar/>
                     <Switch>
+                
                         <Route path="/phonePage/:id"><PhonePage/>
+                        
                         </Route>
-                        <Route path="/" component={Home}/>
+                        <Route path="/" component={Home}>
+                    
+                        </Route>
                     </Switch>
                 </Router>
             </Context.Provider>

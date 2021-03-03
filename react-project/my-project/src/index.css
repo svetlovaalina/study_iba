@@ -29,3 +29,7 @@ nav.bg-primary {
     background-color: #2fccd1!important;
 }
 
+
+.navbar-brand a {
+    color: aliceblue;
+}

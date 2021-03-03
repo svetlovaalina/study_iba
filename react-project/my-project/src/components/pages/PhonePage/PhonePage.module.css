@@ -39,19 +39,20 @@
 .detailsDescription {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 2%;
 }
 
 .ProrDescription {
     display: flex;
     flex-direction: column;
     max-width: 15%;
-    margin: 2%;
+    margin: 1.5%;
 }
 .ProrDescription h3 {
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 .ProrDescription h4 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .ProrDescription p {
