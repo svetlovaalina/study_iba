@@ -1,5 +1,6 @@
 .imageContainer {
     max-width: 29%;
+    margin-top: 5%;
 
 }
 .photoCarousel {
@@ -7,3 +8,52 @@
     height: auto;
 }
 
+.IdAndDescription {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-left: 5%;
+
+}
+
+.phoneImagesShortDescription {
+    display: flex;
+}
+
+.CardDescription p {
+    margin: 1% ;
+    font-family: 'CENTURY SCHOOLBOOK';
+    font-size: 1.4em;
+  
+}
+.IdandDescription h1 {
+    font-family: 'COURIER NEW';
+    font-size: 3em;
+    margin-bottom: 5%;
+}
+ .CardDescription {
+
+     margin-right: 5%;
+ }
+
+.detailsDescription{
+    display: flex;
+    flex-wrap:  wrap;
+}
+
+.ProrDescription {
+    display: flex;
+    flex-direction: column;
+    max-width: 15%;
+    margin: 2%;
+}
+.ProrDescription h3 {
+    font-size: 2rem;
+}
+.ProrDescription h4 {
+    font-size: 1.5rem;
+}
+
+.ProrDescription p{
+    font-size: 1.2rem;
+}

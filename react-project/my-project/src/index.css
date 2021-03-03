@@ -16,6 +16,7 @@ code {
 
 .carousel-root {
     margin-left: 15%;
+    margin-top: -11%;
 }
 
 .spinner {
@@ -27,3 +28,4 @@ left: 50%;
 nav.bg-primary {
     background-color: #2fccd1!important;
 }
+
