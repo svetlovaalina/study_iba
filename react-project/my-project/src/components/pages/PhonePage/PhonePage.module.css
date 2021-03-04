@@ -42,19 +42,20 @@
     margin-top: 2%;
 }
 
-.ProrDescription {
+.PropDescription {
     display: flex;
     flex-direction: column;
     max-width: 15%;
     margin: 1.5%;
 }
-.ProrDescription h3 {
+.PropDescription h3 {
     font-size: 1.7rem;
+    word-break:break-all;
 }
-.ProrDescription h4 {
+.PropDescription h4 {
     font-size: 1.2rem;
 }
 
-.ProrDescription p {
+.PropDescription p {
     font-size: 1.2rem;
 }

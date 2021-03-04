@@ -21,10 +21,11 @@ export const PhoneCardList = () => {
         );
     }
     if (!phoneList.length) {
-        if(!filterPhoneList.length){
-        setFilterPhoneList(list)
-        setPhoneList(list)
-    }}
+        if (!filterPhoneList.length) {
+            setFilterPhoneList(list)
+            setPhoneList(list)
+        }
+    }
 
     return (
         <div className={classes.container}>
@@ -36,7 +37,7 @@ export const PhoneCardList = () => {
                 name={item.name}
                 imageUrl={item.imageUrl}
                 snippet={item.snippet}/>)
-}
+            }
         </div>
     )
 };

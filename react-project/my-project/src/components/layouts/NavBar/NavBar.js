@@ -8,30 +8,30 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {Context} from "../../../App";
-import {makeStyles} from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+// import {makeStyles} from '@material-ui/core/styles';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import FormControl from '@material-ui/core/FormControl';
+// import Select from '@material-ui/core/Select';
 
-const useStyles = makeStyles((theme) => ({
-    button: {
-        display: 'block',
-        marginTop: theme.spacing(2)
-    },
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120
-    }
-}));
+// const useStyles = makeStyles((theme) => ({
+//     button: {
+//         display: 'block',
+//         marginTop: theme.spacing(2)
+//     },
+//     formControl: {
+//         margin: theme.spacing(1),
+//         minWidth: 120
+//     }
+// }));
 
 export const NavBar = () => {
 
-    const classes = useStyles();
-    const [sortType,
-        setSortType] = useState('');
-    const [open,
-        setOpen] = useState(false);
+    // const classes = useStyles();
+    // const [sortType,
+    //     setSortType] = useState('');
+    // const [open,
+    //     setOpen] = useState(false);
     const {phoneList, setPhoneList, filterPhoneList, setFilterPhoneList} = useContext(Context);
     const [searchText,
         setSearchText] = useState('');
@@ -40,38 +40,38 @@ export const NavBar = () => {
         setSearchText(event.currentTarget.value)
 
     }
-    const SearchFun = () => {
+    const searchFun = () => {
         const phoneListNavBar = phoneList.filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchText.toLowerCase()));
         setFilterPhoneList(phoneListNavBar)
     }
 
-    function compare(a, b) {
-        if (a.name < b.name) {
-            return -1;
-        }
-        if (a.name > b.name) {
-            return 1;
-        }
-        return 0;
-    }
+    // function compare(a, b) {
+    //     if (a.name < b.name) {
+    //         return -1;
+    //     }
+    //     if (a.name > b.name) {
+    //         return 1;
+    //     }
+    //     return 0;
+    // }
 
-    const handleChange = (event) => {
-        setSortType(event.target.value);
+    // const handleChange = (event) => {
+    //     setSortType(event.target.value);
         
-    };
+    // };
 
-    const handleClose = () => {
-        setOpen(false);
-        if (sortType === 10) {
-            setFilterPhoneList(phoneList.sort(compare))
-            console.log(filterPhoneList)
-        }
+    // const handleClose = () => {
+    //     setOpen(false);
+    //     if (sortType === 10) {
+    //         setFilterPhoneList(phoneList.sort(compare))
+    //         console.log(filterPhoneList)
+    //     }
     
-    };
+    // };
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
+    // const handleOpen = () => {
+    //     setOpen(true);
+    // };
 
     return (
         <div>
@@ -109,7 +109,7 @@ export const NavBar = () => {
                         value={searchText}
                         onChange={onInputChange}/> {/* <FormControl type="text" placeholder="Search" className="mr-sm-2"/> */}
 
-                    <Button variant="outline-light" onClick={SearchFun}>
+                    <Button variant="outline-light" onClick={searchFun}>
                         Search
                     </Button>
 

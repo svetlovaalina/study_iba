@@ -1,3 +1,6 @@
 .container {
-
+display: flex;
+}
+.homeListPhone{
+margin-left: 17%;
 }
