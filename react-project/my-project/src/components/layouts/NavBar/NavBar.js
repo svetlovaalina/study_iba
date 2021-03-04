@@ -33,17 +33,15 @@ export const NavBar = () => {
     // const [open,
     //     setOpen] = useState(false);
     const {phoneList, setPhoneList, filterPhoneList, setFilterPhoneList} = useContext(Context);
-    const [searchText,
-        setSearchText] = useState('');
+    const [searchText,setSearchText] = useState('');
 
     const onInputChange = (event) => {
         setSearchText(event.currentTarget.value)
-
-    }
-    const searchFun = () => {
         const phoneListNavBar = phoneList.filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchText.toLowerCase()));
         setFilterPhoneList(phoneListNavBar)
+  
     }
+
 
     // function compare(a, b) {
     //     if (a.name < b.name) {
@@ -107,12 +105,7 @@ export const NavBar = () => {
                         type='text'
                         className='form-control'
                         value={searchText}
-                        onChange={onInputChange}/> {/* <FormControl type="text" placeholder="Search" className="mr-sm-2"/> */}
-
-                    <Button variant="outline-light" onClick={searchFun}>
-                        Search
-                    </Button>
-
+                        onChange={onInputChange}/> 
                 </Form>
             </Navbar>
 

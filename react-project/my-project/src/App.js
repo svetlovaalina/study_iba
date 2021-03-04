@@ -16,20 +16,25 @@ export const Context = React.createContext({
 
 function App() {
     const [phoneList,setPhoneList] = useState([]);
-    const [filterPhoneList,setFilterPhoneList] = useState([]);
+    const [filterPhoneList,
+        setFilterPhoneList] = useState([]);
     return (
         <div className={classes.App}>
-            <Context.Provider value={{phoneList,setPhoneList, filterPhoneList, setFilterPhoneList}}>
+            <Context.Provider
+                value={{
+                phoneList,
+                setPhoneList,
+                filterPhoneList,
+                setFilterPhoneList
+            }}>
                 <Router >
-                <NavBar/>
+                    <NavBar/>
                     <Switch>
-                
+
                         <Route path="/phonePage/:id"><PhonePage/>
-                        
+
                         </Route>
-                        <Route path="/" component={Home}>
-                    
-                        </Route>
+                        <Route path="/" component={Home}></Route>
                     </Switch>
                 </Router>
             </Context.Provider>
