@@ -40,7 +40,7 @@ export const PhoneCardList = () => {
                 name={item.name}
                 imageUrl={item.imageUrl}
                 snippet={item.snippet}/>)
-}
+            }
         </div>
     )
 };
