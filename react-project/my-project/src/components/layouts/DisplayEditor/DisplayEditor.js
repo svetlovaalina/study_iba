@@ -11,23 +11,18 @@ export const DisplayEditor = () => {
     // const classes = useStyles(); const [sortType,     setSortType] =
     // useState(''); const [open,     setOpen] = useState(false);
 
-    const {phoneList, setPhoneList, filterPhoneList, setFilterPhoneList} = useContext(Context);
-    const [searchText,
-        setSearchText] = useState('');
+    const {phoneList, setPhoneList, searchText, setSearchText} = useContext(Context);
 
     const onInputChange = (event) => {
         setSearchText(event.currentTarget.value)
-        const phoneListNavBar = phoneList.filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchText.toLowerCase()));
-        setFilterPhoneList(phoneListNavBar)
     }
 
     // function compare(a, b) {     if (a.name < b.name) {         return -1;     }
-    //    if (a.name > b.name) {         return 1;     }     return 0; } const
+    //  if (a.name > b.name) {         return 1;     }     return 0; } const
     // handleChange = (event) => {     setSortType(event.target.value); }; const
     // handleClose = () => {     setOpen(false);     if (sortType === 10) {
-    // setFilterPhoneList(phoneList.sort(compare))
-    // console.log(filterPhoneList)     } }; const handleOpen = () => {
-    // setOpen(true); };
+    // setFilterPhoneList(phoneList.sort(compare)) console.log(filterPhoneList) } };
+    // const handleOpen = () => { setOpen(true); };
 
     return (
         <div className={classes.searchForm}>

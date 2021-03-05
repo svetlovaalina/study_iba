@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import classes from './NavBar.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useCallback, useState} from 'react';
 import classes from './PhonePage.module.css'
 import {useParams} from 'react-router-dom';
 import useFetch from 'react-fetch-hook';
-
+// import useFetch, {Provider} from 'use-http'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import {Carousel} from 'react-responsive-carousel';
 import Spinner from 'react-bootstrap/Spinner';
@@ -10,6 +10,7 @@ import Alert from 'react-bootstrap/Alert'
 import Card from 'react-bootstrap/Card'
 
 export const PhonePage = () => {
+    // const [phoneData, setPhoneData] = useState({});
     const {id} = useParams()
     const {isLoading, error, data: phoneData} = useFetch(`http://angular.github.io/angular-phonecat/step-14/app/phones/${id}.json`);
 
@@ -22,6 +23,21 @@ export const PhonePage = () => {
             </Alert>
         );
     }
+    
+  
+
+    // const {get, loading, error} = useFetch(`http://angular.github.io/angular-phonecat/step-14/app/phones/${id}.json`)
+    
+    // const getPhonesInfo = async() => {
+    //     const phoneDataGet = await get('')
+    //     setPhoneData(phoneDataGet)
+    // }
+
+    // useEffect(() => {
+    //     debugger;
+    //     getPhonesInfo()
+    // }, []) 
+    
 
     return (
         <div className={classes.containerPhone}>
