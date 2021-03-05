@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState} from 'react';
+import React, {useEffect, useCallback, useState} from 'react';
 import classes from './PhonePage.module.css'
 import {useParams} from 'react-router-dom';
 import useFetch from 'react-fetch-hook';
@@ -10,7 +10,6 @@ import Alert from 'react-bootstrap/Alert'
 import Card from 'react-bootstrap/Card'
 
 export const PhonePage = () => {
-    // const [phoneData, setPhoneData] = useState({});
     const {id} = useParams()
     const {isLoading, error, data: phoneData} = useFetch(`http://angular.github.io/angular-phonecat/step-14/app/phones/${id}.json`);
 
@@ -23,21 +22,6 @@ export const PhonePage = () => {
             </Alert>
         );
     }
-    
-  
-
-    // const {get, loading, error} = useFetch(`http://angular.github.io/angular-phonecat/step-14/app/phones/${id}.json`)
-    
-    // const getPhonesInfo = async() => {
-    //     const phoneDataGet = await get('')
-    //     setPhoneData(phoneDataGet)
-    // }
-
-    // useEffect(() => {
-    //     debugger;
-    //     getPhonesInfo()
-    // }, []) 
-    
 
     return (
         <div className={classes.containerPhone}>
@@ -58,11 +42,11 @@ export const PhonePage = () => {
                         </Carousel>
                     )}
                 </div>
-                <div className={classes.IdAndDescription}>
+                <div className={classes.idAndDescription}>
                     <h1>
                         {phoneData.name}
                     </h1>
-                    <div className={classes.CardDescription}>
+                    <div className={classes.cardDescription}>
                         <Card>
                             <p>
                                 {phoneData.description}
@@ -73,7 +57,7 @@ export const PhonePage = () => {
 
             </div>
             <div className={classes.detailsDescription}>
-                <div className={classes.PropDescription}>
+                <div className={classes.propDescription}>
                     <h3>Availability and Networks</h3>
                     <h4>Availability</h4>
                     <p>
@@ -81,7 +65,7 @@ export const PhonePage = () => {
                     </p>
                 </div>
 
-                <div className={classes.PropDescription}>
+                <div className={classes.propDescription}>
                     <h3>
                         Battery</h3>
                     <div>
@@ -100,7 +84,7 @@ export const PhonePage = () => {
                     </div>
 
                 </div>
-                <div className={classes.PropDescription}>
+                <div className={classes.propDescription}>
                     <h3>Storage and Memory</h3>
                     <h4>RAM</h4>
                     <p>
@@ -111,7 +95,7 @@ export const PhonePage = () => {
                         {phoneData.storage.flash}
                     </p>
                 </div>
-                <div className={classes.PropDescription}>
+                <div className={classes.propDescription}>
                     <h3>Connectivity</h3>
                     <h4>Network Support</h4>
                     <p>
@@ -138,7 +122,7 @@ export const PhonePage = () => {
                             : '✘'}
                     </p>
                 </div>
-                <div className={classes.PropDescription}>
+                <div className={classes.propDescription}>
                     <h3>Android</h3>
                     <h4>OS Version</h4>
                     <p>
@@ -149,7 +133,7 @@ export const PhonePage = () => {
                         {phoneData.storage.ui}
                     </p>
                 </div>
-                <div className={classes.PropDescription}>
+                <div className={classes.propDescription}>
                     <h3>Size and Weight</h3>
                     <h4>Weight</h4>
                     <p>
@@ -161,7 +145,7 @@ export const PhonePage = () => {
                     </p>
 
                 </div>
-                <div className={classes.PropDescription}>
+                <div className={classes.propDescription}>
                     <h3>Display</h3>
                     <h4>Screen size</h4>
                     <p>
@@ -179,7 +163,7 @@ export const PhonePage = () => {
                     </p>
 
                 </div>
-                <div className={classes.PropDescription}>
+                <div className={classes.propDescription}>
                     <h3>Hardware</h3>
                     <h4>CPU</h4>
                     <p>
@@ -206,7 +190,7 @@ export const PhonePage = () => {
                             : '✘'}
                     </p>
                 </div>
-                <div className={classes.PropDescription}>
+                <div className={classes.propDescription}>
                     <h3>Camera</h3>
                     <h4>Primary</h4>
                     <p>
@@ -219,7 +203,7 @@ export const PhonePage = () => {
 
                 </div>
 
-                <div className={classes.PropDescription}>
+                <div className={classes.propDescription}>
                     <h3>
                         Additional Features</h3>
                     <p>
@@ -229,7 +213,3 @@ export const PhonePage = () => {
         </div>
     )
 };
-
-// {list.map(item => <PhoneCard     className={classes.phoneCard} key={item.id}
-//    id={item.id}     name={item.name} imageUrl={item.imageUrl}
-// snippet={item.snippet}/>)

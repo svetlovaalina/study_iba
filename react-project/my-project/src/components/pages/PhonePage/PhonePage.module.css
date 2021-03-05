@@ -8,7 +8,7 @@
     height: auto;
 }
 
-.IdAndDescription {
+.idAndDescription {
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -20,18 +20,18 @@
     display: flex;
 }
 
-.CardDescription p {
+.cardDescription p {
     margin: 1%;
     font-family: 'CENTURY SCHOOLBOOK';
     font-size: 1.4em;
 
 }
-.IdAndDescription h1 {
+.idAndDescription h1 {
     font-family: 'COURIER NEW';
     font-size: 3em;
     margin-bottom: 5%;
 }
-.CardDescription {
+.cardDescription {
 
     margin-right: 5%;
 }
@@ -42,39 +42,67 @@
     margin-top: 2%;
 }
 
-.PropDescription {
+.propDescription {
     display: flex;
     flex-direction: column;
     max-width: 15%;
     margin: 1.5%;
 }
-.PropDescription h3 {
+.propDescription h3 {
     font-size: 1.7rem;
-    word-break:break-all;
+    word-break: break-all;
 }
-.PropDescription h4 {
+.propDescription h4 {
     font-size: 1.2rem;
 }
 
-.PropDescription p {
+.propDescription p {
     font-size: 1.2rem;
 }
+@media only screen and (max-width: 600px) {
 
-@media only screen and (max-device-width: 600px) {
-
-    .containerPhone{
-        width: 400px;
+    .containerPhone {
+        width: 450px;
         overflow: hidden;
     }
-    .imageContainer {
-        max-width: 79%;     
-        margin-top: 5%;
-    
+    .phoneImagesShortDescription {
+        display: flex;
+        flex-direction: column;
     }
-    .PropDescription {
+
+    .imageContainer {
+        max-width: 89%;
+        margin-top: 5%;
+
+    }
+    .propDescription {
         display: flex;
         flex-direction: column;
         max-width: 35%;
-        margin: 1.5%;
+        margin: 4%;
+    }
+}
+@media only screen and (max-width: 800px) and (min-width: 600px) {
+
+    .containerPhone {
+        width: 600px;
+        overflow: hidden;
+    }
+    .phoneImagesShortDescription {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imageContainer {
+        max-width: 89%;
+        margin-top: 5%;
+        margin-left: auto;
+
+    }
+    .propDescription {
+        display: flex;
+        flex-direction: column;
+        max-width: 25%;
+        margin: 4%;
     }
 }

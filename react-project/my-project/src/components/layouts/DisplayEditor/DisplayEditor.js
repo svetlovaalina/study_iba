@@ -18,7 +18,7 @@ export const DisplayEditor = () => {
     }
 
     // function compare(a, b) {     if (a.name < b.name) {         return -1;     }
-    //  if (a.name > b.name) {         return 1;     }     return 0; } const
+    // if (a.name > b.name) {         return 1;     }     return 0; } const
     // handleChange = (event) => {     setSortType(event.target.value); }; const
     // handleClose = () => {     setOpen(false);     if (sortType === 10) {
     // setFilterPhoneList(phoneList.sort(compare)) console.log(filterPhoneList) } };

@@ -7,13 +7,13 @@ export const Home = () => {
 
     return (
         <div className={classes.container}>
-             <div>
-             <DisplayEditor/>
+            <div className={classes.displayEditor}>
+                <DisplayEditor/>
             </div>
             <div className={classes.homeListPhone}>
                 <PhoneCardList/>
             </div>
-           
+
         </div>
     )
 };

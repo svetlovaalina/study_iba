@@ -1,8 +1,23 @@
 .container {
-display: flex;
+    display: flex;
 }
 
-.homeListPhone{
-margin-left: 8%;
+.homeListPhone {
+    margin-left: 8%;
 }
+@media only screen and (max-width: 800px) and (min-width: 600px) {
 
+    .container {
+        width: 600px;
+        display: flex;
+        /* overflow: hidden; */
+    }
+    .homeListPhone {
+        margin-right: 0;
+        max-width: 70%;
+    }
+    .displayEditor {
+        max-width: 30%;
+        overflow: hidden;
+    }
+}

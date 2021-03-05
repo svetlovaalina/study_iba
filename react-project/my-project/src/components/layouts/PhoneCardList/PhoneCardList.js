@@ -9,15 +9,21 @@ import {Context} from "../../../App";
 
 export const PhoneCardList = () => {
     const {phoneList, setPhoneList, searchText, setSearchText} = useContext(Context);
-    // const [list,setList] = useState([]); let {isLoading, error, data: list} =
-    // useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones
-    // . json') if (isLoading)     return (<Spinner animation="border"
-    // className='spinner'/>); if (error) {     return (         <Alert
-    // variant='danger'>"Error : {error.message}             {error.status}"
-    // </Alert>     ); }
+
+//     const [list,
+//         setList] = useState([]);
+//     let {isLoading, error, data: list} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json') 
+//  if (isLoading) 
+//         return (<Spinner animation="border" className='spinner'/>);
+//     if (error) {
+//         return (
+//             <Alert variant='danger'>"Error : {error.message}
+//                 {error.status}"
+//             </Alert>
+//         );
+//     }
 
     const {get, response, loading, error} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json')
-
     useEffect(() => {
         getPhones()
     }, [])
@@ -45,7 +51,7 @@ export const PhoneCardList = () => {
                     name={item.name}
                     imageUrl={item.imageUrl}
                     snippet={item.snippet}/>)
-            }
+}
         </div>
     )
 };
