@@ -9,15 +9,35 @@
 
     .container {
         width: 600px;
-        display: flex;
+        display: flex; 
+        flex-direction: column;
         /* overflow: hidden; */
     }
     .homeListPhone {
         margin-right: 0;
-        max-width: 70%;
+        max-width: 100%;
     }
     .displayEditor {
-        max-width: 30%;
+        overflow: hidden;
+
+    }
+   
+}
+
+@media only screen and (max-width: 600px) {
+
+    .container {
+        width: 400px;
+        display: flex; 
+        flex-direction: column;
+        /* overflow: hidden; */
+    }
+    .homeListPhone {
+        margin-right: 0;
+        max-width: 100%;
+    }
+    .displayEditor {
         overflow: hidden;
     }
+   
 }
