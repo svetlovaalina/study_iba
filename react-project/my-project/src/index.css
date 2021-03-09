@@ -14,10 +14,10 @@ code {
     background: rgba(92, 2, 47, 0.233);
 }
 
-.carousel-root {
+/* .carousel-root {
     margin-left: 15%;
     margin-top: -11%;
-}
+} */
 
 .spinner {
 position: fixed;

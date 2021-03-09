@@ -1,23 +1,23 @@
-.imageContainer {
-    max-width: 29%;
-    margin-top: 5%;
+@import url( 'https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
 
-}
-.photoCarousel {
-    max-width: 37rem;
+.imageContainer {
+    width: 100%;
+    padding-left: 2%;
     height: auto;
 }
 
 .idAndDescription {
     display: flex;
     flex-direction: column;
-    align-self: center;
-    margin-left: 5%;
+    justify-content: center;
+    margin-left: 2%;
 
 }
 
 .phoneImagesShortDescription {
     display: flex;
+    flex-direction: row;
+
 }
 
 .cardDescription p {
@@ -31,12 +31,13 @@
     font-size: 3em;
     margin-bottom: 5%;
 }
-.cardDescription {
 
+.cardDescription {
     margin-right: 5%;
 }
 
 .detailsDescription {
+    font-family: 'Akaya Kanadaka', cursive;
     display: flex;
     flex-wrap: wrap;
     margin-top: 2%;
@@ -59,10 +60,40 @@
 .propDescription p {
     font-size: 1.2rem;
 }
+@media only screen and (max-width: 50em) and (min-width: 37.5625em) {
+
+    .phoneImagesShortDescription {
+        display: flex;
+        flex-direction: column;
+
+    }
+    .containerPhone {
+        width: 100%;
+        padding: 0 5%;
+        overflow: hidden;
+    }
+    .imageContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imageContainer {
+        max-width: 100%;
+
+    }
+    .propDescription {
+        display: flex;
+        flex-direction: column;
+        max-width: 25%;
+        margin: 4%;
+    }
+}
 @media only screen and (max-width: 37.5em) {
 
     .containerPhone {
-        width: 450px;
+        width: 100%;
+        padding: 0 5%;
         overflow: hidden;
     }
     .phoneImagesShortDescription {
@@ -71,8 +102,9 @@
     }
 
     .imageContainer {
-        max-width: 89%;
-        margin-top: 5%;
+    
+        width: 100%;
+      
 
     }
     .propDescription {
@@ -81,27 +113,9 @@
         max-width: 35%;
         margin: 4%;
     }
-}
-@media only screen and (max-width: 50em) and (min-width: 37.5625em) {
-
-    .containerPhone {
-        width: 600px;
-        overflow: hidden;
-    }
     .phoneImagesShortDescription {
         display: flex;
         flex-direction: column;
-        /* align-items: center; */
     }
 
-    .imageContainer {
-        max-width: 89%;
-       
-    }
-    .propDescription {
-        display: flex;
-        flex-direction: column;
-        max-width: 25%;
-        margin: 4%;
-    }
 }
