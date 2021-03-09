@@ -11,25 +11,23 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 2%;
-
 }
 
 .phoneImagesShortDescription {
     display: flex;
     flex-direction: row;
-
 }
 
 .cardDescription p {
     margin: 1%;
     font-family: 'CENTURY SCHOOLBOOK';
     font-size: 1.4em;
-
 }
+
 .idAndDescription h1 {
     font-family: 'COURIER NEW';
     font-size: 3em;
-    margin-bottom: 5%;
+    margin: 5% 0;
 }
 
 .cardDescription {
@@ -49,10 +47,12 @@
     max-width: 15%;
     margin: 1.5%;
 }
+
 .propDescription h3 {
     font-size: 1.7rem;
     word-break: break-all;
 }
+
 .propDescription h4 {
     font-size: 1.2rem;
 }
@@ -82,6 +82,7 @@
         max-width: 100%;
 
     }
+
     .propDescription {
         display: flex;
         flex-direction: column;
@@ -102,9 +103,8 @@
     }
 
     .imageContainer {
-    
+
         width: 100%;
-      
 
     }
     .propDescription {

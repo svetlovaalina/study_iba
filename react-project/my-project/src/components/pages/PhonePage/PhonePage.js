@@ -8,6 +8,8 @@ import {Carousel} from 'react-responsive-carousel';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert'
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import {ButtonBasket} from '../../common/ButtonBasket';
 
 export const PhonePage = () => {
     const {id} = useParams()
@@ -17,7 +19,7 @@ export const PhonePage = () => {
         get()
     }, [])
 
-    if (loading)
+    if (loading) 
         return (<Spinner animation="border" className='spinner'/>);
     if (error) {
         return (
@@ -47,6 +49,9 @@ export const PhonePage = () => {
                     )}
                 </div>
                 <div className={classes.idAndDescription}>
+                    <div className={classes.buttonBasket}>
+                        <ButtonBasket></ButtonBasket>
+                    </div>
                     <h1>
                         {phoneData.name}
                     </h1>
@@ -217,4 +222,4 @@ export const PhonePage = () => {
         </div>
     ) || null
 };
-//   
+//
