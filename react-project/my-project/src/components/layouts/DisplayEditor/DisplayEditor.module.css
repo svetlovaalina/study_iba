@@ -1,12 +1,8 @@
-/* .navBarLink {
-    color: rgb(255,255,255);
-} */
 
-.searchForm {
-    margin: 5%;
-}
+@media only screen and (max-width: 37.5em) {
 
-.searchForm p {
-    font-size: 1.4rem;
-    margin-left: 3%;
+    .displayEditor .searchForm p {
+        margin-right: 3%;
+    }
+
 }

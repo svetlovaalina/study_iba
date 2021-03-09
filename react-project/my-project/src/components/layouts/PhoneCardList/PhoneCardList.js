@@ -8,20 +8,14 @@ import Alert from 'react-bootstrap/Alert';
 import {Context} from "../../../App";
 
 export const PhoneCardList = () => {
-    const {phoneList, setPhoneList, searchText, setSearchText} = useContext(Context);
-
-//     const [list,
-//         setList] = useState([]);
-//     let {isLoading, error, data: list} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json') 
-//  if (isLoading) 
-//         return (<Spinner animation="border" className='spinner'/>);
-//     if (error) {
-//         return (
-//             <Alert variant='danger'>"Error : {error.message}
-//                 {error.status}"
-//             </Alert>
-//         );
-//     }
+    const {
+        phoneList,
+        setPhoneList,
+        searchText,
+        setSearchText,
+        sortType,
+        setSortType
+    } = useContext(Context);
 
     const {get, response, loading, error} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json')
     useEffect(() => {
@@ -34,6 +28,16 @@ export const PhoneCardList = () => {
             setPhoneList(phones)
         }
     }
+    const sortTypeKeys = {
+        Alphabetical: "name",
+        Newest: "age"
+    }
+
+    function sortFun(a, b) {
+        return a[sortTypeKeys[sortType]] < b[sortTypeKeys[sortType]]
+            ? -1
+            : 1
+    }
 
     return (
         <div className={classes.container}>
@@ -43,6 +47,7 @@ export const PhoneCardList = () => {
             </Alert>}
             {loading && <Spinner animation="border" className='spinner'/>}
             {phoneList
+                .sort(sortFun)
                 .filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchText.toLowerCase()))
                 .map(item => <PhoneCard
                     className={classes.phoneCard}

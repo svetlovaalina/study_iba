@@ -10,7 +10,9 @@ export const Context = React.createContext({
     phoneList: [],
     setPhoneList: () => {},
     searchText: '',
-    setSearchText: () => {}
+    setSearchText: () => {},
+    sortType: '',
+    setSortType: () => {}
 
 });
 
@@ -19,6 +21,8 @@ function App() {
         setPhoneList] = useState([]);
     const [searchText,
         setSearchText] = useState('');
+    const [sortType,
+        setSortType] = useState('Newest');
     return (
         <div className={classes.App}>
             <Context.Provider
@@ -26,7 +30,9 @@ function App() {
                 phoneList,
                 setPhoneList,
                 searchText,
-                setSearchText
+                setSearchText,
+                sortType,
+                setSortType
             }}>
                 <Router >
                     <NavBar/>
