@@ -1,15 +1,14 @@
 import React, {useEffect, useCallback, useState} from 'react';
 import classes from './PhonePage.module.css'
 import {useParams} from 'react-router-dom';
-// import useFetch from 'react-fetch-hook';
 import useFetch, {Provider} from 'use-http'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import {Carousel} from 'react-responsive-carousel';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import {ButtonBasket} from '../../common/ButtonBasket';
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 export const PhonePage = () => {
     const {id} = useParams()

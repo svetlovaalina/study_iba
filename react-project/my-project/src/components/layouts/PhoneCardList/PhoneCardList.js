@@ -7,6 +7,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import {Context} from "../../../App";
 
+
 export const PhoneCardList = () => {
     const {
         phoneList,
@@ -28,17 +29,7 @@ export const PhoneCardList = () => {
             setPhoneList(phones)
         }
     }
-    const sortTypeKeys = {
-        Alphabetical: "name",
-        Newest: "age"
-    }
-
-    function sortFun(a, b) {
-        return a[sortTypeKeys[sortType]] < b[sortTypeKeys[sortType]]
-            ? -1
-            : 1
-    }
-
+   
     return (
         <div className={classes.container}>
             {error && <Alert variant='danger' className={classes.alert}>
@@ -47,7 +38,7 @@ export const PhoneCardList = () => {
             </Alert>}
             {loading && <Spinner animation="border" className='spinner'/>}
             {phoneList
-                .sort(sortFun)
+                .sort((prevPhone, phone) => prevPhone[sortType] < phone[sortType] ? -1 : 1)
                 .filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchText.toLowerCase()))
                 .map(item => <PhoneCard
                     className={classes.phoneCard}

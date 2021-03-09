@@ -1,4 +1,23 @@
-.buttonBasket {
+.containerBasket .buttonAddToBasket {
     width: max-content;
-    padding: 1.2rem;
+    /* padding: 1.2rem; */
+    background-color: rgb(114, 116, 114);
+    /* background-color: rgb(17, 170, 17); */
+    /* background-color: #ff0000;
+    border-color: #ff0000; */
+}
+.containerBasket .buttonGoInBasket {
+    width: max-content;
+    background-color: rgb(17, 170, 17);
+}
+.containerBasket .buttonAddToBasket:hover,
+.containerBasket .buttonGoInBasket:hover {
+    background-color: rgb(17, 170, 17);
+}
+.containerBasket .containerAddToBasket .buttonAddToBasket:active {
+
+    background-color: rgb(2, 8, 2);
+}
+.containerBasket .containerGoInBasket .buttonGoInBasket:active {
+    background-color: rgb(12, 36, 12);
 }
