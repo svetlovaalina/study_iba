@@ -5,39 +5,38 @@
 .homeListPhone {
     margin-left: 8%;
 }
+
 @media only screen and (max-width: 50em) and (min-width: 37.5626em) {
 
     .container {
-        width: 600px;
-        display: flex; 
+        width: 100%;
+        display: flex;
         flex-direction: column;
-        /* overflow: hidden; */
     }
+
     .homeListPhone {
-        margin-right: 0;
+        margin: 1%;
         max-width: 100%;
     }
+
     .displayEditor {
         overflow: hidden;
-
     }
-   
 }
 
 @media only screen and (max-width: 37.5em) {
-
     .container {
         width: 400px;
-        display: flex; 
+        display: flex;
         flex-direction: column;
-        /* overflow: hidden; */
     }
+
     .homeListPhone {
-        margin-right: 0;
+        margin: 3% 1%;
         max-width: 100%;
     }
+    
     .displayEditor {
         overflow: hidden;
     }
-   
 }

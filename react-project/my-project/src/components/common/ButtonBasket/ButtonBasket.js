@@ -18,12 +18,10 @@ export const ButtonBasket = ({phoneData}) => {
         store.dispatch(actionAddPhoneToBasket(phoneData))
     }
 
-
-
     return (
         <div className={classes.containerBasket}>
             <div className={classes.containerAddToBasket}>
-                {stateBasket === "AddToBasket" && ( < Button variant = "success" className = {
+                {stateBasket === "AddToBasket" && ( <Button variant = "success" className = {
                     classes.buttonAddToBasket
                 }
                 onClick = {

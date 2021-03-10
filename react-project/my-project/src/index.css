@@ -15,21 +15,22 @@ code {
     background: rgba(92, 2, 47, 0.233);
 }
 
-/* .carousel-root {
-    margin-left: 15%;
-    margin-top: -11%;
-} */
+.carousel-root .carousel.carousel-slider .control-arrow {
+    margin-top: 50%;
+    padding: 5px;
+    height: 50px;
+}
+
 
 .spinner {
-position: fixed;
-top:50%;
-left: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
 }
 
 nav.bg-primary {
     background-color: #2fccd1!important;
 }
-
 
 .navbar-brand a {
     color: aliceblue;

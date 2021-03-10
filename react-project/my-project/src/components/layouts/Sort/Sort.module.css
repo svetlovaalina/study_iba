@@ -13,26 +13,26 @@
     margin-top: 9%;
     width: 100%;
 }
-@media only screen and (max-width: 37.5em) {
 
+@media only screen and (max-width: 37.5em) {
     .displayEditor .formControl p {
         margin-right: 3%;
     }
-
 }
 
 @media only screen and (max-width: 50em) and (min-width: 37.5625em) {
-    .formControl{
+    .formControl {
         width: 35%;
         margin-bottom: 3%;
     }
+
     .formControl .labelSortBy {
         margin-top: -6%;
     }
-    
 }
+
 @media only screen and (max-width: 37.5em) {
-    .formControl{
+    .formControl {
         width: 45%;
     }
 }

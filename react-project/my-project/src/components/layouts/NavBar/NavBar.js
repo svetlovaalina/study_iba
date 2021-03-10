@@ -11,18 +11,17 @@ export const NavBar = () => {
     return (
         <div className={classes.container}>
             <Navbar bg="primary" variant="dark" class="d-flex justify-content-between">
-                <Navbar.Brand  >
+                <Navbar.Brand >
                     <Link to="/" className={classes.navBarLink}>
                         My-project</Link>
                 </Navbar.Brand>
                 <div class="ml-auto p-2">
-                <Navbar.Brand >
-                    <Link to="/basket" className={classes.navBarLink} >
-                    Basket</Link>
-                </Navbar.Brand>
+                    <Navbar.Brand >
+                        <Link to="/basket" className={classes.navBarLink}>
+                            Basket</Link>
+                    </Navbar.Brand>
                 </div>
             </Navbar>
-
         </div>
     )
 }

@@ -60,18 +60,19 @@
 .propDescription p {
     font-size: 1.2rem;
 }
-@media only screen and (max-width: 50em) and (min-width: 37.5625em) {
 
+@media only screen and (max-width: 50em) and (min-width: 37.5625em) {
     .phoneImagesShortDescription {
         display: flex;
         flex-direction: column;
-
     }
+
     .containerPhone {
         width: 100%;
         padding: 0 5%;
         overflow: hidden;
     }
+
     .imageContainer {
         display: flex;
         flex-direction: column;
@@ -80,7 +81,6 @@
 
     .imageContainer {
         max-width: 100%;
-
     }
 
     .propDescription {
@@ -97,22 +97,23 @@
         padding: 0 5%;
         overflow: hidden;
     }
+    
     .phoneImagesShortDescription {
         display: flex;
         flex-direction: column;
     }
 
     .imageContainer {
-
         width: 100%;
-
     }
+
     .propDescription {
         display: flex;
         flex-direction: column;
         max-width: 35%;
         margin: 4%;
     }
+
     .phoneImagesShortDescription {
         display: flex;
         flex-direction: column;

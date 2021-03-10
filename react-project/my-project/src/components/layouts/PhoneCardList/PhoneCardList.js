@@ -1,7 +1,6 @@
 import React, {useContext, useEffect, useCallback, useState} from 'react';
 import classes from './PhoneCardList.module.css'
 import {PhoneCard} from '../PhoneCard';
-// import useFetch from "react-fetch-hook";
 import useFetch, {Provider} from 'use-http'
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';

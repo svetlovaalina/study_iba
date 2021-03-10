@@ -6,6 +6,7 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 0.5%;
+    margin: 1%;
 }
 
 .image {
@@ -14,7 +15,6 @@
 
 .imageContainer {
     margin-right: 2rem;
-  
 }
 
 .mobileDescription {
@@ -36,17 +36,18 @@
 }
 
 @media only screen and (max-width: 37.5em) {
-
     .container {
         width: 400px;
         display: block;
         overflow: hidden;
     }
 }
-@media only screen and (min-width: 37.5625em) and (max-width: 50em) {
 
+@media only screen and (min-width: 37.5625em) and (max-width: 50em) {
     .container {
-        width: 550px;
+        width: 100%;
+        padding: 0 1%;
+        margin: 3% 0;
         display: block;
         overflow: hidden;
     }

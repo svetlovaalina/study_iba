@@ -14,7 +14,6 @@ export const Home = () => {
             <div className={classes.homeListPhone}>
                 <PhoneCardList/>
             </div>
-
         </div>
     )
 };

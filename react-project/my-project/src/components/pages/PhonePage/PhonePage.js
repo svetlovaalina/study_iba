@@ -49,7 +49,7 @@ export const PhonePage = () => {
                 </div>
                 <div className={classes.idAndDescription}>
                     <div className={classes.buttonBasket}>
-                        <ButtonBasket phoneData={phoneData} ></ButtonBasket>
+                        <ButtonBasket phoneData={phoneData}></ButtonBasket>
                     </div>
                     <h1>
                         {phoneData.name}

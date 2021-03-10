@@ -17,10 +17,9 @@ export const Search = () => {
 
     return (
         <div className={classes.searchForm}>
-
             <Form inline>
-            <InputLabel className={classes.labelSearchBy}>Search:</InputLabel> 
-                    
+                <InputLabel className={classes.labelSearchBy}>Search:</InputLabel>
+
                 {/* <p>Search:
                 </p> */}
                 <input
@@ -29,9 +28,6 @@ export const Search = () => {
                     value={searchText}
                     onChange={onInputChange}/>
             </Form>
-
         </div>
-
     )
-
 }

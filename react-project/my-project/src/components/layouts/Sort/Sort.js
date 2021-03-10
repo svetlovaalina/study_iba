@@ -33,7 +33,6 @@ export const Sort = () => {
                 <InputLabel
                     id="demo-controlled-open-select-label"
                     className={classes.labelSortBy}>Sort by</InputLabel>
-
                 <Select
                     labelId="demo-controlled-open-select-label"
                     id="demo-controlled-open-select"
@@ -42,13 +41,10 @@ export const Sort = () => {
                     onOpen={handleOpen}
                     value={sortType}
                     onChange={handleChange}>
-
                     <MenuItem value={'age'}>Newest</MenuItem>
                     <MenuItem value={'name'}>Alphabetical</MenuItem>
                 </Select>
             </FormControl>
         </div>
-
     )
-
 }
