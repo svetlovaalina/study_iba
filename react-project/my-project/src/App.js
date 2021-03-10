@@ -6,7 +6,6 @@ import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {NavBar} from "./components/layouts/NavBar";
 import {Basket} from './components/pages/Basket';
-import store from "./store/store"
 
 export const Context = React.createContext({
     phoneList: [],
@@ -25,7 +24,7 @@ function App() {
         setSearchText] = useState('');
     const [sortType,
         setSortType] = useState('Newest');
-    store.subscribe(() => console.info(store.getState()))
+    // store.subscribe(() => console.info(store.getState()))
     return (
         <div className={classes.App}>
             <Context.Provider

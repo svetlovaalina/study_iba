@@ -1,16 +1,19 @@
 import {createStore} from 'redux';
 import initialState from './initialState';
-import ACTION_1 from "./actions/action_1"
+import GET_PHONE_LIST from './actions/getPhoneList'
 import ACTION_2 from "./actions/action_2"
 import ADD_TO_BASKET from "./actions/actionAddPhoneToBasket"
 
-const store = createStore(reducer, initialState);
+export const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-function reducer(state, action) {
+function reducer(state = initialState, action) {
 
     switch (action.type) {
-        case ACTION_1:
-            return {value: action.value_1};
+        case GET_PHONE_LIST:
+            return {
+                ...state,
+                phoneList: action.payload
+            };
         case ACTION_2:
             return {value: action.value_2};
         case ADD_TO_BASKET:
@@ -26,5 +29,3 @@ function reducer(state, action) {
             return state;
     }
 }
-
-export default store;

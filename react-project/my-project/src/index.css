@@ -16,8 +16,8 @@ code {
 }
 
 .carousel-root .carousel.carousel-slider .control-arrow {
-    margin-top: 50%;
-    padding: 5px;
+    margin: auto 0;
+    padding: 0.2rem;
     height: 50px;
 }
 

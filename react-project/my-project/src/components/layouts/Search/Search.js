@@ -17,11 +17,8 @@ export const Search = () => {
 
     return (
         <div className={classes.searchForm}>
-            <Form inline>
+            <Form >
                 <InputLabel className={classes.labelSearchBy}>Search:</InputLabel>
-
-                {/* <p>Search:
-                </p> */}
                 <input
                     type='text'
                     className='form-control'

@@ -5,8 +5,11 @@ import useFetch, {Provider} from 'use-http'
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import {Context} from "../../../App";
+import {useDispatch} from "react-redux";
+import {getPhoneList} from '../../../store/actionCreators/getPhoneList'
 
 export const PhoneCardList = () => {
+    const dispatch = useDispatch();
     const {
         phoneList,
         setPhoneList,
@@ -17,6 +20,7 @@ export const PhoneCardList = () => {
     } = useContext(Context);
 
     const {get, response, loading, error} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json')
+
     useEffect(() => {
         getPhones()
     }, [])
@@ -25,6 +29,7 @@ export const PhoneCardList = () => {
         const phones = await get('')
         if (response.ok) {
             setPhoneList(phones)
+            dispatch(getPhoneList(phones))
         }
     }
 

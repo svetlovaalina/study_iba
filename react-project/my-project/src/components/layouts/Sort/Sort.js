@@ -7,11 +7,13 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import {useSelector} from "react-redux";
 
 export const Sort = () => {
+    const phoneList1 = useSelector(state =>state.phoneList);
 
-    const {phoneList, setPhoneList, sortType, setSortType} = useContext(Context);
-
+     const {sortType, setSortType} = useContext(Context);
+    //  phoneList, setPhoneList, 
     const [open,
         setOpen] = useState(false);
 

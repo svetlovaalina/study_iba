@@ -2,7 +2,7 @@
 
 .imageContainer {
     width: 100%;
-    padding-left: 2%;
+    padding-left: 0.8rem;
     height: auto;
 }
 
@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 2%;
+    margin-left: 1rem;
 }
 
 .phoneImagesShortDescription {
@@ -19,7 +19,7 @@
 }
 
 .cardDescription p {
-    margin: 1%;
+    margin: 0.2rem;
     font-family: 'CENTURY SCHOOLBOOK';
     font-size: 1.4em;
 }
@@ -27,25 +27,25 @@
 .idAndDescription h1 {
     font-family: 'COURIER NEW';
     font-size: 3em;
-    margin: 5% 0;
+    margin: 1.2rem 0;
 }
 
 .cardDescription {
-    margin-right: 5%;
+    margin-right: 1.2rem;
 }
 
 .detailsDescription {
     font-family: 'Akaya Kanadaka', cursive;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 2%;
+    margin-top: 1.5rem;
 }
 
 .propDescription {
     display: flex;
     flex-direction: column;
-    max-width: 15%;
-    margin: 1.5%;
+    width: 15%;
+    margin: 1.2rem;
 }
 
 .propDescription h3 {
@@ -69,7 +69,7 @@
 
     .containerPhone {
         width: 100%;
-        padding: 0 5%;
+        padding: 0 2.5rem;
         overflow: hidden;
     }
 
@@ -86,15 +86,15 @@
     .propDescription {
         display: flex;
         flex-direction: column;
-        max-width: 25%;
-        margin: 4%;
+        width: 30%;
+        margin: 0.3rem;
     }
 }
 @media only screen and (max-width: 37.5em) {
 
     .containerPhone {
         width: 100%;
-        padding: 0 5%;
+        padding: 0 1rem;
         overflow: hidden;
     }
     
@@ -110,8 +110,8 @@
     .propDescription {
         display: flex;
         flex-direction: column;
-        max-width: 35%;
-        margin: 4%;
+        width: 40%;
+        margin: 1rem;
     }
 
     .phoneImagesShortDescription {
