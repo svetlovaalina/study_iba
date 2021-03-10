@@ -8,6 +8,10 @@
     font-size: 1.6em;
 
 }
+:global .MuiSelect-select.MuiSelect-select {
+ 
+    margin-top: 1rem;
+}
 
 :global .MuiFormControl-root {
     width: 15rem;

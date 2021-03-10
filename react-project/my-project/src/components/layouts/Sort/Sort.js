@@ -2,23 +2,25 @@ import React, {useState, useContext, useEffect, useStyles} from 'react';
 import classes from './Sort.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Context} from "../../../App";
+// import {Context} from "../../../App";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import {updateSortType} from "../../../store/actionCreators/updateSortType"
 
 export const Sort = () => {
-    const phoneList1 = useSelector(state =>state.phoneList);
+    const dispatch = useDispatch();
 
-     const {sortType, setSortType} = useContext(Context);
-    //  phoneList, setPhoneList, 
+    const phoneList1 = useSelector(state => state.phoneList);
+    const sortTypeStore = useSelector(state => state.sortTypeStore)
+    
     const [open,
         setOpen] = useState(false);
 
     const handleChange = (event) => {
-        setSortType(event.target.value);
+        dispatch(updateSortType(event.target.value))
     };
 
     const handleClose = () => {
@@ -41,7 +43,7 @@ export const Sort = () => {
                     open={open}
                     onClose={handleClose}
                     onOpen={handleOpen}
-                    value={sortType}
+                    value={sortTypeStore}
                     onChange={handleChange}>
                     <MenuItem value={'age'}>Newest</MenuItem>
                     <MenuItem value={'name'}>Alphabetical</MenuItem>

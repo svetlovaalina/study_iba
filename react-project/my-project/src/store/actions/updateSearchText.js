@@ -1,0 +1,3 @@
+const UPDATE_SEARCH_TEXT = "UPDATE_SEARCH_TEXT";
+
+export default UPDATE_SEARCH_TEXT;

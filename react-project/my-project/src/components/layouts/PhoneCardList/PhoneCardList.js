@@ -4,20 +4,16 @@ import {PhoneCard} from '../PhoneCard';
 import useFetch, {Provider} from 'use-http'
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
-import {Context} from "../../../App";
-import {useDispatch} from "react-redux";
+// import {Context} from "../../../App";
+import {useDispatch, useSelector} from "react-redux";
 import {getPhoneList} from '../../../store/actionCreators/getPhoneList'
 
 export const PhoneCardList = () => {
+    const phoneListStore = useSelector(state => state.phoneListStore)
+    const sortTypeStore = useSelector(state => state.sortTypeStore)
+    const searchTextStore = useSelector(state => state.searchTextStore)
+
     const dispatch = useDispatch();
-    const {
-        phoneList,
-        setPhoneList,
-        searchText,
-        setSearchText,
-        sortType,
-        setSortType
-    } = useContext(Context);
 
     const {get, response, loading, error} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json')
 
@@ -28,7 +24,6 @@ export const PhoneCardList = () => {
     const getPhones = async() => {
         const phones = await get('')
         if (response.ok) {
-            setPhoneList(phones)
             dispatch(getPhoneList(phones))
         }
     }
@@ -40,10 +35,10 @@ export const PhoneCardList = () => {
                 {error.message}
             </Alert>}
             {loading && <Spinner animation="border" className='spinner'/>}
-            {phoneList.sort((prevPhone, phone) => prevPhone[sortType] < phone[sortType]
+            {phoneListStore.sort((prevPhone, phone) => prevPhone[sortTypeStore] < phone[sortTypeStore]
                 ? -1
                     : 1)
-                .filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchText.toLowerCase()))
+                .filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()))
                 .map(item => <PhoneCard
                     className={classes.phoneCard}
                     key={item.id}
@@ -51,7 +46,7 @@ export const PhoneCardList = () => {
                     name={item.name}
                     imageUrl={item.imageUrl}
                     snippet={item.snippet}/>)
-}
+            }
         </div>
     )
 };

@@ -1,6 +1,8 @@
 import {createStore} from 'redux';
 import initialState from './initialState';
 import GET_PHONE_LIST from './actions/getPhoneList'
+import UPDATE_SORT_TYPE from './actions/updateSortType'
+import UPDATE_SEARCH_TEXT from './actions/updateSearchText'
 import ACTION_2 from "./actions/action_2"
 import ADD_TO_BASKET from "./actions/actionAddPhoneToBasket"
 
@@ -12,7 +14,7 @@ function reducer(state = initialState, action) {
         case GET_PHONE_LIST:
             return {
                 ...state,
-                phoneList: action.payload
+                phoneListStore: action.payload
             };
         case ACTION_2:
             return {value: action.value_2};
@@ -24,7 +26,16 @@ function reducer(state = initialState, action) {
                     action.value_3
                 ]
             }
-
+        case UPDATE_SORT_TYPE:
+            return {
+                ...state,
+                sortTypeStore: action.payload
+            }
+        case UPDATE_SEARCH_TEXT:
+            return {
+                ...state,
+                searchTextStore: action.payload
+            }
         default:
             return state;
     }

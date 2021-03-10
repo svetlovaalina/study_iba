@@ -7,46 +7,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {NavBar} from "./components/layouts/NavBar";
 import {Basket} from './components/pages/Basket';
 
-export const Context = React.createContext({
-    phoneList: [],
-    setPhoneList: () => {},
-    searchText: '',
-    setSearchText: () => {},
-    sortType: '',
-    setSortType: () => {}
-
-});
-
 function App() {
-    const [phoneList,
-        setPhoneList] = useState([]);
-    const [searchText,
-        setSearchText] = useState('');
-    const [sortType,
-        setSortType] = useState('Newest');
-    // store.subscribe(() => console.info(store.getState()))
+
     return (
         <div className={classes.App}>
-            <Context.Provider
-                value={{
-                phoneList,
-                setPhoneList,
-                searchText,
-                setSearchText,
-                sortType,
-                setSortType
-            }}>
-                <Router >
-                    <NavBar/>
-                    <Switch>
-                        <Route path="/phonePage/:id"><PhonePage/>
-                        </Route>
-                        <Route path="/basket"><Basket/>
-                        </Route>
-                        <Route path="/" component={Home}></Route>
-                    </Switch>
-                </Router>
-            </Context.Provider>
+
+            <Router >
+                <NavBar/>
+                <Switch>
+                    <Route path="/phonePage/:id"><PhonePage/>
+                    </Route>
+                    <Route path="/basket"><Basket/>
+                    </Route>
+                    <Route path="/" component={Home}></Route>
+                </Switch>
+            </Router>
+
         </div>
     );
 }
