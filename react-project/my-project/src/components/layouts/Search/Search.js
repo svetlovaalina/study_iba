@@ -3,7 +3,7 @@ import classes from './Search.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
-// import {Context} from "../../../App";
+
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import InputLabel from "@material-ui/core/InputLabel";
 import {useSelector, useDispatch} from "react-redux";

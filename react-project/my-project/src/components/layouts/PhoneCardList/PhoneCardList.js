@@ -4,7 +4,7 @@ import {PhoneCard} from '../PhoneCard';
 import useFetch, {Provider} from 'use-http'
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
-// import {Context} from "../../../App";
+
 import {useDispatch, useSelector} from "react-redux";
 import {getPhoneList} from '../../../store/actionCreators/getPhoneList'
 

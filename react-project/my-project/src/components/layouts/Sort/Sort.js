@@ -1,8 +1,7 @@
-import React, {useState, useContext, useEffect, useStyles} from 'react';
+import React, {useState, useEffect, useStyles} from 'react';
 import classes from './Sort.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import {Context} from "../../../App";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
