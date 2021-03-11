@@ -1,4 +1,4 @@
-import GET_PHONE_LIST from "../actions/getPhoneList"
+import {GET_PHONE_LIST} from "../actions/getPhoneList"
 
 export const getPhoneList = (value) => {
     return {

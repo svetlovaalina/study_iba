@@ -1,10 +1,8 @@
-import ADD_TO_BASKET from "../actions/actionAddPhoneToBasket"
+import {ADD_TO_BASKET} from "../actions/actionAddPhoneToBasket"
 
-function actionAddPhoneToBasket(phoneData) {
+export const actionAddPhoneToBasket= (phoneData) => {
     return { 
         type: ADD_TO_BASKET,
         value_3: phoneData
     };
 }
-
-export default actionAddPhoneToBasket;

@@ -1,4 +1,4 @@
-import UPDATE_SORT_TYPE from "../actions/updateSortType"
+import {UPDATE_SORT_TYPE} from "../actions/updateSortType"
 
 export const updateSortType = (value) => {
     return {

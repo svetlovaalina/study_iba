@@ -1,3 +1,2 @@
-const UPDATE_SORT_TYPE = "UPDATE_SORT_TYPE";
+export const UPDATE_SORT_TYPE = "UPDATE_SORT_TYPE";
 
-export default UPDATE_SORT_TYPE;

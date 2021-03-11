@@ -1,4 +1,4 @@
-import UPDATE_SEARCH_TEXT from "../actions/updateSearchText"
+import {UPDATE_SEARCH_TEXT} from "../actions/updateSearchText"
 
 export const updateSearchText = (value) => {
     return {
