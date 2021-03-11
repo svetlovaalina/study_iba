@@ -7,6 +7,7 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import actionAddPhoneToBasket from "../../../store/actionCreators/actionAddPhoneToBasket"
 import {useDispatch} from "react-redux"
+import {Basket} from "../../pages/Basket";
 
 export const ButtonBasket = ({phoneData}) => {
 
@@ -19,26 +20,24 @@ export const ButtonBasket = ({phoneData}) => {
         dispatch(actionAddPhoneToBasket(phoneData))
     }
 
+    // const goInBasket = () => {     return {         <Link to="/basket" />     } }
+
     return (
         <div className={classes.containerBasket}>
-            <div className={classes.containerAddToBasket}>
-                {stateBasket === "AddToBasket" && (
-                    <Button
-                        variant="success"
-                        className={classes.buttonAddToBasket}
-                        onClick={addToBasket}>
-                        <AddShoppingCartIcon/>
+            {stateBasket === "AddToBasket"
+                ? <Button
+                    variant="success"
+                    className={classes.buttonAddToBasket}
+                    onClick={addToBasket}>
+                    <AddShoppingCartIcon/>
                     </Button>
-                )}
-            </div>
-            <div className={classes.containerGoInBasket}>
-                {stateBasket === "GoInBasket" && (
+                    :
                     <Button variant="success" className={classes.buttonGoInBasket}>
-                        <CheckCircleIcon/>
-                        <ShoppingCartIcon/>
-                    </Button>
-                )}
-            </div>
+                        <Link to="/basket" >
+                            <CheckCircleIcon/>
+                            <ShoppingCartIcon/>
+                        </Link>
+                    </Button>}
         </div>
     )
 }

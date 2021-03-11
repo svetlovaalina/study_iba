@@ -1,4 +1,4 @@
-.containerBasket .buttonAddToBasket {
+/* .containerBasket .buttonAddToBasket {
     width: max-content;
     background-color: rgb(114, 116, 114);
 }
@@ -10,10 +10,11 @@
 .containerBasket .buttonGoInBasket:hover {
     background-color: rgb(17, 170, 17);
 }
-.containerBasket .containerAddToBasket .buttonAddToBasket:active {
+ */
 
-    background-color: rgb(2, 8, 2);
+.buttonGoInBasket a , .buttonGoInBasket a:hover{
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
 }
-.containerBasket .containerGoInBasket .buttonGoInBasket:active {
-    background-color: rgb(12, 36, 12);
-}
+

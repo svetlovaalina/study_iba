@@ -2,12 +2,12 @@
     display: flex;
 }
 
-.homeListPhone {
+/* .homeListPhone {
     margin-left: 2.5rem;
-}
+} */
 
 .displayEditor {
-    width: 35%;
+    width: 250px;
 }
 @media only screen and (max-width: 50em) and (min-width: 37.5626em) {
 
