@@ -6,8 +6,12 @@ import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import {useDispatch, useSelector} from "react-redux";
 import {getPhoneList} from '../../../store/actionCreators/getPhoneList'
+import cn from 'classnames'
+import cx from 'classnames/bind';
+
 
 export const PhoneCardList = () => {
+
     const phoneListStore = useSelector(state => state.phoneListStore)
     const sortTypeStore = useSelector(state => state.sortTypeStore)
     const searchTextStore = useSelector(state => state.searchTextStore)
@@ -26,6 +30,10 @@ export const PhoneCardList = () => {
             dispatch(getPhoneList(phones))
         }
     }
+    // const className = cn(
+    //     'mobileDescription',
+    //     'mobileName' 
+    // );
 
     return (
         <div className={classes.container}>
@@ -36,16 +44,16 @@ export const PhoneCardList = () => {
             {loading && <Spinner animation="border" className='spinner'/>}
             {phoneListStore.sort((prevPhone, phone) => prevPhone[sortTypeStore] < phone[sortTypeStore]
                 ? -1
-                    : 1)
+                : 1)
                 .filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()))
                 .map(item => <PhoneCard
-                    className={classes.phoneCard}
+                    className={classes.container}
                     key={item.id}
                     id={item.id}
                     name={item.name}
                     imageUrl={item.imageUrl}
                     snippet={item.snippet}/>)
-            }
+}
         </div>
     )
 };
