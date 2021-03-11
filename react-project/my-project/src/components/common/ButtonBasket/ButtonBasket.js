@@ -28,14 +28,14 @@ export const ButtonBasket = ({phoneData}) => {
                 ? <Button
                     variant="success"
                     className={classes.buttonAddToBasket}
-                    onClick={addToBasket}>
+                    onClick={addToBasket}> Add to  
                     <AddShoppingCartIcon/>
                     </Button>
                     :
                     <Button variant="success" className={classes.buttonGoInBasket}>
                         <Link to="/basket" >
-                            <CheckCircleIcon/>
-                            <ShoppingCartIcon/>
+                             Go to 
+                            <ShoppingCartIcon/><CheckCircleIcon/>
                         </Link>
                     </Button>}
         </div>

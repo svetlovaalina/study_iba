@@ -1,20 +1,24 @@
-/* .containerBasket .buttonAddToBasket {
+/* .containerBasket .containerBasket {
     width: max-content;
     background-color: rgb(114, 116, 114);
-}
-.containerBasket .buttonGoInBasket {
+} */
+.containerBasket .buttonAddToBasket {
     width: max-content;
-    background-color: rgb(17, 170, 17);
+    background-color: rgb(76, 78, 76);
 }
-.containerBasket .buttonAddToBasket:hover,
-.containerBasket .buttonGoInBasket:hover {
-    background-color: rgb(17, 170, 17);
-}
- */
 
-.buttonGoInBasket a , .buttonGoInBasket a:hover{
+.buttonGoInBasket a,
+.buttonGoInBasket a:hover {
     color: #fff;
     background-color: #28a745;
     border-color: #28a745;
 }
 
+.containerBasket {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 2rem;
+    margin-top: 1rem;
+
+}
