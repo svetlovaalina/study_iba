@@ -21,7 +21,6 @@ export const ButtonBasket = ({phoneData}) => {
     const addToBasket = () => {
         setStateBasket(go)
         dispatch(actionAddPhoneToBasket(phoneData))
-        // const  arrLocalStorageBasket = [];
 
         if (!localStorageBasket) {
             localStorage.setItem("phoneListBasket", JSON.stringify([phoneData]))
@@ -29,8 +28,8 @@ export const ButtonBasket = ({phoneData}) => {
             localStorageBasket.push((phoneData))
             localStorage.setItem("phoneListBasket", JSON.stringify(localStorageBasket))
         }
-
     }
+    
     useEffect(() => {
         if (localStorageBasket && localStorageBasket.find(x => x.id === phoneData.id)) {
             setStateBasket(go)

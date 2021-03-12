@@ -10,8 +10,8 @@
 .buttonGoInBasket a,
 .buttonGoInBasket a:hover {
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
+ 
+    text-decoration: none;
 }
 
 .containerBasket {

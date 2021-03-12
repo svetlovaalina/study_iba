@@ -9,7 +9,6 @@ import {getPhoneList} from '../../../store/actionCreators/getPhoneList'
 import cn from 'classnames'
 import cx from 'classnames/bind';
 
-
 export const PhoneCardList = () => {
 
     const phoneListStore = useSelector(state => state.phoneListStore)
@@ -30,10 +29,6 @@ export const PhoneCardList = () => {
             dispatch(getPhoneList(phones))
         }
     }
-    // const className = cn(
-    //     'mobileDescription',
-    //     'mobileName' 
-    // );
 
     return (
         <div className={classes.container}>
@@ -44,7 +39,7 @@ export const PhoneCardList = () => {
             {loading && <Spinner animation="border" className='spinner'/>}
             {phoneListStore.sort((prevPhone, phone) => prevPhone[sortTypeStore] < phone[sortTypeStore]
                 ? -1
-                : 1)
+                    : 1)
                 .filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()))
                 .map(item => <PhoneCard
                     className={classes.container}
