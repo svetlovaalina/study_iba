@@ -7,7 +7,7 @@ import Alert from 'react-bootstrap/Alert';
 import {useDispatch, useSelector} from "react-redux";
 import {getPhoneList} from '../../../store/actionCreators/getPhoneList'
 import cn from 'classnames'
-import cx from 'classnames/bind';
+
 
 export const PhoneCardList = () => {
 
@@ -30,6 +30,8 @@ export const PhoneCardList = () => {
         }
     }
 
+    // const className = cn('containerPhoneCard');
+
     return (
         <div className={classes.container}>
             {error && <Alert variant='danger' className={classes.alert}>
@@ -42,7 +44,7 @@ export const PhoneCardList = () => {
                     : 1)
                 .filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()))
                 .map(item => <PhoneCard
-                    className={classes.container}
+                    className={classes.containerPhoneCard}
                     key={item.id}
                     id={item.id}
                     name={item.name}

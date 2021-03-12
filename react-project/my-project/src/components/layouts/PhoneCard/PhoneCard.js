@@ -1,11 +1,12 @@
 import React from 'react';
 import classes from './PhoneCard.module.css'
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import cn from 'classnames'
 
 export const PhoneCard = ({name, snippet, imageUrl, id, className}) => {
-    return (
 
-        <div className={classes.container}>
+    return (
+        <div className={cn(className, classes.container)}>
             <div className={classes.imageContainer}>
                 <img
                     className={classes.image}
@@ -18,6 +19,5 @@ export const PhoneCard = ({name, snippet, imageUrl, id, className}) => {
                 <p className={classes.mobileSnippet}>{snippet}</p>
             </div>
         </div>
-
     )
 };

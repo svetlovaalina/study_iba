@@ -12,16 +12,7 @@
     margin-left: 3rem;
 }
 /* /////////////FOR PHONE CARD//////////////// */
-/* 
-.mobileDescription {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    background-color: purple;
-}
 
-.mobileName {
-    font-size: 1.6rem;
-    color: rgb(12, 9, 9);
-    background-color: purple;
-} */
+.containerPhoneCard {
+    margin: 1rem;
+}
