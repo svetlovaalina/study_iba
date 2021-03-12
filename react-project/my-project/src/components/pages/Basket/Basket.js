@@ -15,10 +15,11 @@ export const Basket = () => {
         const idPhone = event
             .currentTarget
             .getAttribute('idPhone');
-        setLocalStorageBasket(localStorageBasket.filter((el) => el.id != idPhone))
+        setLocalStorageBasket(localStorageBasket.filter((el) => el.id !== idPhone))
         // debugger;
     }
-
+    
+    
     useEffect(() => {
         localStorage.setItem("phoneListBasket", JSON.stringify(localStorageBasket))
 

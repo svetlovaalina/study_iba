@@ -8,29 +8,16 @@ import {useDispatch, useSelector} from "react-redux";
 import {getPhoneList} from '../../../store/actionCreators/getPhoneList'
 import cn from 'classnames'
 
+export const PhoneCardList = ({error, loading, phoneListStore, sortTypeStore, searchTextStore}) => {
 
-export const PhoneCardList = () => {
-
-    const phoneListStore = useSelector(state => state.phoneListStore)
-    const sortTypeStore = useSelector(state => state.sortTypeStore)
-    const searchTextStore = useSelector(state => state.searchTextStore)
-
-    const dispatch = useDispatch();
-
-    const {get, response, loading, error} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json')
-
-    useEffect(() => {
-        getPhones()
-    }, [])
-
-    const getPhones = async() => {
-        const phones = await get('')
-        if (response.ok) {
-            dispatch(getPhoneList(phones))
-        }
-    }
-
-    // const className = cn('containerPhoneCard');
+    // const phoneListStore = useSelector(state => state.phoneListStore) const
+    // sortTypeStore = useSelector(state => state.sortTypeStore) const
+    // searchTextStore = useSelector(state => state.searchTextStore) const dispatch
+    // = useDispatch(); const {get, response, loading, error} =
+    // useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.
+    // json') useEffect(() => {     getPhones() }, []) const getPhones = async() =>
+    // {     const phones = await get('')     if (response.ok) {
+    // dispatch(getPhoneList(phones))     } }
 
     return (
         <div className={classes.container}>
