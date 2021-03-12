@@ -15,16 +15,19 @@ export const HomePhoneList = () => {
 
     const dispatch = useDispatch();
 
-    const {get, response, loading, error} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json')
+    const {get, response, loading, error} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json', 
+    {cache: "no-store"})
 
     useEffect(() => {
         getPhones()
     }, [])
 
     const getPhones = async() => {
-        const phones = await get('')
-        if (response.ok) {
-            dispatch(getPhoneList(phones))
+        if (!phoneListStore.length) {
+            const phones = await get('')
+            if (response.ok) {
+                dispatch(getPhoneList(phones))
+            }
         }
     }
 

@@ -16,19 +16,19 @@ export const Basket = () => {
             .currentTarget
             .getAttribute('idPhone');
         setLocalStorageBasket(localStorageBasket.filter((el) => el.id !== idPhone))
-        // debugger;
     }
     
     
     useEffect(() => {
         localStorage.setItem("phoneListBasket", JSON.stringify(localStorageBasket))
-
     }, [localStorageBasket])
+
 
     return (
         <div className={classes.container}>
-
-            {localStorageBasket && localStorageBasket.map(item => <div className={classes.phoneCardBasket}>
+        
+            {localStorageBasket && localStorageBasket.length ? localStorageBasket.map(item => 
+            <div className={classes.phoneCardBasket}>
                 <PhoneCard
                     className={classes.localStorageBasket}
                     key={item.id}
@@ -40,7 +40,7 @@ export const Basket = () => {
                     <DeleteIcon/>
                 </Button>
 
-            </div>)
+            </div>) : <h1> Тут пусто</h1>
             } 
         </div>
     ) 
