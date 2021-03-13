@@ -12,10 +12,11 @@ export const Basket = () => {
         setLocalStorageBasket] = useState(JSON.parse(localStorage.getItem('phoneListBasket')))
 
     const deleteButton = (event) => {
+        if (window.confirm('Are you sure you wish to delete this item?')){
         const idPhone = event
             .currentTarget
             .getAttribute('idPhone');
-        setLocalStorageBasket(localStorageBasket.filter((el) => el.id !== idPhone))
+        setLocalStorageBasket(localStorageBasket.filter((el) => el.id !== idPhone))}
     }
     
     
@@ -40,7 +41,9 @@ export const Basket = () => {
                     <DeleteIcon/>
                 </Button>
 
-            </div>) : <h1> Тут пусто</h1>
+            </div>) : <Alert variant='danger' className={classes.alert}>
+            Oops! Your cart is empty!ё
+            </Alert>
             } 
         </div>
     ) 

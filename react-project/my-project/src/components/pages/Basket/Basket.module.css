@@ -11,3 +11,9 @@
     border: 3px solid #ddd;
     margin: 1rem;
 }
+
+
+.alert {
+    width: max-content;
+    margin: 2rem auto;
+}
