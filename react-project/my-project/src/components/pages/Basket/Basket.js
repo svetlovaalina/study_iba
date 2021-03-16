@@ -54,7 +54,7 @@ export const Basket = () => {
                             <Button variant="secondary" onClick={handleClose}>
                                 Cancel
                             </Button>
-                            <Button variant="primary" idPhone={item.id} onClick={deleteButton}>
+                            <Button variant="danger" idPhone={item.id} onClick={deleteButton}>
                                 Delete
                             </Button>
                         </Modal.Footer>

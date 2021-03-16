@@ -6,7 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import {useDispatch, useSelector} from "react-redux";
 import {getPhoneList} from '../../../store/actionCreators/getPhoneList'
-import cn from 'classnames'
+
 
 export const PhoneCardList = ({error, loading, phoneListStore, sortTypeStore, searchTextStore}) => {
 
