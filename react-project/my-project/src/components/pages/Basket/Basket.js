@@ -10,18 +10,24 @@ import Modal from 'react-bootstrap/Modal'
 export const Basket = () => {
     const [show,
         setShow] = useState(false);
-
+    const [phoneToDelete,
+        setPhoneToDelete] = useState('');
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    // const handleShow = () => setShow(true);
+
+    const handleShow = (idPhone) => {
+        setShow(true)
+        setPhoneToDelete(idPhone.currentTarget.getAttribute('idPhone'))
+    };
 
     const [localStorageBasket,
         setLocalStorageBasket] = useState(JSON.parse(localStorage.getItem('phoneListBasket')))
 
     const deleteButton = (event) => {
-        const idPhone = event
-            .currentTarget
-            .getAttribute('idPhone');
-        setLocalStorageBasket(localStorageBasket.filter((el) => el.id !== idPhone))
+
+        setLocalStorageBasket(localStorageBasket.filter((el) => el.id !== phoneToDelete))
+        setPhoneToDelete('')
+        setShow(false);
 
     }
 
@@ -31,7 +37,21 @@ export const Basket = () => {
 
     return (
         <div className={classes.container}>
-
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        Remove phone</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure you want to delete this phone from the basket?</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Cancel
+                    </Button>
+                    <Button variant="danger"  onClick={deleteButton}>
+                        Delete
+                    </Button>
+                </Modal.Footer>
+            </Modal>
             {localStorageBasket && localStorageBasket.length
                 ? localStorageBasket.map(item => <div className={classes.phoneCardBasket}>
                     <PhoneCard
@@ -41,24 +61,10 @@ export const Basket = () => {
                         name={item.name}
                         imageUrl={item.images[0]}
                         snippet={item.description}/>
+
                     <Button variant="danger" idPhone={item.id} onClick={handleShow}>
                         <DeleteIcon/>
                     </Button>
-                    <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>
-                                Remove phone</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>Are you sure you want to delete this phone from the basket?</Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                Cancel
-                            </Button>
-                            <Button variant="danger" idPhone={item.id} onClick={deleteButton}>
-                                Delete
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
                 </div>)
                 : <Alert variant='danger' className={classes.alert}>
                     Oops! Your cart is empty!
