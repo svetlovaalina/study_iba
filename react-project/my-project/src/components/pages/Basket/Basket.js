@@ -52,7 +52,7 @@ export const Basket = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            {localStorageBasket && localStorageBasket.length
+            {localStorageBasket?.length
                 ? localStorageBasket.map(item => <div className={classes.phoneCardBasket}>
                     <PhoneCard
                         className={classes.localStorageBasket}
