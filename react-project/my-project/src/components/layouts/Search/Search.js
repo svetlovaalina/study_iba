@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React from 'react';
 import classes from './Search.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';

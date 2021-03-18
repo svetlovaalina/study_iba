@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback, useState} from 'react';
+import React, {useEffect} from 'react';
 import classes from './PhonePage.module.css'
 import {useParams} from 'react-router-dom';
 import useFetch, {Provider} from 'use-http'
