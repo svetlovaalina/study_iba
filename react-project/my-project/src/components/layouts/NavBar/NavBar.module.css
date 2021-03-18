@@ -9,7 +9,7 @@
 
 
 .avatarProfile{
-    margin: 0 auto;
+    padding: 0.5rem;
    display: flex;
    flex-direction: column;
    align-items: center; 
@@ -17,4 +17,8 @@
 
 .buttonText:hover{
     color: rgb(175, 122, 52);
+}
+
+.logOutButton{
+margin-top: 0.5rem;
 }

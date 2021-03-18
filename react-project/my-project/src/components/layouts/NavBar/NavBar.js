@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/NavBar';
 import Popover from '@material-ui/core/Popover';
 import Avatar from '@material-ui/core/Avatar';
+import Button from 'react-bootstrap/Button'
 
 export const NavBar = () => {
     const [anchorEl,
@@ -14,17 +15,20 @@ export const NavBar = () => {
         setProfile] = useState({});
     const [logInState,
         setLogInState] = useState(false);
+    const [openPopover, setOpenPopover] = useState(false)
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
+        setOpenPopover(true)
     };
 
     const handleClose = () => {
         setAnchorEl(null);
+        setOpenPopover(false)
     };
 
-    const open = Boolean(anchorEl);
-    const id = open
+    // const open = Boolean(anchorEl);
+    const id = openPopover
         ? 'simple-popover'
         : undefined;
 
@@ -35,7 +39,7 @@ export const NavBar = () => {
             .auth2
             .getAuthInstance()
             .signOut()
-
+      setOpenPopover(false)
     })
 
     const initLogin = () => {
@@ -124,25 +128,27 @@ export const NavBar = () => {
                     <Avatar alt="Remy Sharp" src={profile.image} onClick={handleClick}/>
                     <Popover
                         id={id}
-                        open={open}
+                        open={openPopover}
                         anchorEl={anchorEl}
                         onClose={handleClose}
                         anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'center'
-                    }}
+                          vertical: 'bottom',
+                          horizontal: 'left',
+                        }}
                         transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center'
-                    }}>
+                          vertical: 'top',
+                          horizontal: 'right',
+                        }}
+                        >
                         <div className={classes.avatarProfile}>
                             <Avatar alt="Remy Sharp" src={profile.image}/>
-                            Name: {profile.name}
-                            <br/>
-                            Email: {profile.email}
-                            <button onClick={logOut}>
-                                Log out
-                            </button>
+                            <b>Name:</b> {profile.name}
+                            {/* <br/> */}
+                           <b> Email: </b>{profile.email}
+                           <Button variant="secondary" onClick={logOut} className={classes.logOutButton}>
+                           Log out
+                           </Button>
+                            
 
                         </div>
 
