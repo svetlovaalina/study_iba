@@ -9,13 +9,10 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from 'react-bootstrap/Button'
 
 export const NavBar = () => {
-    const [anchorEl,
-        setAnchorEl] = useState(null);
-    const [profile,
-        setProfile] = useState({});
-    const [logInState,
-        setLogInState] = useState(false);
-    const [openPopover, setOpenPopover] = useState(false)
+    const [anchorEl,setAnchorEl] = useState(null);
+    const [profile,setProfile] = useState({});
+    const [logInState,setLogInState] = useState(false);
+    const [openPopover,setOpenPopover] = useState(false)
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -27,10 +24,7 @@ export const NavBar = () => {
         setOpenPopover(false)
     };
 
-    // const open = Boolean(anchorEl);
-    const id = openPopover
-        ? 'simple-popover'
-        : undefined;
+    const id = openPopover ? 'simple-popover' : undefined;
 
     const logOut = (() => {
         setLogInState(false)
@@ -39,7 +33,7 @@ export const NavBar = () => {
             .auth2
             .getAuthInstance()
             .signOut()
-      setOpenPopover(false)
+        setOpenPopover(false)
     })
 
     const initLogin = () => {
@@ -75,7 +69,6 @@ export const NavBar = () => {
                             setLogInState(false);
                         }
                     });
-
                 attachSignIn(document.getElementById('customBtn'));
             });
     };
@@ -85,14 +78,6 @@ export const NavBar = () => {
             window
                 .auth2
                 .attachClickHandler(element, {}, googleUser => {
-                    /*const userProfile = googleUser.getBasicProfile();
-          setLogInState(true);
-          setProfile({
-            name: userProfile.getName(),
-            email: userProfile.getEmail(),
-            image: userProfile.getImageUrl()
-          });*/
-
                 }
                 // , error => {   alert(JSON.stringify(error, undefined, 2)); }
                 );
@@ -119,11 +104,12 @@ export const NavBar = () => {
                 </div>
                 {!logInState && <div id="gSignInWrapper">
                     <div id="customBtn" className="customGPlusSignIn">
-                        <Link to="/" className={classes.navBarLink}>Log in</Link>
+                        <Navbar.Brand>
+                            <Link to="/" className={classes.navBarLink}>Log in</Link>
+                        </Navbar.Brand>
                     </div>
                 </div>
 }
-
                 {logInState && <div>
                     <Avatar alt="Remy Sharp" src={profile.image} onClick={handleClick}/>
                     <Popover
@@ -132,30 +118,26 @@ export const NavBar = () => {
                         anchorEl={anchorEl}
                         onClose={handleClose}
                         anchorOrigin={{
-                          vertical: 'bottom',
-                          horizontal: 'left',
-                        }}
+                        vertical: 'bottom',
+                        horizontal: 'left'
+                    }}
                         transformOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        >
+                        vertical: 'top',
+                        horizontal: 'right'
+                    }}>
                         <div className={classes.avatarProfile}>
                             <Avatar alt="Remy Sharp" src={profile.image}/>
-                            <b>Name:</b> {profile.name}
-                            {/* <br/> */}
-                           <b> Email: </b>{profile.email}
-                           <Button variant="secondary" onClick={logOut} className={classes.logOutButton}>
-                           Log out
-                           </Button>
-                            
-
+                            <b>Name:</b>
+                            {profile.name}
+                            <b>Email:</b>
+                            {profile.email}
+                            <Button variant="secondary" onClick={logOut} className={classes.logOutButton}>
+                                Log out
+                            </Button>
                         </div>
-
                     </Popover>
                 </div>}
             </Navbar>
-
         </div>
     )
 }
