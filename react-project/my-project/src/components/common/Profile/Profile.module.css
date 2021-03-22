@@ -1,0 +1,12 @@
+
+
+.avatarProfile {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logOutButton {
+    margin-top: 0.5rem;
+}
