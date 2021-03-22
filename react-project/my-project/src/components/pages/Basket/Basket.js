@@ -56,7 +56,7 @@ export const Basket = () => {
                 ? localStorageBasket.map(item => <div className={classes.phoneCardBasket}>
                     <PhoneCard
                         className={classes.localStorageBasket}
-                        key={item.id}
+                        // key={item.id}
                         id={item.id}
                         name={item.name}
                         imageUrl={item.images[0]}

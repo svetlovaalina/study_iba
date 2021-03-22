@@ -6,7 +6,7 @@ import cn from 'classnames'
 export const PhoneCard = ({name, snippet, imageUrl, id, className}) => {
 
     return (
-        <div className={cn(className, classes.container)}>
+        <div key={id} className={cn(className, classes.container)}>
             <div className={classes.imageContainer}>
                 <img
                     className={classes.image}
