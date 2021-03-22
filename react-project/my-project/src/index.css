@@ -15,10 +15,15 @@ code {
     background: rgba(92, 2, 47, 0.233);
 }
 
+.carousel-root{
+    width: 90%;
+}
+
 .carousel-root .carousel.carousel-slider .control-arrow {
     margin: auto 0;
     padding: 0.2rem;
     height: 50px;
+
 }
 
 

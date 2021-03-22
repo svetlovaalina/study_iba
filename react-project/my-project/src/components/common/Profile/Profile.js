@@ -12,7 +12,7 @@ import cn from 'classnames'
 export const Profile = ({className}) => {
 
     const [visibility,
-        setVisibility] = useState(true)
+        setVisibility] = useState(false)
     const [anchorEl,
         setAnchorEl] = useState(null);
     const [profile,
@@ -83,6 +83,7 @@ export const Profile = ({className}) => {
                             setLogInState(false);
 
                         }
+                        setVisibility(true)
                     });
                 attachSignIn(document.getElementById('customBtn'));
                 
@@ -91,7 +92,9 @@ export const Profile = ({className}) => {
     };
 
     const attachSignIn = element => {
-        if (!logInState) {
+        
+         if (!logInState)
+         {
             window
                 .auth2
                 .attachClickHandler(element, {}, googleUser => {}
@@ -100,8 +103,12 @@ export const Profile = ({className}) => {
         }
     }
 
-    useEffect(() => {
+    useEffect(() => {      
         initLogin()
+        // console.log(logInState, ":",visibility)
+        if(!logInState){
+            setVisibility(true)
+        }
     }, [logInState])
 
     return (
@@ -114,8 +121,7 @@ export const Profile = ({className}) => {
                 </div>
             </div>
     }
-    {
-        logInState && <div>
+    {logInState && <div>
                 <Avatar alt="Remy Sharp" src={profile.image} onClick={handleClick}/>
                 <Popover
                     id={id}
