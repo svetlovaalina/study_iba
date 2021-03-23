@@ -12,7 +12,7 @@ import cn from 'classnames'
 export const Profile = ({className}) => {
 
     const [visibility,
-        setVisibility] = useState(false)
+        setVisibility] = useState(true)
     const [anchorEl,
         setAnchorEl] = useState(null);
     const [profile,
@@ -48,7 +48,6 @@ export const Profile = ({className}) => {
     })
 
     const initLogin = () => {
-        
         window
             .gapi
             .load('auth2', () => {
@@ -67,7 +66,6 @@ export const Profile = ({className}) => {
                     .isSignedIn
                     .listen(isSignedIn => {
                         if (isSignedIn) {
-
                             const userProfile = window
                                 .auth2
                                 .currentUser
@@ -81,18 +79,16 @@ export const Profile = ({className}) => {
                             })
                         } else {
                             setLogInState(false);
-
                         }
-                        setVisibility(true)
+                        // setVisibility(true)
                     });
                 attachSignIn(document.getElementById('customBtn'));
-                
             });
 
     };
 
     const attachSignIn = element => {
-        
+        // console.log("attachSingIn: " , logInState   )
          if (!logInState)
          {
             window
@@ -100,15 +96,18 @@ export const Profile = ({className}) => {
                 .attachClickHandler(element, {}, googleUser => {}
                 // , error => {   alert(JSON.stringify(error, undefined, 2)); }
                 );
+                // setVisibility(true)
         }
+        // else{
+        //     setVisibility(false)
+        // }
+
     }
 
     useEffect(() => {      
         initLogin()
         // console.log(logInState, ":",visibility)
-        if(!logInState){
-            setVisibility(true)
-        }
+ 
     }, [logInState])
 
     return (
