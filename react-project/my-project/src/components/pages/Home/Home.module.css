@@ -1,10 +1,7 @@
 .container {
     display: flex;
+    padding: 1rem;
 }
-
-/* .homeListPhone {
-    margin-left: 2.5rem;
-} */
 
 .displayEditor {
     width: 250px;

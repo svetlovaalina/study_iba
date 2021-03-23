@@ -6,7 +6,9 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 0.5rem;
-    /* margin: 1rem; */
+    animation-name: animation;
+    animation-duration: 1s;
+    animation-timing-function:ease-out
 }
 
 .image {
@@ -53,4 +55,15 @@
         display: block;
         overflow: hidden;
     }
+}
+
+@keyframes animation {
+0% { opacity: 0.1;
+    transform: translateY(-30px);
+}
+
+100% {
+opacity: 1;
+transform: translateY(0px);
+}
 }

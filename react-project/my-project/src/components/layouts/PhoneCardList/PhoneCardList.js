@@ -28,5 +28,6 @@ export const PhoneCardList = ({error, loading, phoneListStore, sortTypeStore, se
                     snippet={item.snippet}/>)
 }
         </div>
+
     )
 };

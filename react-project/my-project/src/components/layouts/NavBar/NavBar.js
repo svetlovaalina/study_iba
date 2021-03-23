@@ -7,7 +7,6 @@ import Navbar from 'react-bootstrap/NavBar';
 import {Profile} from '../../common/Profile'
 
 export const NavBar = () => {
-
     return (
         <div className={classes.container}>
             <Navbar bg="primary" variant="dark" className="d-flex justify-content-between">
