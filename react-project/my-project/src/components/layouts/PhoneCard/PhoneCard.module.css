@@ -6,9 +6,9 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 0.5rem;
-    animation-name: animation;
+    /* animation-name: animation;
     animation-duration: 1s;
-    animation-timing-function:ease-out;
+    animation-timing-function:ease-out; */
 }
 
 .image {
@@ -38,7 +38,6 @@
     font-family: 'Akaya Kanadaka', cursive;
     color: rgb(78, 78, 78);
 }
-
 @media only screen and (max-width: 37.5em) {
     .container {
         width: 100%;
@@ -46,7 +45,6 @@
         overflow: hidden;
     }
 }
-
 @media only screen and (min-width: 37.5625em) and (max-width: 50em) {
     .container {
         width: 100%;
@@ -56,15 +54,31 @@
         overflow: hidden;
     }
 }
+/* @keyframes animation {
+    0% {
+        opacity: 0.1;
+        transform: translateY(-30px);
 
-@keyframes animation {
-0% { opacity: 0.1;
-    transform: translateY(-30px);
+    }
 
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+} */
+ 
+.myNode-enter {
+    opacity: 0.01;
+}
+.myNode-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+.myNode-exit {
+    opacity: 1;
+}
+.myNode-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
 }
 
-100% {
-opacity: 1;
-transform: translateY(0px);
-}
-}

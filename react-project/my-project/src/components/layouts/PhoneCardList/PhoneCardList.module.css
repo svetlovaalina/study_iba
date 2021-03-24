@@ -8,29 +8,29 @@
 
 .alert {
     width: max-content;
-    margin: 2rem auto
+    margin: 2rem auto;
 }
-.example-enter {
+.listAnimation {
+    transform-origin: top center
+}
+/* 
+.myNode-enter {
     opacity: 0.01;
 }
-
-.example-enter.example-enter-active {
+.myNode-enter-active {
     opacity: 1;
-    transition: opacity 300ms ease-in;
+    transition: opacity 2000ms;
 }
-
-.example-leave {
+.myNode-exit {
     opacity: 1;
 }
+.myNode-exit-active {
+    opacity: 0;
+    transition: opacity 2000ms;
+} */
 
-.example-leave.example-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
-}
 /* /////////////FOR PHONE CARD//////////////// */
 
 .containerPhoneCard {
-    margin: 1rem ;
+    margin: 1rem;
 }
-
-

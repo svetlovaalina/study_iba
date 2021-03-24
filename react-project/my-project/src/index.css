@@ -42,3 +42,24 @@ nav.bg-primary {
 .navbar-brand a {
     color: aliceblue;
 }
+
+
+.myNode-enter {
+  transform: scaleY(0);
+  opacity: 0;
+}
+.myNode-enter-active {
+    opacity: 1;
+    transform: scaleY(1);  
+    transition: opacity 1000ms, transform 1000ms ;
+}
+ .myNode-exit {
+     opacity: 0; 
+    transform: scaleY(0);
+}
+.myNode-exit-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: opacity 1000ms, transform 1000ms ;
+
+} 
