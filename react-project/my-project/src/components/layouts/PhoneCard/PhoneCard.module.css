@@ -8,7 +8,7 @@
     padding: 0.5rem;
     animation-name: animation;
     animation-duration: 1s;
-    animation-timing-function:ease-out
+    animation-timing-function:ease-out;
 }
 
 .image {
@@ -60,6 +60,7 @@
 @keyframes animation {
 0% { opacity: 0.1;
     transform: translateY(-30px);
+
 }
 
 100% {

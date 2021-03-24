@@ -23,6 +23,9 @@
     margin: 0.2rem;
     font-family: 'CENTURY SCHOOLBOOK';
     font-size: 1.4em;
+    animation-name: animationText;
+    animation-duration: 1.5s;
+    animation-timing-function:cubic-bezier(0, 0, 0, 1.03)
 }
 
 .idAndDescription h1 {
@@ -62,6 +65,20 @@
     font-size: 1.2rem;
 }
 
+@keyframes animationText {
+    0% {
+        margin-left: 100%;
+        width: 120%;
+    }  
+    80% {
+        margin-left: -5%;
+        width: 100%;
+    }
+    100%{
+        margin-left: 0%;
+        width: 100%;
+    }
+}
 
 
 @media only screen and (max-width: 50em) and (min-width: 37.5625em) {

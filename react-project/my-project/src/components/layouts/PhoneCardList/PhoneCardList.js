@@ -16,8 +16,7 @@ export const PhoneCardList = ({error, loading, phoneListStore, sortTypeStore, se
             </Alert>}
             {loading && <Spinner animation="border" className='spinner'/>}
             {phoneListStore.sort((prevPhone, phone) => prevPhone[sortTypeStore] < phone[sortTypeStore]
-                ? -1
-                    : 1)
+                ? -1: 1)
                 .filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()))
                 .map(item => <PhoneCard
                     className={classes.containerPhoneCard}

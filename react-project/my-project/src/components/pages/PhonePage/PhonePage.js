@@ -28,6 +28,7 @@ export const PhonePage = () => {
         );
     }
 
+
     return phoneData && (
         <div className={classes.containerPhone}>
             <div className={classes.phoneImagesShortDescription}>
