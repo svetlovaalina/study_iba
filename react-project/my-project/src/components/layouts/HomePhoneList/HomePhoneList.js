@@ -4,15 +4,13 @@ import {PhoneCardList} from '../PhoneCardList';
 import useFetch, {Provider} from 'use-http'
 import {useDispatch, useSelector} from "react-redux";
 import {getPhoneList} from '../../../store/actionCreators/getPhoneList';
-import {CSSTransition} from 'react-transition-group';
 
 export const HomePhoneList = () => {
 
     const phoneListStore = useSelector(state => state.phoneListStore)
     const sortTypeStore = useSelector(state => state.sortTypeStore)
     const searchTextStore = useSelector(state => state.searchTextStore)
-    const [inProp,
-        setInProp] = useState(false);
+    const [inProp,setInProp] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -20,12 +18,10 @@ export const HomePhoneList = () => {
 
     useEffect(() => {
         getPhones()
-
     }, [])
 
     useEffect(() => {
         setInProp(!inProp)
-
     }, [searchTextStore, sortTypeStore])
 
     const getPhones = async() => {
@@ -35,21 +31,17 @@ export const HomePhoneList = () => {
                 dispatch(getPhoneList(phones))
             }
         }
-
     }
 
     return (
         <div>
-            {/* <CSSTransition in={inProp} timeout={1000} classNames="myNode" appear={true}>
-                <div> */}
             <PhoneCardList
                 error={error}
                 loading={loading}
                 phoneListStore={phoneListStore}
                 sortTypeStore={sortTypeStore}
                 inProp={inProp}
-                searchTextStore={searchTextStore}/> {/* </div>
-                </CSSTransition> */}
+                searchTextStore={searchTextStore}/>
         </div>
     )
 }

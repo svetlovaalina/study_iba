@@ -10,6 +10,7 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+/* For  carousel in PhonePage*/
 .carousel .thumbs-wrapper .control-arrow {
 
     background: rgba(92, 2, 47, 0.233);
@@ -28,13 +29,13 @@ code {
 
 }
 
-
+/* Foe loading */
 .spinner {
     position: fixed;
     top: 50%;
     left: 50%;
 }
-
+/* For Header */
 nav.bg-primary {
     background-color: #2fccd1!important;
 }
@@ -43,6 +44,7 @@ nav.bg-primary {
     color: aliceblue;
 }
 
+/* For animation in PhoneCardList */
 
 .myNode-enter {
   transform: scaleY(0);
@@ -63,3 +65,4 @@ nav.bg-primary {
     transition: opacity 1000ms, transform 1000ms ;
 
 } 
+/*  */
