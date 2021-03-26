@@ -10,59 +10,9 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-/* For  carousel in PhonePage*/
-.carousel .thumbs-wrapper .control-arrow {
-
-    background: rgba(92, 2, 47, 0.233);
-}
-.carousel .slide {
-    background: rgb(255, 255, 255)!important
-}
-.carousel-root{
-    width: 90%;
-}
-
-.carousel-root .carousel.carousel-slider .control-arrow {
-    margin: auto 0;
-    padding: 0.2rem;
-    height: 50px;
-
-}
-
 /* Foe loading */
 .spinner {
     position: fixed;
     top: 50%;
     left: 50%;
 }
-/* For Header */
-nav.bg-primary {
-    background-color: #2fccd1!important;
-}
-
-.navbar-brand a {
-    color: aliceblue;
-}
-
-/* For animation in PhoneCardList */
-
-.myNode-enter {
-  transform: scaleY(0);
-  opacity: 0;
-}
-.myNode-enter-active {
-    opacity: 1;
-    transform: scaleY(1);  
-    transition: opacity 1000ms, transform 1000ms ;
-}
- .myNode-exit {
-     opacity: 0; 
-    transform: scaleY(0);
-}
-.myNode-exit-active {
-    opacity: 1;
-    transform: scaleY(1);
-    transition: opacity 1000ms, transform 1000ms ;
-
-} 
-/*  */

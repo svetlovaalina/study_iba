@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import classes from './PhoneCard.module.css'
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import cn from 'classnames'
-import {CSSTransition, CSSTransitionGroup} from 'react-transition-group';
+
 
 export const PhoneCard = ({name,snippet,imageUrl,id,className}) => {
 

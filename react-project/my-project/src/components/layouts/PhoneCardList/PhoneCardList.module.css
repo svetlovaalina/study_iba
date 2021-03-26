@@ -11,7 +11,27 @@
     margin: 2rem auto;
 }
 .listAnimation {
-    transform-origin: top center
+    transform-origin: top center;
+}
+
+:global .myNode-enter {
+    transform: scaleY(0);
+    opacity: 0;
+}
+:global .myNode-enter-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: opacity 1000ms, transform 1000ms;
+}
+:global .myNode-exit {
+    opacity: 0;
+    transform: scaleY(0);
+}
+:global .myNode-exit-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: opacity 1000ms, transform 1000ms;
+
 }
 
 /* /////////////FOR PHONE CARD//////////////// */

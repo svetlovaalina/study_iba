@@ -25,7 +25,7 @@
     font-size: 1.4em;
     animation-name: animationText;
     animation-duration: 1.5s;
-    animation-timing-function:cubic-bezier(0, 0, 0, 1.03)
+    animation-timing-function: cubic-bezier(0, 0, 0, 1.03);
 }
 
 .idAndDescription h1 {
@@ -64,23 +64,20 @@
 .propDescription p {
     font-size: 1.2rem;
 }
-
 @keyframes animationText {
     0% {
         margin-left: 100%;
         width: 120%;
-    }  
+    }
     80% {
         margin-left: -5%;
         width: 100%;
     }
-    100%{
-        margin-left: 0%;
+    100% {
+        margin-left: 0;
         width: 100%;
     }
 }
-
-
 @media only screen and (max-width: 50em) and (min-width: 37.5625em) {
     .phoneImagesShortDescription {
         display: flex;
@@ -110,6 +107,7 @@
         margin: 0.3rem;
     }
 }
+
 @media only screen and (max-width: 37.5em) {
 
     .containerPhone {
@@ -117,7 +115,7 @@
         padding: 0 1rem;
         overflow: hidden;
     }
-    
+
     .phoneImagesShortDescription {
         display: flex;
         flex-direction: column;
@@ -139,5 +137,23 @@
         display: flex;
         flex-direction: column;
     }
+
+}
+
+:global .carousel .thumbs-wrapper .control-arrow {
+
+    background: rgba(92, 2, 47, 0.233);
+}
+:global .carousel .slide {
+    background: rgb(255, 255, 255)!important;
+}
+:global .carousel-root {
+    width: 90%;
+}
+
+:global .carousel-root .carousel.carousel-slider .control-arrow {
+    margin: auto 0;
+    padding: 0.2rem;
+    height: 50px;
 
 }

@@ -10,7 +10,8 @@ export const HomePhoneList = () => {
     const phoneListStore = useSelector(state => state.phoneListStore)
     const sortTypeStore = useSelector(state => state.sortTypeStore)
     const searchTextStore = useSelector(state => state.searchTextStore)
-    const [inProp,setInProp] = useState(false);
+    const [animationCall,
+        setAnimationCall] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -21,7 +22,7 @@ export const HomePhoneList = () => {
     }, [])
 
     useEffect(() => {
-        setInProp(!inProp)
+        setAnimationCall(!animationCall)
     }, [searchTextStore, sortTypeStore])
 
     const getPhones = async() => {
@@ -40,7 +41,7 @@ export const HomePhoneList = () => {
                 loading={loading}
                 phoneListStore={phoneListStore}
                 sortTypeStore={sortTypeStore}
-                inProp={inProp}
+                animationCall={animationCall}
                 searchTextStore={searchTextStore}/>
         </div>
     )

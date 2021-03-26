@@ -17,3 +17,11 @@
 .logOutButton {
     margin-top: 0.5rem;
 }
+
+:global nav.bg-primary {
+    background-color: #2fccd1!important;
+}
+
+:global .navbar-brand a {
+    color: aliceblue;
+}
