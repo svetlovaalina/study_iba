@@ -1,27 +1,28 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import classes from './PhoneCardList.module.css'
 import {PhoneCard} from '../PhoneCard';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
-import {useDispatch, useSelector} from "react-redux";
-import {getPhoneList} from '../../../store/actionCreators/getPhoneList'
+// import {BrowserRouter as  Link} from 'react-router-dom';
 import {CSSTransition} from 'react-transition-group';
 
-
-export const PhoneCardList = ({error,loading,phoneListStore,sortTypeStore,searchTextStore,animationCall}) => {
+export const PhoneCardList = ({error,loading,phoneListStore, sortTypeStore, searchTextStore,animationCall
+}) => {
+    const animationList = useRef(null);
 
     return (
         <div className={classes.container}>
-            {error && <Alert variant='danger' className={classes.alert}>
+            {error && 
+            <Alert variant='danger' className={classes.alert}>
                 Error: {error.name}
                 {error.message}
             </Alert>}
-            {loading && <Spinner animation="border" className='spinner'/>}
-            <CSSTransition in={animationCall} timeout={1000} classNames="myNode">
-                <div className={classes.listAnimation}>
+            {loading && 
+            <Spinner animation="border" className='spinner'/>}
+            <CSSTransition in={animationCall} timeout={1000} animationList={animationList} classNames="animationList">
+                <div className={classes.listAnimation} ref={animationList}>
                     {phoneListStore.sort((prevPhone, phone) => prevPhone[sortTypeStore] < phone[sortTypeStore]
-                        ? -1
-                            : 1)
+                        ? -1 : 1)
                         .filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()))
                         .map(item => <PhoneCard
                             className={classes.containerPhoneCard}
@@ -30,8 +31,7 @@ export const PhoneCardList = ({error,loading,phoneListStore,sortTypeStore,search
                             name={item.name}
                             imageUrl={item.imageUrl}
                             snippet={item.snippet}/>)
-                    } 
-                    
+                    }
                 </div>
             </CSSTransition>
         </div>

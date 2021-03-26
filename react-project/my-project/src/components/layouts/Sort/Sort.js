@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useStyles} from 'react';
+import React, {useState} from 'react';
 import classes from './Sort.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';

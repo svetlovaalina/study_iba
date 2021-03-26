@@ -1,27 +1,23 @@
 import React, {useState, useEffect} from 'react';
 import classes from './ButtonBasket.module.css'
 import Button from 'react-bootstrap/Button'
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"; // ?!
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {actionAddPhoneToBasket} from "../../../store/actionCreators/actionAddPhoneToBasket"
 import {useDispatch} from "react-redux"
-import {Basket} from "../../pages/Basket";
 
 export const ButtonBasket = ({phoneData}) => {
     const add = "AddToBasket";
     const go = "GoInBasket";
     const dispatch = useDispatch();
-    const [stateBasket,
-        setStateBasket] = useState(add);
-
+    const [stateBasket,setStateBasket] = useState(add);
     const localStorageBasket = JSON.parse(localStorage.getItem('phoneListBasket'));
 
     const addToBasket = () => {
         setStateBasket(go)
         dispatch(actionAddPhoneToBasket(phoneData))
-
         if (!localStorageBasket) {
             localStorage.setItem("phoneListBasket", JSON.stringify([phoneData]))
         } else {
@@ -29,7 +25,7 @@ export const ButtonBasket = ({phoneData}) => {
             localStorage.setItem("phoneListBasket", JSON.stringify(localStorageBasket))
         }
     }
-    
+
     useEffect(() => {
         if (localStorageBasket && localStorageBasket.find(x => x.id === phoneData.id)) {
             setStateBasket(go)
@@ -46,12 +42,14 @@ export const ButtonBasket = ({phoneData}) => {
                         Add to
                         <AddShoppingCartIcon/>
                     </Button>
-                : <Button variant="success" className={classes.buttonGoInBasket}>
-                    <Link to="/basket">
+                : <Link to="/basket">
+                    <Button variant="success" className={classes.buttonGoInBasket}>
                         Go to
-                        <ShoppingCartIcon/><CheckCircleIcon/>
-                    </Link>
-                </Button>}
+                        <ShoppingCartIcon/>
+                        <CheckCircleIcon/>
+                    </Button>
+                </Link>
+}
         </div>
     )
 }

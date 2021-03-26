@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import React, {useEffect, useState, useRef} from 'react';
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"; // ?!
 import classes from './Profile.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,8 +11,6 @@ import cn from 'classnames'
 
 export const Profile = ({className}) => {
 
-    const [visibility,
-        setVisibility] = useState(true)
     const [anchorEl,
         setAnchorEl] = useState(null);
     const [profile,
@@ -21,6 +19,7 @@ export const Profile = ({className}) => {
         setLogInState] = useState(false);
     const [openPopover,
         setOpenPopover] = useState(false)
+    const buttonRef = useRef(null)
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -32,121 +31,87 @@ export const Profile = ({className}) => {
         setOpenPopover(false)
     };
 
-    const id = openPopover
-        ? 'simple-popover'
-        : undefined;
+    const id = openPopover ? 'simple-popover' : undefined;
 
     const logOut = (() => {
         setLogInState(false)
-        window
-            .gapi
-            .auth2
-            .getAuthInstance()
-            .signOut()
+        window.gapi.auth2.getAuthInstance().signOut()
         setOpenPopover(false)
-
     })
 
     const initLogin = () => {
-        window
-            .gapi
-            .load('auth2', () => {
-                // Retrieve the singleton for the GoogleAuth library and set up the client.
-                window.auth2 = window
-                    .gapi
-                    .auth2
-                    .init({
-                        client_id: '755442296670-hc7artjstip6s83jqubejavr6ptqogv9.apps.googleusercontent.com', cookiepolicy: 'single_host_origin',
-                        // Request scopes in addition to 'profile' and 'email' scope: 'additional_scope'
+        window.gapi.load('auth2', () => {
+                window.auth2 = window.gapi.auth2.init({
+                        client_id: '755442296670-hc7artjstip6s83jqubejavr6ptqogv9.apps.googleusercontent.com', 
+                        cookiepolicy: 'single_host_origin',
                     });
-                
-                // console.log(window.auth2.isSignedIn.get());
-                window
-                    .auth2
-                    .isSignedIn
-                    .listen(isSignedIn => {
+                window.auth2.isSignedIn.listen(isSignedIn => {
                         if (isSignedIn) {
-                            const userProfile = window
-                                .auth2
-                                .currentUser
-                                .get()
-                                .getBasicProfile();
+                            const userProfile = window.auth2.currentUser.get().getBasicProfile();
                             setLogInState(true);
                             setProfile({
                                 name: userProfile.getName(),
                                 email: userProfile.getEmail(),
                                 image: userProfile.getImageUrl()
                             })
-                        } else {
+                        } 
+                        else {
                             setLogInState(false);
                         }
-                        // setVisibility(true)
                     });
-                attachSignIn(document.getElementById('customBtn'));
-            });
-
+                attachSignIn(buttonRef.current);
+        });
     };
 
     const attachSignIn = element => {
-        // console.log("attachSingIn: " , logInState   )
-         if (!logInState)
-         {
-            window
-                .auth2
-                .attachClickHandler(element, {}, googleUser => {}
-                // , error => {   alert(JSON.stringify(error, undefined, 2)); }
-                );
-                // setVisibility(true)
+        if (!logInState) {
+            window.auth2.attachClickHandler(element, {}, googleUser => {});
         }
-        // else{
-        //     setVisibility(false)
-        // }
-
     }
 
     useEffect(() => {      
         initLogin()
-        // console.log(logInState, ":",visibility)
- 
     }, [logInState])
 
     return (
-    <> {
-        visibility && !logInState && <div id="gSignInWrapper">
-                <div id="customBtn" className="customGPlusSignIn">
-                    <Navbar.Brand>
-                        <Link to="/" className={cn(className)}>Log in</Link>
-                    </Navbar.Brand>
-                </div>
+    <> 
+    { !logInState && 
+        <div id="gSignInWrapper">
+            <div id="customBtn" ref={buttonRef} className="customGPlusSignIn">
+                <Navbar.Brand>
+                    <Link to="/" className={cn(className)}>Log in</Link>
+                </Navbar.Brand>
             </div>
+        </div>
     }
-    {logInState && <div>
-                <Avatar alt="Remy Sharp" src={profile.image} onClick={handleClick}/>
-                <Popover
-                    id={id}
-                    open={openPopover}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left'
-                }}
-                    transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right'
-                }}>
-                    <div className={classes.avatarProfile}>
-                        <Avatar alt="Remy Sharp" src={profile.image}/>
-                        <b>Name:</b>
-                        {profile.name}
-                        <b>Email:</b>
-                        {profile.email}
-                        <Button variant="secondary" onClick={logOut} className={classes.logOutButton}>
-                            Log out
-                        </Button>
-                    </div>
-                </Popover>
-            </div>
-    } </>
+
+    {logInState && 
+    <div>
+        <Avatar alt="Remy Sharp" src={profile.image} onClick={handleClick}/>
+        <Popover
+            id={id}
+            open={openPopover}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={
+            {vertical: 'bottom',
+            horizontal: 'left'}}
+            transformOrigin={
+            {vertical: 'top',
+            horizontal: 'right'}}>
+        <div className={classes.avatarProfile}>
+            <Avatar alt="Remy Sharp" src={profile.image}/>
+                <b>Name:</b>
+                {profile.name}
+                <b>Email:</b>
+                {profile.email}
+            <Button variant="secondary" onClick={logOut} className={classes.logOutButton}>
+                Log out
+            </Button>
+        </div>
+            </Popover>
+        </div>
+    } 
+    </>
     ) 
 }

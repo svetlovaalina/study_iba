@@ -1,7 +1,7 @@
-import React, {useContext, useEffect, useCallback, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import classes from './HomePhoneList.module.css'
 import {PhoneCardList} from '../PhoneCardList';
-import useFetch, {Provider} from 'use-http'
+import useFetch from 'use-http'
 import {useDispatch, useSelector} from "react-redux";
 import {getPhoneList} from '../../../store/actionCreators/getPhoneList';
 

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import classes from './Basket.module.css';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import {PhoneCard} from '../../layouts/PhoneCard';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from 'react-bootstrap/Button'
@@ -42,7 +41,7 @@ export const Basket = () => {
                     <Modal.Title>
                         Remove phone</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Are you sure you want to delete this phone from the basket?</Modal.Body>
+                <Modal.Body> Are you sure you want to delete this phone from the basket?</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Cancel

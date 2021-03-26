@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React  from 'react';
 import classes from './App.module.css';
 import {PhonePage} from './components/pages/PhonePage';
 import {Home} from './components/pages/Home';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {NavBar} from "./components/layouts/NavBar";
 import {Basket} from './components/pages/Basket';

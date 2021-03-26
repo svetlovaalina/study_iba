@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import classes from './PhoneCard.module.css'
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"; // ?!
 import cn from 'classnames'
 
-
-export const PhoneCard = ({name,snippet,imageUrl,id,className}) => {
+export const PhoneCard = ({name, snippet, imageUrl, id, className}) => {
 
     return (
         <div key={id} className={cn(className, classes.container)}>

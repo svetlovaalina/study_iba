@@ -1,19 +1,13 @@
-/* .containerBasket .containerBasket {
-    width: max-content;
-    background-color: rgb(114, 116, 114);
-} */
 .containerBasket .buttonAddToBasket {
     width: max-content;
     background-color: rgb(76, 78, 76);
 }
-
 .buttonGoInBasket a,
 .buttonGoInBasket a:hover {
     color: #fff;
- 
+
     text-decoration: none;
 }
-
 .containerBasket {
     display: flex;
     flex-direction: column;

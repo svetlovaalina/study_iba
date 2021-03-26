@@ -1,5 +1,4 @@
-@import url( 'https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
 .container {
     min-height: 15rem;
     display: flex;
@@ -7,15 +6,12 @@
     border-radius: 4px;
     padding: 0.5rem;
 }
-
 .image {
     width: 15rem;
 }
-
 .imageContainer {
     margin-right: 2rem;
 }
-
 .mobileDescription {
     display: flex;
     flex-direction: column;
@@ -23,17 +19,20 @@
     height: 15rem;
     overflow: hidden;
 }
-
 .mobileName {
     font-size: 1.6rem;
     color: hsl(0, 9%, 18%);
 }
-
 .mobileSnippet {
     margin-top: 2rem;
     font-size: 1.5em;
-    font-family: 'Akaya Kanadaka', cursive;
-    color: rgb(78, 78, 78);
+    font-family: 'New Tegomin', serif;
+    color: rgb(20, 19, 19);
+}
+.mobileName:hover {
+    color: #000000 !important;
+    text-decoration: unset;
+    font-weight: 500;
 }
 @media only screen and (max-width: 37.5em) {
     .container {
@@ -51,19 +50,3 @@
         overflow: hidden;
     }
 }
-
-.myNode-enter {
-    opacity: 0.01;
-}
-.myNode-enter-active {
-    opacity: 1;
-    transition: opacity 200ms;
-}
-.myNode-exit {
-    opacity: 1;
-}
-.myNode-exit-active {
-    opacity: 0;
-    transition: opacity 200ms;
-}
-
