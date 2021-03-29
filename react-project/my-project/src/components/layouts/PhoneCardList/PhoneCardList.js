@@ -19,7 +19,7 @@ export const PhoneCardList = ({error,loading,phoneListStore, sortTypeStore, sear
             </Alert>}
             {loading && 
             <Spinner animation="border" className='spinner'/>}
-            <CSSTransition in={animationCall} timeout={1000} animationList={animationList} classNames="animationList">
+            <CSSTransition in={animationCall} timeout={1000} nodeRef={animationList} classNames="animationList">
                 <div className={classes.listAnimation} ref={animationList}>
                     {phoneListStore.sort((prevPhone, phone) => prevPhone[sortTypeStore] < phone[sortTypeStore]
                         ? -1 : 1)

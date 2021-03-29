@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import classes from './Basket.module.css';
 import {PhoneCard} from '../../layouts/PhoneCard';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -13,17 +13,17 @@ export const Basket = () => {
         setPhoneToDelete] = useState('');
     const handleClose = () => setShow(false);
     // const handleShow = () => setShow(true);
+    const deletePhoneButton = useRef(null)
 
-    const handleShow = (idPhone) => {
+    const handleShow = (event) => {
         setShow(true)
-        setPhoneToDelete(idPhone.currentTarget.getAttribute('idPhone'))
+         setPhoneToDelete(event.currentTarget.dataset.idphone)
     };
 
     const [localStorageBasket,
         setLocalStorageBasket] = useState(JSON.parse(localStorage.getItem('phoneListBasket')))
 
     const deleteButton = (event) => {
-
         setLocalStorageBasket(localStorageBasket.filter((el) => el.id !== phoneToDelete))
         setPhoneToDelete('')
         setShow(false);
@@ -52,16 +52,16 @@ export const Basket = () => {
                 </Modal.Footer>
             </Modal>
             {localStorageBasket?.length
-                ? localStorageBasket.map(item => <div className={classes.phoneCardBasket}>
+                ? localStorageBasket.map(item => 
+                <div className={classes.phoneCardBasket} key={item.id}>
                     <PhoneCard
                         className={classes.localStorageBasket}
-                        // key={item.id}
-                        id={item.id}
+                        id={item.id}                    
                         name={item.name}
                         imageUrl={item.images[0]}
                         snippet={item.description}/>
 
-                    <Button variant="danger" idPhone={item.id} onClick={handleShow}>
+                    <Button variant="danger" data-idphone={item.id} ref={deletePhoneButton} onClick={handleShow}>
                         <DeleteIcon/>
                     </Button>
                 </div>)

@@ -1,17 +1,15 @@
 .container {
     display: flex;
     flex-direction: column;
-   
+
 }
 
 .phoneCardBasket {
     display: flex;
     flex-direction: row;
     width: 90%;
-    /* border: 3px solid #ddd; */
     margin: 1rem;
 }
-
 
 .alert {
     width: max-content;

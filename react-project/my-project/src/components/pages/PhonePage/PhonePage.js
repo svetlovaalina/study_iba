@@ -27,8 +27,7 @@ export const PhonePage = () => {
         );
     }
 
-
-    return ( phoneData && (
+    return (phoneData && (
         <div className={classes.containerPhone}>
             <div className={classes.phoneImagesShortDescription}>
 
@@ -219,6 +218,6 @@ export const PhonePage = () => {
                 </div>
             </div>
         </div>
-    ) )|| null
+    )) || null
 };
 //
