@@ -8,9 +8,13 @@ import Popover from '@material-ui/core/Popover';
 import Avatar from '@material-ui/core/Avatar';
 import Button from 'react-bootstrap/Button'
 import cn from 'classnames'
+import {useDispatch} from "react-redux"
+import {getProfileData} from '../../../store/actionCreators/getProfileData'
+// import {getProfileData} from 'src/store/actionCreators/getProfileData';
 
 export const Profile = ({className}) => {
-
+    const dispatch = useDispatch();
+    
     const [anchorEl,
         setAnchorEl] = useState(null);
     const [profile,
@@ -48,6 +52,9 @@ export const Profile = ({className}) => {
                 window.auth2.isSignedIn.listen(isSignedIn => {
                         if (isSignedIn) {
                             const userProfile = window.auth2.currentUser.get().getBasicProfile();
+                           
+                            dispatch(getProfileData(userProfile))
+                            
                             setLogInState(true);
                             setProfile({
                                 name: userProfile.getName(),

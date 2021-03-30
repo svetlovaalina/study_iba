@@ -3,6 +3,7 @@ import {GET_PHONE_LIST} from '../actions/getPhoneList'
 import {UPDATE_SORT_TYPE} from '../actions/updateSortType'
 import {UPDATE_SEARCH_TEXT} from '../actions/updateSearchText'
 import {ADD_TO_BASKET} from "../actions/actionAddPhoneToBasket"
+import {GET_PROFILE_DATA} from '../actions/getProfileData'
 
 export const reducer = (state = initialState, action) => {
 
@@ -30,7 +31,13 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 searchTextStore: action.payload
             }
+        case GET_PROFILE_DATA:
+            return {
+                ...state,
+                profileData: action.payload
+            }
         default:
             return state;
     }
+
 }

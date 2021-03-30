@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './NavBar.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"; // ?!
+import { Link} from "react-router-dom"; // ?!
 import Navbar from 'react-bootstrap/NavBar';
 import {Profile} from '../../common/Profile'
 

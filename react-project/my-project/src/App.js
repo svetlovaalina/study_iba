@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {NavBar} from "./components/layouts/NavBar";
 import {Basket} from './components/pages/Basket';
+import {FormOrder} from './components/pages/FormOrder';
 
 function App() {
 
@@ -18,6 +19,8 @@ function App() {
                     <Route path="/phonePage/:id"><PhonePage/>
                     </Route>
                     <Route path="/basket"><Basket/>
+                    </Route>
+                    <Route path="/formOrder"><FormOrder/>
                     </Route>
                     <Route path="/" component={Home}></Route>
                 </Switch>

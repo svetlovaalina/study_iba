@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import classes from './Basket.module.css';
 import {PhoneCard} from '../../layouts/PhoneCard';
+import {ButtonMakeOrder} from '../../common/ButtonMakeOrder';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert';
@@ -12,7 +13,6 @@ export const Basket = () => {
     const [phoneToDelete,
         setPhoneToDelete] = useState('');
     const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
     const deletePhoneButton = useRef(null)
 
     const handleShow = (event) => {
@@ -36,6 +36,7 @@ export const Basket = () => {
 
     return (
         <div className={classes.container}>
+            {!!(localStorageBasket?.length) && <ButtonMakeOrder/> }
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>
@@ -51,8 +52,10 @@ export const Basket = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
+            
             {localStorageBasket?.length
-                ? localStorageBasket.map(item => 
+                ? 
+                localStorageBasket.map(item => 
                 <div className={classes.phoneCardBasket} key={item.id}>
                     <PhoneCard
                         className={classes.localStorageBasket}
@@ -65,10 +68,12 @@ export const Basket = () => {
                         <DeleteIcon/>
                     </Button>
                 </div>)
+                
                 : <Alert variant='danger' className={classes.alert}>
                     Oops! Your cart is empty!
                 </Alert>
 }
+           
         </div>
     )
 };
