@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import classes from './ButtonMakeOrder.module.css'
 import Button from 'react-bootstrap/Button'
-import {Link} from "react-router-dom"; // ?!
-
+import {Link} from "react-router-dom";
+import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 
 export const ButtonMakeOrder = () => {
-    // const localStorageBasket = JSON.parse(localStorage.getItem('phoneListBasket'));
 
     return (
         <div className={classes.containerOrder}>
             <Link to="/formOrder">
-                <Button variant="success" >
+                <Button variant="success">
+                    <DoneOutlineIcon/>
                     Make order
                 </Button>
             </Link>

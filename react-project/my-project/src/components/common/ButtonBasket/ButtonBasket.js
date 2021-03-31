@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import classes from './ButtonBasket.module.css'
 import Button from 'react-bootstrap/Button'
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"; // ?!
+import {Link} from "react-router-dom"; // ?!
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';

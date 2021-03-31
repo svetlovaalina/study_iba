@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"; // ?!
+import {Link} from "react-router-dom"; // ?!
 import classes from './Profile.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -41,6 +41,7 @@ export const Profile = ({className}) => {
         setLogInState(false)
         window.gapi.auth2.getAuthInstance().signOut()
         setOpenPopover(false)
+        dispatch(getProfileData({}))
     })
 
     const initLogin = () => {
@@ -79,6 +80,7 @@ export const Profile = ({className}) => {
     useEffect(() => {      
         initLogin()
     }, [logInState])
+
 
     return (
     <> 

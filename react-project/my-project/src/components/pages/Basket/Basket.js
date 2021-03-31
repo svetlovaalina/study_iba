@@ -36,7 +36,9 @@ export const Basket = () => {
 
     return (
         <div className={classes.container}>
+            <div className={classes.buttonMakeOrder}>
             {!!(localStorageBasket?.length) && <ButtonMakeOrder/> }
+            </div>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>
