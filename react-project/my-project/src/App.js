@@ -8,9 +8,11 @@ import {NavBar} from "./components/layouts/NavBar";
 import {Basket} from './components/pages/Basket';
 import {FormOrder} from './components/pages/FormOrder';
 
-function App() {
 
-    return (
+
+function App() {
+    
+   return (
         <div className={classes.App}>
 
             <Router >

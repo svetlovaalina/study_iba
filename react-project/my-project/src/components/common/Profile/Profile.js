@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {Link} from "react-router-dom"; // ?!
+import {Link, useLocation, useHistory} from "react-router-dom"; 
+
 import classes from './Profile.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,9 +13,22 @@ import {useDispatch} from "react-redux"
 import {getProfileData} from '../../../store/actionCreators/getProfileData'
 // import {getProfileData} from 'src/store/actionCreators/getProfileData';
 
+// function pageViews() {
+//     let history = useHistory();
+//     let location = useLocation();
+//     useEffect(() => {
+//         // debugger
+//         // 
+//         // ReactGA.ga.send(["pageview", location.pathname]);
+//     }, [location]);
+//   }
+//   pageViews();
+
 export const Profile = ({className}) => {
+   
+    let history = useHistory();
+    let location = useLocation();
     const dispatch = useDispatch();
-    
     const [anchorEl,
         setAnchorEl] = useState(null);
     const [profile,
@@ -44,13 +58,18 @@ export const Profile = ({className}) => {
         dispatch(getProfileData({}))
     })
 
+   
+     
     const initLogin = () => {
+        
         window.gapi.load('auth2', () => {
                 window.auth2 = window.gapi.auth2.init({
                         client_id: '755442296670-hc7artjstip6s83jqubejavr6ptqogv9.apps.googleusercontent.com', 
                         cookiepolicy: 'single_host_origin',
                     });
+                    
                 window.auth2.isSignedIn.listen(isSignedIn => {
+                   
                         if (isSignedIn) {
                             const userProfile = window.auth2.currentUser.get().getBasicProfile();
                            
@@ -77,7 +96,7 @@ export const Profile = ({className}) => {
         }
     }
 
-    useEffect(() => {      
+    useEffect(() => {    
         initLogin()
     }, [logInState])
 
@@ -88,7 +107,7 @@ export const Profile = ({className}) => {
         <div id="gSignInWrapper">
             <div id="customBtn" ref={buttonRef} className="customGPlusSignIn">
                 <Navbar.Brand>
-                    <Link to="/" className={cn(className)}>Log in</Link>
+                    <Link to={location.pathname} className={cn(className)}>Log in</Link>
                 </Navbar.Brand>
             </div>
         </div>

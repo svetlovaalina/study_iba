@@ -1,146 +1,191 @@
-
 import React , {useEffect, useState} from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import ReactDOM from "react-dom";
+import {BrowserRouter as Router, Switch, useLocation} from "react-router-dom";
+import { Formik, Forma, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import classes from './FormOrder.module.css';
 import {useSelector} from "react-redux";
-import Button from '@material-ui/core/Button';
-import Toast from 'react-bootstrap/Toast'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import ToastHeader from 'react-bootstrap/ToastHeader'
-import ToastBody from 'react-bootstrap/ToastBody'
-import {getProfileData} from "../../../store/actionCreators/getProfileData"
+import { Form, Button } from 'react-bootstrap';
+
+
+
+// RegEx for phone number validation
+const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/
+
+// Schema for yup
+const validationSchema = Yup.object().shape({
+  name: Yup.string()
+  .min(2, "*Names must have at least 2 characters")
+  .max(100, "*Names can't be longer than 100 characters")
+  .required("*Name is required"),
+  surname: Yup.string()
+  .min(2, "*Surname must have at least 2 characters")
+  .max(100, "*Surname can't be longer than 100 characters")
+  .required("*Surname is required"),
+  email: Yup.string()
+  .email("*Must be a valid email address")
+  .max(100, "*Email must be less than 100 characters")
+  .required("*Email is required"),
+  phone: Yup.string()
+  .matches(phoneRegExp, "*Phone number is not valid")
+  .required("*Phone number required")
+});
 
 export const FormOrder = () => {
 
-
-// const onSendOrderClick = (event) => {
-//     // setShow(true)
-// };
 const [show, setShow] = useState(false);
 const [profileData, setProfileData] = useState({});
 const userProfile = useSelector(state => state.profileData)
 
 useEffect(() => {
-
-if (Object.keys(userProfile).length ) {
+  if (Object.keys(userProfile).length ) {
+      setProfileData({
+      firstName: userProfile.getGivenName() || "", 
+      lastName: userProfile.getFamilyName() || "",
+      phone : "",
+      email: userProfile.getEmail() || ''
+      })
+  }
+  else  {
     setProfileData({
-    firstName: userProfile.getGivenName() || "", 
-    lastName: userProfile.getFamilyName() || "",
+    firstName:  "", 
+    lastName: "",
     phone : "",
-    email: userProfile.getEmail() || ''
+    email:  ""
     })
-}
-else  {
-  setProfileData({
-  firstName:  "", 
-  lastName: "",
-  phone : "",
-  email:  ""
-  })
-}
-}, [userProfile])
+  }
+  }, [userProfile])
+   
 
-const onSendOrderClick = () => {
+  const handleSubmit = () => {
+    debugger
     setShow(true) 
     setTimeout(() => {
-      window.location.href='/basket'
-      localStorage.setItem("phoneListBasket", JSON.stringify([]))
+      //  window.location.href='/basket'
+       localStorage.setItem("phoneListBasket", JSON.stringify([]))
+    console.log('Hi! All good!')
       }, 1000)
-      
 };
 
-  
-  const SignupSchema = Yup.object().shape({
-    firstName: Yup.string()
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
-    lastName: Yup.string()
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
-    phone: Yup.string()
-      .min(12, 'Too Short!')
-      .max(15, 'Too Long!')
-      .required('Required'),
-    email: Yup.string().
-      email('Invalid email').
-      required('Required'),
-      });
 
+const handleSendOrderSubmit = (values, {setSubmitting, resetForm}) => {
+  // When button submits form and form is in the process of submitting, submit button is disabled
+  setSubmitting(true);
 
-  return ( Object.keys(profileData).length && (
-    <div>
-      
+  // Simulate submitting to database, shows us values submitted, resets form
+setTimeout(() => {
+  // window.location.href='/basket'
+  localStorage.setItem("phoneListBasket", JSON.stringify([]))
+  // resetForm();
+  setSubmitting(false);
+}, 1000);
+}
+
+  return ( Object.keys(profileData).length &&  (
+      <div className={classes.container}>
+      //Sets initial values for form inputs
       <Formik
-        initialValues={
-          { firstName: profileData.firstName, 
-            lastName:  profileData.lastName, 
-            phone : profileData.phone,
-            email: profileData.email
-          }}
-        validationSchema={SignupSchema}
-        onSubmit={values => {
-            console.log(values);
-          }}>
-        {({ errors, touched }) => (
-         <Form className={classes.containerForm}>
-           <div>
-              <p> Name:   </p>
-              <Field name="firstName" />
-              {errors.firstName && touched.firstName ? (
-                <div>{errors.firstName}</div>
-              ) : null}
-            </div>
-            <div>
-              <p> First name:   </p>
-              <Field name="lastName" />
-              {errors.lastName && touched.lastName ? (
-                <div>{errors.lastName}</div>
-              ) : null}
-            </div>
-            <div>
-              <p> Phone:   </p>
-              <Field name="phone" />
-              {errors.phone && touched.phone ? (
-                <div>{errors.phone}</div>
-              ) : null}
-            </div>
-            <div>
-              <p> Email:   </p>
-              <Field name="email" type="email" />
-              {errors.email && touched.email ? <div>{errors.email}</div> : null}
-           </div>
-         </Form>
-       )}
-     </Formik>
-     <Row className="justify-content-md-center">
-    
-      <Col md="auto" >
-        <Button
-        variant="contained"
-        color="primary"
-        className={classes.buttonSend}
-        onClick={onSendOrderClick}>
-        Send
-      </Button>
-      </Col>
-      
-    </Row>
-    <Row className="justify-content-md-center">
-    
-      <Col md="auto" >
-        <Toast onClose={() => setShow(false)} show={show} delay={1000} autohide>
-          <Toast.Header style={{backgroundColor:'#20c997', color:'white'}}>
-            <strong className="mr-auto">The order is made</strong>
-          </Toast.Header>
-          {/* <Toast.Body>The order was successfully sent</Toast.Body> */}
-        </Toast>
-      </Col>
-    </Row>
+        initialValues={{ 
+          name:profileData.firstName,
+          surname: profileData.lastName, 
+          email:profileData.email,
+          phone:profileData.phone
+        }}
+        validationSchema={validationSchema}
+        onSubmit={handleSendOrderSubmit}
+      >
+        {/* Callback function containing Formik state and helpers that handle common form actions */}
+      {( {values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting }) => (
+        <form onSubmit={handleSubmit} className={classes.mxAuto}>
+          {console.log(values)}
+          <Form.Group controlId="formName" className={classes.formGroup}>
+            <Form.Label>Name :</Form.Label>
+            <Form.Control
+              type="text"
+              /* This name property is used to access the value of the form element via values.nameOfElement */
+              name="name"
+              placeholder=" Name"
+              /* Set onChange to handleChange */
+              onChange={handleChange}
+              /* Set onBlur to handleBlur */
+              onBlur={handleBlur}
+              /* Store the value of this input in values.name, make sure this is named the same as the name property on the form element */
+              value={values.name}
+              /* Check if the name field (this field) has been touched and if there is an error, if so add the .error class styles defined in the CSS (make the input box red) */
+              className={touched.name && errors.name ? classes.error : null}
+              />
+              {/* Applies the proper error message from validateSchema when the user has clicked the element and there is an error, also applies the .error-message CSS class for styling */}
+              {touched.name && errors.name ? (
+                <div className={classes.errorMessage}>{errors.name}</div>
+              ): null}
+          </Form.Group>
+          <Form.Group controlId="formSurname" className={classes.formGroup}>
+            <Form.Label>Surname :</Form.Label>
+          <Form.Control
+              type="text"
+              /* This surname property is used to access the value of the form element via values.nameOfElement */
+              name="surname"
+              placeholder="Surname"
+              /* Set onChange to handleChange */
+              onChange={handleChange}
+              /* Set onBlur to handleBlur */
+              onBlur={handleBlur}
+              /* Store the value of this input in values.name, make sure this is named the same as the name property on the form element */
+              value={values.surname}
+              /* Check if the name field (this field) has been touched and if there is an error, if so add the .error class styles defined in the CSS (make the input box red) */
+              className={touched.surname && errors.surname ? classes.error : null}
+              />
+              {/* Applies the proper error message from validateSchema when the user has clicked the element and there is an error, also applies the .error-message CSS class for styling */}
+              {touched.surname && errors.surname ? (
+                <div className={classes.errorMessage}>{errors.surname}</div>
+              ): null}
+          </Form.Group>
+          <Form.Group controlId="formEmail" className={classes.formGroup}>
+            <Form.Label>Email :</Form.Label>
+            <Form.Control
+              type="text"
+              name="email"
+              placeholder="Email"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.email}
+              className={touched.email && errors.email ? classes.error : null}
+            />
+            {touched.email && errors.email ? (
+                <div className={classes.errorMessage}>{errors.email}</div>
+              ): null}
+          </Form.Group>
+          <Form.Group controlId="formPhone" className={classes.formGroup}>
+            <Form.Label>Phone :</Form.Label>
+            <Form.Control
+              type="text"
+              name="phone"
+              placeholder="Phone"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.phone}
+              className={touched.phone && errors.phone ? classes.error : null}
+              />
+              {touched.phone && errors.phone ? (
+                <div className={classes.errorMessage}>{errors.phone}</div>
+              ): null}
+          </Form.Group>
+          
+          <Button variant="primary" type="submit" disabled={isSubmitting} className={classes.buttonSend}>
+            Send
+          </Button>
+        </form>
+      )}
+      </Formik>
       </div>
-    )) || null 
-};
-    
+      ) || null
+  );
+}
+
+
