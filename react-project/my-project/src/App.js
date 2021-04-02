@@ -22,7 +22,7 @@ function App() {
                     </Route>
                     <Route path="/basket"><Basket/>
                     </Route>
-                    <Route path="/formOrder"><FormOrder/>
+                    <Route path="/form-order"><FormOrder/>
                     </Route>
                     <Route path="/" component={Home}></Route>
                 </Switch>

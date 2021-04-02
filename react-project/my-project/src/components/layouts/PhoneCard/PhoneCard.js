@@ -1,7 +1,10 @@
 import React from 'react';
 import classes from './PhoneCard.module.css'
-import { Link} from "react-router-dom"; // ?!
+import { Link} from "react-router-dom"; 
 import cn from 'classnames'
+import PropTypes from 'prop-types'
+
+
 
 export const PhoneCard = ({name, snippet, imageUrl, id, className}) => {
 
@@ -21,3 +24,11 @@ export const PhoneCard = ({name, snippet, imageUrl, id, className}) => {
         </div>
     )
 };
+
+PhoneCard.propTypes =   {
+    name: PropTypes.string,
+     snippet: PropTypes.string, 
+     imageUrl: PropTypes.string,
+     id: PropTypes.string,
+    className: PropTypes.object
+}

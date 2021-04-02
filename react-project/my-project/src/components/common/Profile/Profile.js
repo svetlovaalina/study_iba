@@ -1,6 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {Link, useLocation, useHistory} from "react-router-dom"; 
-
+import {Link, useLocation} from "react-router-dom"; 
 import classes from './Profile.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,22 +10,10 @@ import Button from 'react-bootstrap/Button'
 import cn from 'classnames'
 import {useDispatch} from "react-redux"
 import {getProfileData} from '../../../store/actionCreators/getProfileData'
-// import {getProfileData} from 'src/store/actionCreators/getProfileData';
 
-// function pageViews() {
-//     let history = useHistory();
-//     let location = useLocation();
-//     useEffect(() => {
-//         // debugger
-//         // 
-//         // ReactGA.ga.send(["pageview", location.pathname]);
-//     }, [location]);
-//   }
-//   pageViews();
 
 export const Profile = ({className}) => {
    
-    let history = useHistory();
     let location = useLocation();
     const dispatch = useDispatch();
     const [anchorEl,
@@ -74,7 +61,6 @@ export const Profile = ({className}) => {
                             const userProfile = window.auth2.currentUser.get().getBasicProfile();
                            
                             dispatch(getProfileData(userProfile))
-                            
                             setLogInState(true);
                             setProfile({
                                 name: userProfile.getName(),

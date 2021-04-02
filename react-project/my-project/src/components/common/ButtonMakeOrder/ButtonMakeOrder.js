@@ -8,7 +8,7 @@ export const ButtonMakeOrder = () => {
 
     return (
         <div className={classes.containerOrder}>
-            <Link to="/formOrder">
+            <Link to="/form-order">
                 <Button variant="success">
                     <DoneOutlineIcon/>
                     Make order
