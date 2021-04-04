@@ -93,7 +93,7 @@ export const Profile = ({className}) => {
         <div id="gSignInWrapper">
             <div id="customBtn" ref={buttonRef} className="customGPlusSignIn">
                 <Navbar.Brand>
-                    <Link to={location.pathname} className={cn(className)}>Log in</Link>
+                    <Link to="/" onClick={(event)=> event.preventDefault()} className={cn(className)}>Log in</Link>
                 </Navbar.Brand>
             </div>
         </div>

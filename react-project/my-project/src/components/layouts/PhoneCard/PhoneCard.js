@@ -27,8 +27,8 @@ export const PhoneCard = ({name, snippet, imageUrl, id, className}) => {
 
 PhoneCard.propTypes =   {
     name: PropTypes.string,
-     snippet: PropTypes.string, 
-     imageUrl: PropTypes.string,
-     id: PropTypes.string,
+    snippet: PropTypes.string, 
+    imageUrl: PropTypes.string,
+    id: PropTypes.string,
     className: PropTypes.object
 }

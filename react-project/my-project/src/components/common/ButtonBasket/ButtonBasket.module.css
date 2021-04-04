@@ -1,11 +1,12 @@
 .containerBasket .buttonAddToBasket {
     width: max-content;
     background-color: rgb(76, 78, 76);
+    cursor: grab;
 }
 .buttonGoInBasket a,
 .buttonGoInBasket a:hover {
     color: #fff;
-
+    cursor: grab;
     text-decoration: none;
 }
 .containerBasket {

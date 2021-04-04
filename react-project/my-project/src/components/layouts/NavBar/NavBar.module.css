@@ -4,6 +4,7 @@
 .navBarLink:hover {
     text-decoration: none;
     color: #0071a7c7;
+    cursor: grab;
 }
 
 .avatarProfile {
