@@ -50,6 +50,7 @@ export const FormOrder = () => {
   const userProfile = useSelector(state => state.profileData)
   const sendFormRef = useRef(null)
   const [loading, setLoading] = useState(true)
+  const [orderName, setOrderName] = useState()
 
   useEffect(() => {
     if (Object.keys(userProfile).length) {
@@ -104,6 +105,7 @@ export const FormOrder = () => {
       const responseJSON = await response.json();
 
       setOrderId(responseJSON.id)
+      setOrderName(responseJSON.name)
       setSmShow(true)
 
       setLoading(false)
@@ -217,7 +219,7 @@ export const FormOrder = () => {
                     aria-labelledby="example-modal-sizes-title-sm">
                     <Modal.Header closeButton>
                         <Modal.Title id="example-modal-sizes-title-sm">
-                            Your order number is {orderId}
+                            {orderName}, your order number is {orderId}
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>The order has been successfully sent!</Modal.Body>
