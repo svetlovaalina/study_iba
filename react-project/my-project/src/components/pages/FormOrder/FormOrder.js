@@ -9,6 +9,7 @@ import {Form, Button} from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal'
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
+// import {truncate} from 'node:fs';
 
 
 
@@ -48,21 +49,28 @@ export const FormOrder = () => {
     setOrderId] = useState()
   const userProfile = useSelector(state => state.profileData)
   const sendFormRef = useRef(null)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (Object.keys(userProfile).length) {
+      
       setProfileData({
         firstName: userProfile.getGivenName() || "",
         lastName: userProfile.getFamilyName() || "",
         phone: "",
         email: userProfile.getEmail() || ''
       })
+      setLoading(false)
     } 
     else {
       setProfileData({firstName: "", lastName: "", phone: "", email: ""})
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000);
     }
+    
   }, [userProfile])
+
 
   const handleSendOrderSubmit = (values, {setSubmitting, resetForm}) => {
     setLoading(true)
