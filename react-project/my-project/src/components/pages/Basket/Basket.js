@@ -3,7 +3,6 @@ import classes from './Basket.module.css';
 import {PhoneCard} from '../../layouts/PhoneCard';
 import {ButtonMakeOrder} from '../../common/ButtonMakeOrder';
 import {Counter} from '../../common/Counter'
-import DeleteIcon from '@material-ui/icons/Delete';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert';
@@ -19,7 +18,7 @@ export const Basket = () => {
 
     const handleShow = (event) => {
         setShow(true)
-         setPhoneToDelete(event.currentTarget.dataset.idphone)
+        setPhoneToDelete(event.currentTarget.dataset.idphone)
     };
 
     const [localStorageBasket,
@@ -72,7 +71,8 @@ export const Basket = () => {
                         <Button variant="danger" data-idphone={item.id} ref={deletePhoneButton} onClick={handleShow} className={classes.deleteButton}>
                             <HighlightOffIcon/>
                         </Button>
-                        <Counter data-idphone={item.id}/>
+                        <Counter idphone={item.id} localStorageBasket={localStorageBasket}
+                        setLocalStorageBasket={setLocalStorageBasket}/>
                 </div>
                 </div>)
                 

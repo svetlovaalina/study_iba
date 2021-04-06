@@ -19,9 +19,9 @@ export const ButtonBasket = ({phoneData}) => {
         setStateBasket(go)
         dispatch(actionAddPhoneToBasket(phoneData))
         if (!localStorageBasket) {
-            localStorage.setItem("phoneListBasket", JSON.stringify([phoneData]))
+            localStorage.setItem("phoneListBasket", JSON.stringify([{...phoneData, amount : 1}]))
         } else {
-            localStorageBasket.push((phoneData))
+            localStorageBasket.push(({...phoneData, amount : 1}))
             localStorage.setItem("phoneListBasket", JSON.stringify(localStorageBasket))
         }
     }

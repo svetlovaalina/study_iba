@@ -21,7 +21,9 @@ export const FormOrder = () => {
     const sendFormRef = useRef(null)
     const [loading,setLoading] = useState(true)
     const [orderName,setOrderName] = useState()
-    
+    const [localStorageBasket,
+      setLocalStorageBasket] = useState(JSON.parse(localStorage.getItem('phoneListBasket')))
+
 
     useEffect(() => {
       if (Object.keys(userProfile).length) {
@@ -51,15 +53,18 @@ export const FormOrder = () => {
       }
     }
 
+    
     async function sendForm(values) {
       try {
+         const orderContent =  JSON.parse(localStorage.getItem('phoneListBasket'))
+         .map(item => ({id :item.id , amount: item.amount}))
           const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: "POST",
             mode: "cors",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(values)
+            body: JSON.stringify({...values,orderContent : orderContent})
           })
           const responseJSON = await response.json();
           setOrderId(responseJSON.id)
@@ -71,7 +76,6 @@ export const FormOrder = () => {
           setLoading(false)
           console.error(error)
           setIsErrorOrder(true)
-        
           setErrorType(error.message)
         }
     }
