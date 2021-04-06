@@ -2,7 +2,9 @@ import React, {useEffect, useState, useRef} from 'react';
 import classes from './Basket.module.css';
 import {PhoneCard} from '../../layouts/PhoneCard';
 import {ButtonMakeOrder} from '../../common/ButtonMakeOrder';
+import {Counter} from '../../common/Counter'
 import DeleteIcon from '@material-ui/icons/Delete';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert';
 import Modal from 'react-bootstrap/Modal'
@@ -65,10 +67,13 @@ export const Basket = () => {
                         name={item.name}
                         imageUrl={item.images[0]}
                         snippet={item.description}/>
-
-                    <Button variant="danger" data-idphone={item.id} ref={deletePhoneButton} onClick={handleShow}>
-                        <DeleteIcon/>
-                    </Button>
+                    <div className={classes.counterAndDelete}>
+                        
+                        <Button variant="danger" data-idphone={item.id} ref={deletePhoneButton} onClick={handleShow} className={classes.deleteButton}>
+                            <HighlightOffIcon/>
+                        </Button>
+                        <Counter data-idphone={item.id}/>
+                </div>
                 </div>)
                 
                 : <Alert variant='danger' className={classes.alert}>
