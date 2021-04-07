@@ -19,7 +19,7 @@ export const FormOrder = () => {
     const [errorType, setErrorType] = useState('')
     const userProfile = useSelector(state => state.profileData)
     const sendFormRef = useRef(null)
-    const [loading,setLoading] = useState(true)
+    // const [loading,setLoading] = useState(true)
     const [orderName,setOrderName] = useState()
     const [localStorageBasket,
       setLocalStorageBasket] = useState(JSON.parse(localStorage.getItem('phoneListBasket')))
@@ -33,23 +33,26 @@ export const FormOrder = () => {
           phone: "",
           email: userProfile.getEmail() || ''
         })
-        setLoading(false)
+        // setLoading(false)
         } else {
         setProfileData({firstName: "", lastName: "", phone: "", email: ""})
        }
     }, [userProfile])
 
     const handleSendOrderSubmit = (values, {setSubmitting, resetForm}) => {
-      setLoading(true)
+      // setLoading(true)
       setSubmitting(true);
-      // setIsSuccessfullMessageShow(true)
+      //  setIsSuccessfullMessageShow(true)
       sendForm(values);
       if (!isErrorOrder) {
+        // setIsSuccessfullMessageShow(true)
         setTimeout(() => {
-            //  window.location.href = '/'  localStorage.setItem("phoneListBasket",
-            // JSON.stringify([]))
+             window.location.href = '/' 
+            localStorage.setItem("phoneListBasket",JSON.stringify([]))
             resetForm();
-        }, 3000);
+            setIsSuccessfullMessageShow(false)
+            debugger;
+        }, 4000);
       }
     }
 
@@ -57,7 +60,7 @@ export const FormOrder = () => {
     async function sendForm(values) {
       try {
          const orderContent =  JSON.parse(localStorage.getItem('phoneListBasket'))
-         .map(item => ({id :item.id , amount: item.amount}))
+         .map(item => ({id : item.id , amount: item.amount}))
           const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: "POST",
             mode: "cors",
@@ -70,10 +73,10 @@ export const FormOrder = () => {
           setOrderId(responseJSON.id)
           setOrderName(responseJSON.name)
           setIsSuccessfullMessageShow(true)
-          setLoading(false)
+          // setLoading(false)
       } catch (error) {
-        //  debugger;
-          setLoading(false)
+
+          // setLoading(false)
           console.error(error)
           setIsErrorOrder(true)
           setErrorType(error.message)
@@ -82,7 +85,7 @@ export const FormOrder = () => {
 
     return (Object.keys(profileData).length && (
       <div className={classes.container}>
-        {loading && <Spinner animation="border" className='spinner'/>}
+        {/* {loading && <Spinner animation="border" className='spinner'/>} */}
           <Formik
             initialValues={{
             name: profileData.firstName, surname: profileData.lastName,
@@ -122,7 +125,7 @@ export const FormOrder = () => {
                 modalTitle='Sent successfully' orderName={orderName} orderId={orderId} />
               </form>
             )}
-          </Formik>
+          </Formik> 
       <ModalWindow modalType='Error' showState={isErrorOrder} setHideState={setIsErrorOrder} 
       modalTitle='Error' errorType={errorType} />
      

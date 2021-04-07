@@ -16,8 +16,9 @@
     display: flex;
     flex-direction: column;
     align-self: center;
-    height: 15rem;
+    height: 13rem;
     overflow: hidden;
+    margin: 1rem;
 }
 .mobileName {
     font-size: 1.6rem;
@@ -28,6 +29,7 @@
     font-size: 1.5em;
     font-family: 'New Tegomin', serif;
     color: rgb(20, 19, 19);
+
 }
 .mobileName:hover {
     color: #000000 !important;
