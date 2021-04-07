@@ -1,0 +1,15 @@
+.modalTitle {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.iconSuccessMessage {
+    color: green;
+    margin-right: 0.5rem;
+}
+
+.iconErrorMessage {
+    color: red;
+    margin-right: 0.5rem;
+}

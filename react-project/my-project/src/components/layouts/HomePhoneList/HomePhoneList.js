@@ -10,8 +10,7 @@ export const HomePhoneList = () => {
     const phoneListStore = useSelector(state => state.phoneListStore)
     const sortTypeStore = useSelector(state => state.sortTypeStore)
     const searchTextStore = useSelector(state => state.searchTextStore)
-    const [animationCall,
-        setAnimationCall] = useState(false);
+    const [animationCall,setAnimationCall] = useState(false);
 
     const dispatch = useDispatch();
 

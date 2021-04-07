@@ -11,11 +11,8 @@ import {updateSortType} from "../../../store/actionCreators/updateSortType"
 
 export const Sort = () => {
     const dispatch = useDispatch();
-
     const sortTypeStore = useSelector(state => state.sortTypeStore)
-
-    const [open,
-        setOpen] = useState(false);
+    const [open,setOpen] = useState(false);
 
     const handleChange = (event) => {
         dispatch(updateSortType(event.target.value))

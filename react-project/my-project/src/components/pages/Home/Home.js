@@ -3,9 +3,7 @@ import classes from './Home.module.css';
 import {HomePhoneList} from '../../layouts/HomePhoneList'
 import {DisplayEditor} from '../../layouts/DisplayEditor';
 
-
 export const Home = () => {
-
     return (
         <div className={classes.container}>
             <div className={classes.displayEditor}>

@@ -9,10 +9,8 @@ import Alert from 'react-bootstrap/Alert';
 import Modal from 'react-bootstrap/Modal'
 
 export const Basket = () => {
-    const [show,
-        setShow] = useState(false);
-    const [phoneToDelete,
-        setPhoneToDelete] = useState('');
+    const [show,setShow] = useState(false);
+    const [phoneToDelete,setPhoneToDelete] = useState('');
     const handleClose = () => setShow(false);
     const deletePhoneButton = useRef(null)
 
@@ -28,7 +26,6 @@ export const Basket = () => {
         setLocalStorageBasket(localStorageBasket.filter((el) => el.id !== phoneToDelete))
         setPhoneToDelete('')
         setShow(false);
-
     }
 
     useEffect(() => {
@@ -43,7 +40,8 @@ export const Basket = () => {
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        Remove phone</Modal.Title>
+                        Remove phone
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body> Are you sure you want to delete this phone from the basket?</Modal.Body>
                 <Modal.Footer>
@@ -79,8 +77,7 @@ export const Basket = () => {
                 : <Alert variant='danger' className={classes.alert}>
                     Oops! Your cart is empty!
                 </Alert>
-}
-           
+            }
         </div>
     )
 };

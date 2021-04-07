@@ -3,16 +3,17 @@
     background-color: rgb(76, 78, 76);
     cursor: grab;
 }
+
 .buttonGoInBasket a,
 .buttonGoInBasket a:hover {
     color: #fff;
     cursor: grab;
     text-decoration: none;
 }
+
 .containerBasket {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     margin-right: 2rem;
-
 }

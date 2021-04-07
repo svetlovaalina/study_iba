@@ -5,23 +5,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link} from "react-router-dom"; 
 import Navbar from 'react-bootstrap/NavBar';
 import {Profile} from '../../common/Profile'
-import {BrowserRouter as Router, Switch, Route, useLocation, useHistory} from "react-router-dom";
 
 export const NavBar = () => {
 
-    
     return (
-        
         <div className={classes.container}>
             <Navbar bg="primary" variant="dark" className="d-flex justify-content-between">
                 <Navbar.Brand>
                     <Link to="/" className={classes.navBarLink}>
-                        My-project</Link>
+                        My-project
+                    </Link>
                 </Navbar.Brand>
                 <div className="ml-auto p-2">
                     <Navbar.Brand>
                         <Link to="/basket" className={classes.navBarLink}>
-                            Basket</Link>
+                            Basket
+                        </Link>
                     </Navbar.Brand>
                 </div>
                 <Profile className={classes.navBarLink}/>

@@ -3,7 +3,6 @@ import classes from './PhoneCardList.module.css'
 import {PhoneCard} from '../PhoneCard';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
-// import {BrowserRouter as  Link} from 'react-router-dom';
 import {CSSTransition} from 'react-transition-group';
 
 export const PhoneCardList = ({error,loading,phoneListStore, sortTypeStore, searchTextStore,animationCall

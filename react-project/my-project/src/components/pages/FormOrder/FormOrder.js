@@ -1,29 +1,24 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {Formik, Forma, Field, ErrorMessage} from 'formik';
+import { useHistory} from "react-router-dom"; 
+import {Formik} from 'formik';
 import classes from './FormOrder.module.css';
 import {useSelector} from "react-redux";
-import {Form, Button} from 'react-bootstrap';
-import Modal from 'react-bootstrap/Modal'
-import Spinner from 'react-bootstrap/Spinner';
+import { Button} from 'react-bootstrap';
 import {validationSchema} from '../../../utils/formHelper/formOrderValidation'
 import {FormGroup} from '../../common/FormGroup'
 import {ModalWindow} from '../../common/ModalWindow'
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+
 
 export const FormOrder = () => {
-    const [isSuccessfullMessageShow,setIsSuccessfullMessageShow] = useState(false);
+    const [isSuccessfullMessageShow, setIsSuccessfullMessageShow] = useState(false);
     const [isErrorOrder,setIsErrorOrder] = useState(false)
     const [profileData,setProfileData] = useState({});
     const [orderId,setOrderId] = useState()
     const [errorType, setErrorType] = useState('')
     const userProfile = useSelector(state => state.profileData)
     const sendFormRef = useRef(null)
-    // const [loading,setLoading] = useState(true)
     const [orderName,setOrderName] = useState()
-    const [localStorageBasket,
-      setLocalStorageBasket] = useState(JSON.parse(localStorage.getItem('phoneListBasket')))
-
+    let history = useHistory();
 
     useEffect(() => {
       if (Object.keys(userProfile).length) {
@@ -33,52 +28,44 @@ export const FormOrder = () => {
           phone: "",
           email: userProfile.getEmail() || ''
         })
-        // setLoading(false)
-        } else {
+      } else {
         setProfileData({firstName: "", lastName: "", phone: "", email: ""})
-       }
+      }
     }, [userProfile])
 
     const handleSendOrderSubmit = (values, {setSubmitting, resetForm}) => {
-      // setLoading(true)
       setSubmitting(true);
-      sendForm(values);
-      if (!isErrorOrder) {
-        setTimeout(() => {
-             window.location.href = '/' 
-            localStorage.setItem("phoneListBasket",JSON.stringify([]))
-            resetForm();
-            setIsSuccessfullMessageShow(false)
-            debugger;
-        }, 4000);
-      }
+      sendForm(values);        
+      setSubmitting(false);
     }
-
     
     async function sendForm(values) {
       try {
-         const orderContent =  JSON.parse(localStorage.getItem('phoneListBasket'))
-         .map(item => ({id : item.id , amount: item.amount}))
-          const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: "POST",
-            mode: "cors",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({...values,orderContent : orderContent})
-          })
-          const responseJSON = await response.json();
-          setOrderId(responseJSON.id)
-          setOrderName(responseJSON.name)
-          setIsSuccessfullMessageShow(true)
-          // setLoading(false)
-      } catch (error) {
+        const orderContent =  JSON.parse(localStorage.getItem('phoneListBasket'))
+        .map(item => ({id : item.id , amount: item.amount}))
+        const response = await fetch('hhttps://jsonplaceholder.typicode.com/posts', {
+          method: "POST",
+          mode: "cors",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({...values,orderContent : orderContent})
+        })
+        const responseJSON = await response.json();
+        setOrderId(responseJSON.id)
+        setOrderName(responseJSON.name)
+        setIsSuccessfullMessageShow(true)
 
-          // setLoading(false)
+        setTimeout(() => {
+          setIsSuccessfullMessageShow(false)
+          localStorage.setItem("phoneListBasket",JSON.stringify([]))
+          history.push("/");
+          }, 4000);
+      } catch (error) {
           console.error(error)
           setIsErrorOrder(true)
           setErrorType(error.message)
-        }
+      }
     }
 
     return (Object.keys(profileData).length && (
@@ -124,9 +111,8 @@ export const FormOrder = () => {
               </form>
             )}
           </Formik> 
-      <ModalWindow modalType='Error' showState={isErrorOrder} setHideState={setIsErrorOrder} 
-      modalTitle='Error' errorType={errorType} />
-     
+          <ModalWindow modalType='Error' showState={isErrorOrder} setHideState={setIsErrorOrder} 
+          modalTitle='Error' errorType={errorType} />
       </div>
   ) || null);
 }

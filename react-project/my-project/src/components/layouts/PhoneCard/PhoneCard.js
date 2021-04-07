@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './PhoneCard.module.css'
-import { Link} from "react-router-dom"; 
+import {Link} from "react-router-dom"; 
 import cn from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -17,9 +17,12 @@ export const PhoneCard = ({name, snippet, imageUrl, id, className}) => {
                     src={'http://angular.github.io/angular-phonecat/step-14/app/' + imageUrl}/>
             </div>
             <div className={classes.mobileDescription}>
-                <Link to={"/phonePage/" + id} className={classes.mobileName}>{name}
+                <Link to={"/phonePage/" + id} className={classes.mobileName}>
+                    {name}
                 </Link>
-                <p className={classes.mobileSnippet}>{snippet}</p>
+                <p className={classes.mobileSnippet}>
+                    {snippet}
+                </p>
             </div>
         </div>
     )
@@ -30,5 +33,5 @@ PhoneCard.propTypes =   {
     snippet: PropTypes.string, 
     imageUrl: PropTypes.string,
     id: PropTypes.string,
-    className: PropTypes.object
+    className: PropTypes.object 
 }

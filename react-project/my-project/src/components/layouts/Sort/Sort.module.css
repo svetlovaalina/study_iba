@@ -1,18 +1,13 @@
-
 .formControl {
     margin-left: 0.5rem;
     margin-top: 0.1rem;
 }
-
 .formControl .labelSortBy {
     font-size: 1.6em;
-
 }
 :global .MuiSelect-select.MuiSelect-select {
- 
     margin-top: 1rem;
 }
-
 :global .MuiFormControl-root {
     width: 15rem;
 }

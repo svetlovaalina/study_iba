@@ -6,22 +6,18 @@
     color: #0071a7c7;
     cursor: grab;
 }
-
 .avatarProfile {
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .logOutButton {
     margin-top: 0.5rem;
 }
-
 :global nav.bg-primary {
     background-color: #2fccd1!important;
 }
-
 :global .navbar-brand a {
     color: aliceblue;
 }

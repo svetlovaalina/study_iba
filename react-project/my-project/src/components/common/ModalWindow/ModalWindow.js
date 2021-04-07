@@ -11,11 +11,11 @@ export const ModalWindow = ({modalType, showState, setHideState,
       className={classes.modalWindow} size="sm" show={showState} 
       onHide={() => setHideState(false)} aria-labelledby="example-modal-sizes-title-sm">
         <Modal.Header closeButton>
-          <Modal.Title id="example-modal-sizes-title-sm">
+          <Modal.Title id="example-modal-sizes-title-sm" className={classes.modalTitle}>
           {modalType === 'Success' &&
-            <CheckCircleOutlineIcon style={{ color: 'green', marginRight:'0.5rem' }}/> }
+            <CheckCircleOutlineIcon className={classes.iconSuccessMessage} /> }
           {modalType === 'Error' && 
-          <HighlightOffIcon style={{color: 'red', marginRight:'0.5rem'}}/> }
+          <HighlightOffIcon  className={classes.iconErrorMessage} /> }
            {modalTitle}
           </Modal.Title>
         </Modal.Header>
