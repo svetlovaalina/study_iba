@@ -42,10 +42,8 @@ export const FormOrder = () => {
     const handleSendOrderSubmit = (values, {setSubmitting, resetForm}) => {
       // setLoading(true)
       setSubmitting(true);
-      //  setIsSuccessfullMessageShow(true)
       sendForm(values);
       if (!isErrorOrder) {
-        // setIsSuccessfullMessageShow(true)
         setTimeout(() => {
              window.location.href = '/' 
             localStorage.setItem("phoneListBasket",JSON.stringify([]))

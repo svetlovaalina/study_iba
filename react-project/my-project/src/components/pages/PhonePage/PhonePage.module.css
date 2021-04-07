@@ -67,12 +67,12 @@
 @keyframes animationText {
     0% {
         margin-left: 100%;
-        width: 120%;
-    }
-    80% {
-        margin-left: -5%;
         width: 100%;
     }
+    /* 80% {
+        margin-left: -5%;
+        width: 100%;
+    } */
     100% {
         margin-left: 0;
         width: 100%;
