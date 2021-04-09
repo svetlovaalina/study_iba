@@ -44,7 +44,7 @@ export const Profile = ({className}) => {
     const initLogin = () => {
         window.gapi.load('auth2', () => {
             window.auth2 = window.gapi.auth2.init({
-                client_id: '755442296670-hc7artjstip6s83jqubejavr6ptqogv9.apps.googleusercontent.com', 
+                client_id: process.env.CLIENT_ID, 
                 cookiepolicy: 'single_host_origin',
             });
             window.auth2.isSignedIn.listen(isSignedIn => {
