@@ -1,6 +1,6 @@
 .containerBasket .buttonAddToBasket {
     width: max-content;
-    background-color: rgb(76, 78, 76);
+    background-color: #4c4e4c;
     cursor: grab;
 }
 

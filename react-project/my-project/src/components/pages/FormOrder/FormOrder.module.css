@@ -5,30 +5,36 @@
     width: 90%;
     margin: 2.5rem auto;
     color: snow;
-    -webkit-box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.4);
-    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 5px 5px 5px 0 #00000066;
+    -moz-box-shadow: 5px 5px 5px 0 #00000066;
+    box-shadow: 5px 5px 5px 0 #00000066;
 }
+
 @media(min-width: 786px) {
     .container {
         width: 60%;
     }
 }
+
 label {
     color: #24B9B6;
     font-size: 1.2em;
     font-weight: 400;
 }
+
 h1 {
     color: #24B9B6;
     padding-top: 0.5em;
 }
+
 .formGroup {
     margin: 1.5rem 1rem;
 }
+
 .error {
     border: 2px solid #FF6565;
 }
+
 .errorMessage {
     color: #FF6565;
     padding: 0.5em 0.2em;
@@ -36,18 +42,21 @@ h1 {
     position: absolute;
     font-size: 0.8em;
 }
+
 .mxAuto {
     width: 90%;
     text-align: left;
     padding-top: 2em;
     padding-bottom: 2em;
 }
+
 @media(min-width: 786px) {
     .mxAuto {
         width: 50%;
         margin: 0 auto;
     }
 }
+
 .buttonSend {
     background: #1863AB;
     border: none;
@@ -56,13 +65,13 @@ h1 {
     margin: auto;
     display: flex;
 }
+
 .buttonSend:hover {
     background: #1D3461;
 }
+
 .alert {
     position: absolute;
     top: 120px;
 }
-.modalError {
-    background: rgb(134 126 126 / 40%);
-}
+

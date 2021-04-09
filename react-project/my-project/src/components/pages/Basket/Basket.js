@@ -11,9 +11,9 @@ import Modal from 'react-bootstrap/Modal'
 export const Basket = () => {
     const [show,setShow] = useState(false);
     const [phoneToDelete,setPhoneToDelete] = useState('');
-    const handleClose = () => setShow(false);
     const deletePhoneButton = useRef(null)
-
+    
+    const handleClose = () => setShow(false);
     const handleShow = (event) => {
         setShow(true)
         setPhoneToDelete(event.currentTarget.dataset.idphone)

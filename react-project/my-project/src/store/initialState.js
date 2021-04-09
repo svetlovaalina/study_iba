@@ -3,6 +3,6 @@ export const initialState = {
     listPhoneBasket: [],
     sortTypeStore: 'age',
     searchTextStore: '',
-    profileData: null, //  profileData: {},
-};
+    profileData: null, 
 
+}
