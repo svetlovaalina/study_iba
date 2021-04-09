@@ -7,7 +7,7 @@ import {Sort} from "../Sort"
 
 export const DisplayEditor = () => {
     return (
-        <div className={classes.displayEditor}>
+        <div>
             <Search/>
             <Sort/>
         </div>

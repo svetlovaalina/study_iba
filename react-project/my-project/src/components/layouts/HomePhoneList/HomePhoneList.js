@@ -4,14 +4,17 @@ import {PhoneCardList} from '../PhoneCardList';
 import useFetch from 'use-http'
 import {useDispatch, useSelector} from "react-redux";
 import {getPhoneList} from '../../../store/actionCreators/getPhoneList';
+import {sortTypeSelector} from '../../../store/selectors/sortTypeSelector'
+import {searchTextSelector} from '../../../store/selectors/searchTextSelector'
+import {phoneListSelector} from '../../../store/selectors/phoneListSelector'
+
 
 export const HomePhoneList = () => {
 
-    const phoneListStore = useSelector(state => state.phoneListStore)
+    const phoneListStore = useSelector(phoneListSelector)
     const sortTypeStore = useSelector(state => state.sortTypeStore)
-    const searchTextStore = useSelector(state => state.searchTextStore)
+    const searchTextStore = useSelector(searchTextSelector)
     const [animationCall,setAnimationCall] = useState(false);
-
     const dispatch = useDispatch();
 
     const {get, response, loading, error} = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json', {cache: "no-store"})

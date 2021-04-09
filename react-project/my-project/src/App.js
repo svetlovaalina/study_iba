@@ -9,25 +9,25 @@ import {Basket} from './components/pages/Basket';
 import {FormOrder} from './components/pages/FormOrder';
 
 
-
 function App() {
     
    return (
-        <div className={classes.App}>
-
+        <div>
             <Router >
                 <NavBar/>
                 <Switch>
-                    <Route path="/phonePage/:id"><PhonePage/>
+                    <Route path="/phonePage/:id">
+                        <PhonePage/>
                     </Route>
-                    <Route path="/basket"><Basket/>
+                    <Route path="/basket">
+                        <Basket/>
                     </Route>
-                    <Route path="/form-order"><FormOrder/>
+                    <Route path="/form-order">
+                        <FormOrder/>
                     </Route>
-                    <Route path="/" component={Home}></Route>
+                    <Route path="/" component={Home}/>
                 </Switch>
             </Router>
-
         </div>
     );
 }

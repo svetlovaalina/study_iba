@@ -21,8 +21,8 @@ export const PhonePage = () => {
         return (<Spinner animation="border" className='spinner'/>);
     if (error) {
         return (
-            <Alert variant='danger'>"Error : {error.message}
-                {error.status}"
+            <Alert variant='danger'>
+                Error : {error.message} {error.status}
             </Alert>
         );
     }
@@ -30,14 +30,13 @@ export const PhonePage = () => {
     return (phoneData && (
         <div className={classes.containerPhone}>
             <div className={classes.phoneImagesShortDescription}>
-
                 <div className={classes.imageContainer}>
                     {phoneData.images && (
-                        <Carousel showArrows={true}>
+                        <Carousel showArrows>
                             {phoneData
                                 .images
                                 .map((item, i) => (
-                                    <div key={i} className={classes.photoCarousel}>
+                                    <div key={i}>
                                         <img
                                             alt="Phone image"
                                             src={`http://angular.github.io/angular-phonecat/step-14/app/${item}`}/>
@@ -47,8 +46,8 @@ export const PhonePage = () => {
                     )}
                 </div>
                 <div className={classes.idAndDescription}>
-                    <div className={classes.buttonBasket}>
-                        <ButtonBasket phoneData={phoneData}></ButtonBasket>
+                    <div >
+                        <ButtonBasket phoneData={phoneData}/>
                     </div>
                     <h1>
                         {phoneData.name}
@@ -118,15 +117,11 @@ export const PhonePage = () => {
                     </p>
                     <h4>Infrared</h4>
                     <p>
-                        {phoneData.connectivity.infrared
-                            ? '✓'
-                            : '✘'}
+                        {phoneData.connectivity.infrared ? '✓': '✘'}
                     </p>
                     <h4>GPS</h4>
                     <p>
-                        {phoneData.connectivity.gps
-                            ? '✓'
-                            : '✘'}
+                        {phoneData.connectivity.gps ? '✓': '✘'}
                     </p>
                 </div>
                 <div className={classes.propDescription}>
@@ -164,9 +159,7 @@ export const PhonePage = () => {
                     </p>
                     <h4>Touch screen</h4>
                     <p>
-                        {phoneData.display.touchScreen
-                            ? '✓'
-                            : '✘'}
+                        {phoneData.display.touchScreen ? '✓': '✘'}
                     </p>
 
                 </div>
@@ -186,15 +179,11 @@ export const PhonePage = () => {
                     </p>
                     <h4>FM Radio</h4>
                     <p>
-                        {phoneData.hardware.fmRadio
-                            ? '✓'
-                            : '✘'}
+                        {phoneData.hardware.fmRadio ? '✓': '✘'}
                     </p>
                     <h4>Accelerometer</h4>
                     <p>
-                        {phoneData.hardware.accelerometer
-                            ? '✓'
-                            : '✘'}
+                        {phoneData.hardware.accelerometer ? '✓': '✘'}
                     </p>
                 </div>
                 <div className={classes.propDescription}>

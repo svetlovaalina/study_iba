@@ -22,7 +22,7 @@ export const Basket = () => {
     const [localStorageBasket,
         setLocalStorageBasket] = useState(JSON.parse(localStorage.getItem('phoneListBasket')))
 
-    const deleteButton = (event) => {
+    const deleteButton = () => {
         setLocalStorageBasket(localStorageBasket.filter((el) => el.id !== phoneToDelete))
         setPhoneToDelete('')
         setShow(false);
@@ -59,7 +59,6 @@ export const Basket = () => {
                 localStorageBasket.map(item => 
                 <div className={classes.phoneCardBasket} key={item.id}>
                     <PhoneCard
-                        className={classes.localStorageBasket}
                         id={item.id}                    
                         name={item.name}
                         imageUrl={item.images[0]}
@@ -73,7 +72,6 @@ export const Basket = () => {
                         setLocalStorageBasket={setLocalStorageBasket}/>
                 </div>
                 </div>)
-                
                 : <Alert variant='danger' className={classes.alert}>
                     Oops! Your cart is empty!
                 </Alert>

@@ -1,9 +1,9 @@
 .navBarLink {
-    color: rgb(255,255,255);
+    color: #ffffff;
 }
 .navBarLink:hover {
     text-decoration: none;
-    color: #0071a7c7;
+    color:  #0071a7c7;
     cursor: grab;
 }
 .avatarProfile {
@@ -19,5 +19,5 @@
     background-color: #2fccd1!important;
 }
 :global .navbar-brand a {
-    color: aliceblue;
+    color: #f0f8ff;
 }

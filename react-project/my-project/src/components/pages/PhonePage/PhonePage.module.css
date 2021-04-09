@@ -1,4 +1,4 @@
-@import url( 'https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
+
 .imageContainer {
     width: 100%;
     padding-left: 0.8rem;
@@ -17,7 +17,7 @@
 }
 .cardDescription p {
     margin: 0.2rem;
-    font-family: 'CENTURY SCHOOLBOOK';
+    font-family: 'CENTURY SCHOOLBOOK', sans-serif;
     font-size: 1.4em;
     animation-name: animationText;
     animation-duration: 1.5s;
@@ -25,7 +25,7 @@
     padding: 0.5rem;
 }
 .idAndDescription h1 {
-    font-family: 'COURIER NEW';
+    font-family: 'COURIER NEW', sans-serif;
     font-size: 3em;
     margin: 1.2rem 0;
 }
@@ -115,10 +115,10 @@
 }
 
 :global .carousel .thumbs-wrapper .control-arrow {
-    background: rgba(92, 2, 47, 0.233);
+    background: #5c022f3b;
 }
 :global .carousel .slide {
-    background: rgb(255, 255, 255)!important;
+    background: #ffffff!important;
 }
 :global .carousel-root {
     width: 90%;

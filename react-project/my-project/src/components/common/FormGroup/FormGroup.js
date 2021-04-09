@@ -10,9 +10,7 @@ export const FormGroup = ({fieldLabel,nameControl,namePlaceholder,handleChange,
           {fieldLabel} :
         </Form.Label>
         <Form.Control type="text"  name={nameControl} placeholder={namePlaceholder} 
-        onChange={handleChange} onBlur={handleBlur} value={values[nameControl]} 
-        className={ touched[nameControl] && errors[nameControl]
-        ? classes.error : null}/>
+        onChange={handleChange} onBlur={handleBlur} value={values[nameControl]} />
           {touched[nameControl] && errors[nameControl] ? 
           (
             <div className={classes.errorMessage}>

@@ -8,6 +8,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import {useSelector, useDispatch} from "react-redux";
 import {updateSortType} from "../../../store/actionCreators/updateSortType"
+import {sortTypeSelector} from "../../../store/selectors/sortTypeSelector"
 
 export const Sort = () => {
     const dispatch = useDispatch();

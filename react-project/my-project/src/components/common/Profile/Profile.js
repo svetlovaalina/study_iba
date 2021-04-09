@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {Link} from "react-router-dom"; 
+import {useLocation} from "react-router-dom";
 import classes from './Profile.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,6 +20,7 @@ export const Profile = ({className}) => {
     const [logInState,setLogInState] = useState(false);
     const [openPopover,setOpenPopover] = useState(false)
     const buttonRef = useRef(null)
+    let location= useLocation()
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -36,7 +38,7 @@ export const Profile = ({className}) => {
         setLogInState(false)
         window.gapi.auth2.getAuthInstance().signOut()
         setOpenPopover(false)
-        dispatch(getProfileData({}))
+        dispatch(getProfileData(null)) // dispatch(getProfileData({}))
     })
 
     const initLogin = () => {
@@ -80,7 +82,7 @@ export const Profile = ({className}) => {
         <div id="gSignInWrapper">
             <div id="customBtn" ref={buttonRef} className="customGPlusSignIn">
                 <Navbar.Brand>
-                    <Link to="/" onClick={(event)=> event.preventDefault} className={cn(className)}>Log in</Link>
+                    <Link to={location} onClick={(event)=> event.preventDefault} className={cn(className)}>Log in</Link>
                 </Navbar.Brand>
             </div>
         </div>

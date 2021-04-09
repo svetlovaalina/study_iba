@@ -1,0 +1,1 @@
+export const sortTypeSelector = state => state.sortTypeStore;
