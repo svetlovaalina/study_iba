@@ -12,7 +12,7 @@ import {phoneListSelector} from '../../../store/selectors/phoneListSelector'
 export const HomePhoneList = () => {
 
     const phoneListStore = useSelector(phoneListSelector)
-    const sortTypeStore = useSelector(state => state.sortTypeStore)
+    const sortTypeStore = useSelector(sortTypeSelector)
     const searchTextStore = useSelector(searchTextSelector)
     const [animationCall,setAnimationCall] = useState(false);
     const dispatch = useDispatch();

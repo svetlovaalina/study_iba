@@ -38,7 +38,7 @@ export const Profile = ({className}) => {
         setLogInState(false)
         window.gapi.auth2.getAuthInstance().signOut()
         setOpenPopover(false)
-        dispatch(getProfileData(null)) // dispatch(getProfileData({}))
+        dispatch(getProfileData(null)) 
     })
 
     const initLogin = () => {

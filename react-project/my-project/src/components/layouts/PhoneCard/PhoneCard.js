@@ -5,9 +5,7 @@ import cn from 'classnames'
 import PropTypes from 'prop-types'
 
 
-
 export const PhoneCard = ({name, snippet, imageUrl, id, className}) => {
-
     return (
         <div key={id} className={cn(className, classes.container)}>
             <div className={classes.imageContainer}>

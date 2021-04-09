@@ -19,7 +19,7 @@ export const Search = () => {
     return (
         <div className={classes.searchForm}>
             <Form >
-                <InputLabel className={classes.labelSearchBy} >Search:</InputLabel>
+                <InputLabel className={classes.labelSearchBy}>Search:</InputLabel>
                 <input
                     type='text'
                     className='form-control'

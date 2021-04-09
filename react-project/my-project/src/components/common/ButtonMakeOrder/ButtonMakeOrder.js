@@ -7,7 +7,7 @@ import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 export const ButtonMakeOrder = () => {
 
   return (
-    <div className={classes.containerOrder}>
+    <div>
       <Link to="/form-order">
         <Button variant="success">
           <DoneOutlineIcon/>

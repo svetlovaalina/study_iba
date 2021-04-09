@@ -12,7 +12,7 @@ import {sortTypeSelector} from "../../../store/selectors/sortTypeSelector"
 
 export const Sort = () => {
     const dispatch = useDispatch();
-    const sortTypeStore = useSelector(state => state.sortTypeStore)
+    const sortTypeStore = useSelector(sortTypeSelector) //state => state.sortTypeStore
     const [open,setOpen] = useState(false);
 
     const handleChange = (event) => {

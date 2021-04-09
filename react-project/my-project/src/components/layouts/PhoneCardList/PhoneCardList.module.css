@@ -1,29 +1,36 @@
 .container {
     margin: 1rem;
 }
+
 .phoneCard {
     margin-bottom: 2rem;
 }
+
 .alert {
     width: max-content;
     margin: 2rem auto;
 }
+
 .listAnimation {
     transform-origin: top center;
 }
+
 :global .animationList-enter {
     transform: translateY(-30px);
     opacity: 0;
 }
+
 :global .animationList-enter-active {
     opacity: 1;
     transform: translateY(0px);
     transition: opacity 1000ms, transform 1000ms;
 }
+
 :global .animationList-exit {
     opacity: 0;
     transform: translateY(-30px);
 }
+
 :global .animationList-exit-active {
     opacity: 1;
     transform: translateY(0px);

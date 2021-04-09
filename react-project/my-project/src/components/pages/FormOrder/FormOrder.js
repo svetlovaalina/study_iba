@@ -11,22 +11,16 @@ import {ModalWindow} from '../../common/ModalWindow'
 import useFetch from 'use-http'
 import Spinner from 'react-bootstrap/Spinner';
 
-
 export const FormOrder = () => {
     const [isSuccessfulMessageShow, setIsSuccessfulMessageShow] = useState(false);
     const [isErrorOrder,setIsErrorOrder] = useState(false)
     const [profileData,setProfileData] = useState(null); 
     const [orderId,setOrderId] = useState()
-    const [errorType, setErrorType] = useState('')
     const userProfile = useSelector(userProfileSelector)
     const sendFormRef = useRef(null)
     const [orderName,setOrderName] = useState()
     let history = useHistory();
-    const options = {}
-
    
-    
-
     useEffect(() => {
       if (userProfile) { 
         setProfileData({
@@ -49,7 +43,6 @@ export const FormOrder = () => {
     const { post, response, loading, error } = useFetch('https://jsonplaceholder.typicode.com')
  
     async function sendForm(values) {
-      // try {
         const orderContent =  JSON.parse(localStorage.getItem('phoneListBasket'))
         .map(item => ({id : item.id , amount: item.amount}))
         const responseJSON = await post('/posts', {...values,orderContent : orderContent})
@@ -57,7 +50,7 @@ export const FormOrder = () => {
           setOrderId(responseJSON.id)
           setOrderName(responseJSON.name)
           setIsSuccessfulMessageShow(true)
-  
+
           setTimeout(() => {
             setIsSuccessfulMessageShow(false)
             localStorage.setItem("phoneListBasket",JSON.stringify([]))
@@ -67,34 +60,7 @@ export const FormOrder = () => {
         else {
               console.error(error)
               setIsErrorOrder(true)
-              // setErrorType(error.message)
-          
         }
-     
-        // const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        //   method: "POST",
-        //   mode: "cors",
-        //   headers: {
-        //       "Content-Type": "application/json"
-        //   },
-        //   body: JSON.stringify({...values,orderContent : orderContent})
-        // })
-        // const responseJSON = await response.json();
-        // setOrderId(responseJSON.id)
-        // setOrderName(responseJSON.name)
-        // setIsSuccessfulMessageShow(true)
-
-        // setTimeout(() => {
-        //   setIsSuccessfulMessageShow(false)
-        //   localStorage.setItem("phoneListBasket",JSON.stringify([]))
-        //   history.push("/");
-        //   }, 4000);
-      // } catch (error) {
-      //   debugger;
-      //     console.error(error)
-      //     setIsErrorOrder(true)
-      //     setErrorType(error.message)
-      // }
     }
 
     return (profileData && ( 
