@@ -1,61 +1,59 @@
-
 .container {
-    min-height: 15rem;
-    display: flex;
-    border-radius: 4px;
-    padding: 0.5rem;
+  min-height: 15rem;
+  display: flex;
+  border-radius: 4px;
+  padding: 0.5rem;
 }
 
 .image {
-    width: 15rem;
+  width: 15rem;
 }
 
 .imageContainer {
-    margin-right: 2rem;
+  margin-right: 2rem;
 }
 
 .mobileDescription {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    height: 13rem;
-    overflow: hidden;
-    margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  height: 13rem;
+  overflow: hidden;
+  margin: 1rem;
 }
 
 .mobileName {
-    font-size: 1.6rem;
-    color: #322a2a;
+  font-size: 1.6rem;
+  color: #322a2a;
 }
 
 .mobileSnippet {
-    margin-top: 2rem;
-    font-size: 1.5em;
-    font-family: 'New Tegomin', serif;
-    color: #141313;
-
+  margin-top: 2rem;
+  font-size: 1.5em;
+  font-family: 'New Tegomin', serif;
+  color: #141313;
 }
 
 .mobileName:hover {
-    color: #000000 !important;
-    text-decoration: unset;
-    font-weight: 500;
+  color: #000000 !important;
+  text-decoration: unset;
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 37.5em) {
-    .container {
-        width: 100%;
-        display: block;
-        overflow: hidden;
-    }
+  .container {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+  }
 }
 
 @media only screen and (min-width: 37.5625em) and (max-width: 50em) {
-    .container {
-        width: 100%;
-        padding: 0 0.5rem;
-        margin: 1rem 0;
-        display: block;
-        overflow: hidden;
-    }
+  .container {
+    width: 100%;
+    padding: 0 0.5rem;
+    margin: 1rem 0;
+    display: block;
+    overflow: hidden;
+  }
 }

@@ -1,39 +1,42 @@
 .container {
-    display: flex;
-    padding: 1rem;
+  display: flex;
+  padding: 1rem;
 }
+
 .displayEditor {
-    width: 250px;
+  width: 250px;
 }
+
 @media only screen and (max-width: 50em) and (min-width: 37.5626em) {
-    .container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    .homeListPhone {
-        margin: 1rem;
-        width: 95%;
-    }
-    .displayEditor {
-        overflow: hidden;
-        width: 42%;
-        margin-left: 1rem;
-    }
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .homeListPhone {
+    margin: 1rem;
+    width: 95%;
+  }
+  .displayEditor {
+    overflow: hidden;
+    width: 42%;
+    margin-left: 1rem;
+  }
 }
+
 @media only screen and (max-width: 37.5em) {
-    .container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    .homeListPhone {
-        margin: 1rem 0.5rem;
-        width: 100%;
-    }
-    .displayEditor {
-        overflow: hidden;
-        width: 42%;
-        margin-left: 1rem;
-    }
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .homeListPhone {
+    margin: 1rem 0.5rem;
+    width: 100%;
+  }
+  .displayEditor {
+    overflow: hidden;
+    width: 42%;
+    margin-left: 1rem;
+  }
 }

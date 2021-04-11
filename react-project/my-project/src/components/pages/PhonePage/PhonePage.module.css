@@ -1,130 +1,145 @@
-
 .imageContainer {
-    width: 100%;
-    padding-left: 0.8rem;
-    height: auto;
-    margin: 1rem;
+  width: 100%;
+  padding-left: 0.8rem;
+  height: auto;
+  margin: 1rem;
 }
+
 .idAndDescription {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0.1rem;
 }
+
 .phoneImagesShortDescription {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
+
 .cardDescription p {
-    margin: 0.2rem;
-    font-family: 'CENTURY SCHOOLBOOK', sans-serif;
-    font-size: 1.4em;
-    animation-name: animationText;
-    animation-duration: 1.5s;
-    animation-timing-function: cubic-bezier(0, 0, 0, 1.03);
-    padding: 0.5rem;
+  margin: 0.2rem;
+  font-family: 'CENTURY SCHOOLBOOK', sans-serif;
+  font-size: 1.4em;
+  animation-name: animationText;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0, 0, 0, 1.03);
+  padding: 0.5rem;
 }
+
 .idAndDescription h1 {
-    font-family: 'COURIER NEW', sans-serif;
-    font-size: 3em;
-    margin: 1.2rem 0;
+  font-family: 'COURIER NEW', sans-serif;
+  font-size: 3em;
+  margin: 1.2rem 0;
 }
+
 .cardDescription {
-    margin-right: 1.2rem;
+  margin-right: 1.2rem;
 }
+
 .detailsDescription {
-    font-family: 'Akaya Kanadaka', cursive;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
+  font-family: 'Akaya Kanadaka', cursive;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
+
 .propDescription {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  margin: 1.2rem;
+}
+
+.propDescription h3 {
+  font-size: 1.7rem;
+  word-break: break-all;
+}
+
+.propDescription h4 {
+  font-size: 1.2rem;
+}
+
+.propDescription p {
+  font-size: 1.2rem;
+}
+
+@keyframes animationText {
+  0% {
+    margin-left: 100%;
+    width: 100%;
+  }
+  100% {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 50em) and (min-width: 37.5625em) {
+  .phoneImagesShortDescription {
     display: flex;
     flex-direction: column;
-    width: 15%;
-    margin: 1.2rem;
+  }
+  .containerPhone {
+    width: 100%;
+    padding: 0 2.5rem;
+    overflow: hidden;
+  }
+  .imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .imageContainer {
+    max-width: 100%;
+  }
+  .propDescription {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 0.3rem;
+  }
 }
-.propDescription h3 {
-    font-size: 1.7rem;
-    word-break: break-all;
-}
-.propDescription h4 {
-    font-size: 1.2rem;
-}
-.propDescription p {
-    font-size: 1.2rem;
-}
-@keyframes animationText {
-    0% {
-        margin-left: 100%;
-        width: 100%;
-    }
-    100% {
-        margin-left: 0;
-        width: 100%;
-    }
-}
-@media only screen and (max-width: 50em) and (min-width: 37.5625em) {
-    .phoneImagesShortDescription {
-        display: flex;
-        flex-direction: column;
-    }
-    .containerPhone {
-        width: 100%;
-        padding: 0 2.5rem;
-        overflow: hidden;
-    }
-    .imageContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .imageContainer {
-        max-width: 100%;
-    }
-    .propDescription {
-        display: flex;
-        flex-direction: column;
-        width: 30%;
-        margin: 0.3rem;
-    }
-}
+
 @media only screen and (max-width: 37.5em) {
-    .containerPhone {
-        width: 100%;
-        padding: 0 1rem;
-        overflow: hidden;
-    }
-    .phoneImagesShortDescription {
-        display: flex;
-        flex-direction: column;
-    }
-    .imageContainer {
-        width: 100%;
-    }
-    .propDescription {
-        display: flex;
-        flex-direction: column;
-        width: 40%;
-        margin: 1.1rem;
-    }
-    .phoneImagesShortDescription {
-        display: flex;
-        flex-direction: column;
-    }
+  .containerPhone {
+    width: 100%;
+    padding: 0 1rem;
+    overflow: hidden;
+  }
+  .phoneImagesShortDescription {
+    display: flex;
+    flex-direction: column;
+  }
+  .imageContainer {
+    width: 100%;
+  }
+  .propDescription {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 1.1rem;
+  }
+  .phoneImagesShortDescription {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 :global .carousel .thumbs-wrapper .control-arrow {
-    background: #5c022f3b;
+  background: #5c022f3b;
 }
+
 :global .carousel .slide {
-    background: #ffffff!important;
+  background: #ffffff !important;
 }
+
 :global .carousel-root {
-    width: 90%;
+  width: 90%;
 }
+
 :global .carousel-root .carousel.carousel-slider .control-arrow {
-    margin: auto 0;
-    padding: 0.2rem;
-    height: 50px;
+  margin: auto 0;
+  padding: 0.2rem;
+  height: 50px;
 }

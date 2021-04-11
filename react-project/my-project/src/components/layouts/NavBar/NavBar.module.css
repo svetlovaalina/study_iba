@@ -1,17 +1,17 @@
 .navBarLink {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .navBarLink:hover {
-    text-decoration: none;
-    color:  #0071a7c7;
-    cursor: grab;
+  text-decoration: none;
+  color: #0071a7c7;
+  cursor: grab;
 }
 
 :global nav.bg-primary {
-    background-color: #2fccd1!important;
+  background-color: #2fccd1 !important;
 }
 
 :global .navbar-brand a {
-    color: #f0f8ff;
+  color: #f0f8ff;
 }

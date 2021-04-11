@@ -1,120 +1,117 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {Link} from "react-router-dom"; 
-import {useLocation} from "react-router-dom";
+import React, { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import classes from './Profile.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/NavBar';
 import Popover from '@material-ui/core/Popover';
 import Avatar from '@material-ui/core/Avatar';
-import Button from 'react-bootstrap/Button'
-import cn from 'classnames'
-import {useDispatch} from "react-redux"
-import {getProfileData} from '../../../store/actionCreators/getProfileData'
+import Button from 'react-bootstrap/Button';
+import cn from 'classnames';
+import { useDispatch } from 'react-redux';
+import { getProfileData } from '../../../store/actionCreators/getProfileData';
 
+export const Profile = ({ className }) => {
+  const dispatch = useDispatch();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [profile, setProfile] = useState({});
+  const [logInState, setLogInState] = useState(false);
+  const [openPopover, setOpenPopover] = useState(false);
+  const buttonRef = useRef(null);
+  let location = useLocation();
 
-export const Profile = ({className}) => {
-    const dispatch = useDispatch();
-    const [anchorEl,setAnchorEl] = useState(null);
-    const [profile,setProfile] = useState({});
-    const [logInState,setLogInState] = useState(false);
-    const [openPopover,setOpenPopover] = useState(false)
-    const buttonRef = useRef(null)
-    let location= useLocation()
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+    setOpenPopover(true);
+  };
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-        setOpenPopover(true)
-    };
+  const handleClose = () => {
+    setAnchorEl(null);
+    setOpenPopover(false);
+  };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-        setOpenPopover(false)
-    };
+  const id = openPopover ? 'simple-popover' : undefined;
 
-    const id = openPopover ? 'simple-popover' : undefined;
+  const logOut = () => {
+    setLogInState(false);
+    window.gapi.auth2.getAuthInstance().signOut();
+    setOpenPopover(false);
+    dispatch(getProfileData(null));
+  };
 
-    const logOut = (() => {
-        setLogInState(false)
-        window.gapi.auth2.getAuthInstance().signOut()
-        setOpenPopover(false)
-        dispatch(getProfileData(null)) 
-    })
-
-    const initLogin = () => {
-        window.gapi.load('auth2', () => {
-            window.auth2 = window.gapi.auth2.init({
-                client_id: process.env.CLIENT_ID, 
-                cookiepolicy: 'single_host_origin',
-            });
-            window.auth2.isSignedIn.listen(isSignedIn => {
-                if (isSignedIn) {
-                    const userProfile = window.auth2.currentUser.get().getBasicProfile();
-                    dispatch(getProfileData(userProfile))
-                    setLogInState(true);
-                    setProfile({
-                        name: userProfile.getName(),
-                        email: userProfile.getEmail(),
-                        image: userProfile.getImageUrl()
-                    })
-                } else {
-                    setLogInState(false);
-                }
-            });
-            attachSignIn(buttonRef.current);
-        });
-    };
-
-    const attachSignIn = element => {
-        if (!logInState) {
-            window.auth2.attachClickHandler(element, {}, googleUser => {});
+  const initLogin = () => {
+    window.gapi.load('auth2', () => {
+      window.auth2 = window.gapi.auth2.init({
+        client_id: process.env.CLIENT_ID,
+        cookiepolicy: 'single_host_origin',
+      });
+      window.auth2.isSignedIn.listen((isSignedIn) => {
+        if (isSignedIn) {
+          const userProfile = window.auth2.currentUser.get().getBasicProfile();
+          dispatch(getProfileData(userProfile));
+          setLogInState(true);
+          setProfile({
+            name: userProfile.getName(),
+            email: userProfile.getEmail(),
+            image: userProfile.getImageUrl(),
+          });
+        } else {
+          setLogInState(false);
         }
+      });
+      attachSignIn(buttonRef.current);
+    });
+  };
+
+  const attachSignIn = (element) => {
+    if (!logInState) {
+      window.auth2.attachClickHandler(element, {}, (googleUser) => {});
     }
+  };
 
-    useEffect(() => {    
-        initLogin()
-    }, [logInState])
+  useEffect(() => {
+    initLogin();
+  }, [logInState]);
 
-
-    return (
-    <> 
-    { !logInState && 
+  return (
+    <>
+      {!logInState && (
         <div id="gSignInWrapper">
-            <div id="customBtn" ref={buttonRef} className="customGPlusSignIn">
-                <Navbar.Brand>
-                    <Link to={location} onClick={(event)=> event.preventDefault} className={cn(className)}>Log in</Link>
-                </Navbar.Brand>
-            </div>
+          <div id="customBtn" ref={buttonRef} className="customGPlusSignIn">
+            <Navbar.Brand>
+              <Link to={location} onClick={(event) => event.preventDefault} className={cn(className)}>
+                Log in
+              </Link>
+            </Navbar.Brand>
+          </div>
         </div>
-    }
+      )}
 
-    {logInState && 
-    <div>
-        <Avatar alt="Remy Sharp" src={profile.image} onClick={handleClick}/>
-        <Popover
+      {logInState && (
+        <div>
+          <Avatar alt="Remy Sharp" src={profile.image} onClick={handleClick} />
+          <Popover
             id={id}
             open={openPopover}
             anchorEl={anchorEl}
             onClose={handleClose}
-            anchorOrigin={
-            {vertical: 'bottom',
-            horizontal: 'left'}}
-            transformOrigin={
-            {vertical: 'top',
-            horizontal: 'right'}}>
-        <div className={classes.avatarProfile}>
-            <Avatar alt="Remy Sharp" src={profile.image}/>
-                <b>Name:</b>
-                {profile.name}
-                <b>Email:</b>
-                {profile.email}
-            <Button variant="secondary" onClick={logOut} className={classes.logOutButton}>
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+          >
+            <div className={classes.avatarProfile}>
+              <Avatar alt="Remy Sharp" src={profile.image} />
+              <b>Name:</b>
+              {profile.name}
+              <b>Email:</b>
+              {profile.email}
+              <Button variant="secondary" onClick={logOut} className={classes.logOutButton}>
                 Log out
-            </Button>
+              </Button>
+            </div>
+          </Popover>
         </div>
-            </Popover>
-        </div>
-    } 
+      )}
     </>
-    ) 
-}
+  );
+};

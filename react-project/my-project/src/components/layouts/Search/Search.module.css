@@ -1,33 +1,35 @@
 .searchForm {
-    margin-left: 0.5rem;
-
+  margin-left: 0.5rem;
 }
 
 :global .MuiFormControl-root {
-    width: 15rem;
+  width: 15rem;
 }
-.searchForm form .labelSearchBy {
-    font-size: 1.2em;
-    margin-top: 1rem;
-}
-.searchForm input {
-    margin: 1rem 0;
-}
-@media only screen and (max-width: 50em) and (min-width: 37.5625em) {
-    .searchForm {
-        width: 15rem;
 
-    }
-    .searchForm .form-inline {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.searchForm form .labelSearchBy {
+  font-size: 1.2em;
+  margin-top: 1rem;
 }
+
+.searchForm input {
+  margin: 1rem 0;
+}
+
+@media only screen and (max-width: 50em) and (min-width: 37.5625em) {
+  .searchForm {
+    width: 15rem;
+  }
+  .searchForm .form-inline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 @media only screen and (max-width: 37.5em) {
-    .searchForm .form-inline {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .searchForm .form-inline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

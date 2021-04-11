@@ -1,1 +1,1 @@
-export * from './HomePhoneList'
+export * from './HomePhoneList';
