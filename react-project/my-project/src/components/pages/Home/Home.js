@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Home.module.css';
 import { HomePhoneList } from '../../layouts/HomePhoneList';
 import { DisplayEditor } from '../../layouts/DisplayEditor';
+import { ButtonShowMore } from '../../common/ButtonShowMore';
 
 export const Home = () => {
   return (
