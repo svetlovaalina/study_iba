@@ -11,11 +11,14 @@ export const useShowMore = (items = [], limit, maxCountPage) => {
 
   useEffect(() => {
     setRows(() => items.slice(0, limit));
-  }, [maxCountPage]);
+  }, [maxCountPage, items]);
 
   const showMore = () => {
+    // debugger;
     if (currentPage <= maxCountPage) {
-      setCurrentPageState((prevState) => prevState + 1);
+      setCurrentPageState(currentPage + 1);
+
+      //   setCurrentPageState((prevState) => prevState + 1);
     }
   };
 

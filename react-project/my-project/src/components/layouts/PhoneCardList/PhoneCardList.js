@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import classes from './PhoneCardList.module.css';
 import { PhoneCard } from '../PhoneCard';
 import Spinner from 'react-bootstrap/Spinner';
@@ -9,11 +9,13 @@ import { useShowMore } from '../../../hook/useShowMore/useShowMore';
 import { limit } from '../../../const/const';
 
 export const PhoneCardList = ({ error, loading, phoneListStore, sortTypeStore, searchTextStore, animationCall }) => {
+  // debugger;
   const animationList = useRef(null);
   const phoneListChanged = phoneListStore
     .sort((prevPhone, phone) => (prevPhone[sortTypeStore] < phone[sortTypeStore] ? -1 : 1))
     .filter((phoneListObj) => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()));
   const maxCountPage = phoneListStore.length / limit;
+
   const [itemRows, isShowMoreVisible, showMore] = useShowMore(phoneListChanged, limit, maxCountPage);
 
   return (
