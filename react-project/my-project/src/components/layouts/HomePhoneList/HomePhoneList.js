@@ -7,6 +7,8 @@ import { getPhoneList } from '../../../store/actionCreators/getPhoneList';
 import { sortTypeSelector } from '../../../store/selectors/sortTypeSelector';
 import { searchTextSelector } from '../../../store/selectors/searchTextSelector';
 import { phoneListSelector } from '../../../store/selectors/phoneListSelector';
+import { useShowMore } from 'src/hook/useShowMore/useShowMore';
+import { limit } from 'src/const/const';
 
 export const HomePhoneList = () => {
   const phoneListStore = useSelector(phoneListSelector);
@@ -36,6 +38,10 @@ export const HomePhoneList = () => {
     }
   };
 
+  const phoneListChanged = phoneListStore
+    .sort((prevPhone, phone) => (prevPhone[sortTypeStore] < phone[sortTypeStore] ? -1 : 1))
+    .filter((phoneListObj) => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()));
+
   return (
     <div>
       <PhoneCardList
@@ -45,6 +51,7 @@ export const HomePhoneList = () => {
         sortTypeStore={sortTypeStore}
         animationCall={animationCall}
         searchTextStore={searchTextStore}
+        phoneListChanged={phoneListChanged}
       />
     </div>
   );

@@ -8,15 +8,15 @@ import { ButtonShowMore } from '../../common/ButtonShowMore';
 import { useShowMore } from '../../../hook/useShowMore/useShowMore';
 import { limit } from '../../../const/const';
 
-export const PhoneCardList = ({ error, loading, phoneListStore, sortTypeStore, searchTextStore, animationCall }) => {
-  // debugger;
+export const PhoneCardList = ({ error, loading, phoneListStore, sortTypeStore, searchTextStore, animationCall, phoneListChanged }) => {
+  // const phoneListChanged = phoneListStore
+  //   .sort((prevPhone, phone) => (prevPhone[sortTypeStore] < phone[sortTypeStore] ? -1 : 1))
+  //   .filter((phoneListObj) => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()));
+  // const maxCountPage = phoneListStore.length / limit;
+  // const [itemRows, isShowMoreVisible, showMore] = useShowMore({ items: phoneListChanged, limit });
   const animationList = useRef(null);
-  const phoneListChanged = phoneListStore
-    .sort((prevPhone, phone) => (prevPhone[sortTypeStore] < phone[sortTypeStore] ? -1 : 1))
-    .filter((phoneListObj) => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()));
   const maxCountPage = phoneListStore.length / limit;
-
-  const [itemRows, isShowMoreVisible, showMore] = useShowMore(phoneListChanged, limit, maxCountPage);
+  const [itemRows, isShowMoreVisible, showMore] = useShowMore({ items: phoneListChanged, limit });
 
   return (
     <div className={classes.container}>

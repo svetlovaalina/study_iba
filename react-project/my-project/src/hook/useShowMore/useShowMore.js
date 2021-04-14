@@ -1,33 +1,19 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateCurrentPage } from 'src/store/actionCreators/updateCurrentPage';
-import { currentPageSelector } from '../../store/selectors/currentPageSelector';
 
-export const useShowMore = (items = [], limit, maxCountPage) => {
-  const currentPage = useSelector(currentPageSelector);
-  const dispatch = useDispatch();
-  const [currentPageState, setCurrentPageState] = useState(currentPage);
+export const useShowMore = ({ items = [], limit }) => {
+  //   debugger;
+  const [currentPageState, setCurrentPageState] = useState(0);
   const [rows, setRows] = useState(items.slice(0, limit));
 
-  useEffect(() => {
-    setRows(() => items.slice(0, limit));
-  }, [maxCountPage, items]);
-
-  const showMore = () => {
-    // debugger;
-    if (currentPage <= maxCountPage) {
-      setCurrentPageState(currentPage + 1);
-
-      //   setCurrentPageState((prevState) => prevState + 1);
-    }
-  };
+  const showMore = useCallback(() => {
+    setCurrentPageState((predValue) => predValue + 1);
+  }, [currentPageState, setCurrentPageState]);
 
   useEffect(() => {
-    dispatch(updateCurrentPage(currentPageState));
-    setRows(() => items.slice(0, currentPageState * limit + limit));
-  }, [currentPageState]);
+    setRows(() => items.slice(0, limit * currentPageState + limit));
+  }, [items, currentPageState]);
 
-  const isShowMoreVisible = currentPage + 1 < items.length / limit;
+  const isShowMoreVisible = currentPageState + 1 < items.length / limit;
 
   return [rows, isShowMoreVisible, showMore];
 };
