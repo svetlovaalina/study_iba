@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import classes from './HomePhoneList.module.css';
+// import classes from './HomePhoneList.module.css';
 import { PhoneCardList } from '../PhoneCardList';
 import useFetch from 'use-http';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,8 +7,6 @@ import { getPhoneList } from '../../../store/actionCreators/getPhoneList';
 import { sortTypeSelector } from '../../../store/selectors/sortTypeSelector';
 import { searchTextSelector } from '../../../store/selectors/searchTextSelector';
 import { phoneListSelector } from '../../../store/selectors/phoneListSelector';
-import { useShowMore } from 'src/hook/useShowMore/useShowMore';
-import { limit } from 'src/const/const';
 
 export const HomePhoneList = () => {
   const phoneListStore = useSelector(phoneListSelector);
@@ -26,7 +24,7 @@ export const HomePhoneList = () => {
   }, []);
 
   useEffect(() => {
-    setAnimationCall(!animationCall);
+    setAnimationCall((prevState) => !prevState); //!animationCall
   }, [searchTextStore, sortTypeStore]);
 
   const getPhones = async () => {

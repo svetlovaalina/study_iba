@@ -35,7 +35,7 @@ export const PhonePage = () => {
               <Carousel showArrows>
                 {phoneData.images.map((item, i) => (
                   <div key={i}>
-                    <img alt="Phone image" src={`http://angular.github.io/angular-phonecat/step-14/app/${item}`} />
+                    <img src={`http://angular.github.io/angular-phonecat/step-14/app/${item}`} alt="Phone" />
                   </div>
                 ))}
               </Carousel>

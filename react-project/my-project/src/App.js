@@ -1,7 +1,7 @@
 import React from 'react';
 // import classes from './App.module.css';
-import { PhonePage } from './components/pages/PhonePage';
-import { Home } from './components/pages/Home';
+import { PhonePage } from 'src/components/pages/PhonePage';
+import { Home } from 'src/components/pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from './components/layouts/NavBar';

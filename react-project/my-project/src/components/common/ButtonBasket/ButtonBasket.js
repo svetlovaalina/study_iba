@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import classes from './ButtonBasket.module.css';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -26,11 +26,12 @@ export const ButtonBasket = ({ phoneData }) => {
     }
   };
 
-  useEffect(() => {
-    if (localStorageBasket && localStorageBasket.find((x) => x.id === phoneData.id)) {
-      setStateBasket(go);
-    }
-  }, []);
+  // useEffect(() => {
+  //   debugger;
+  //   if (localStorageBasket && localStorageBasket.find((x) => x.id === phoneData.id)) {
+  //     setStateBasket(go);
+  //   }
+  // }, []);
 
   return (
     <div className={classes.containerBasket}>
