@@ -4,7 +4,6 @@ import { UPDATE_SORT_TYPE } from '../actions/updateSortType';
 import { UPDATE_SEARCH_TEXT } from '../actions/updateSearchText';
 import { ADD_TO_BASKET } from '../actions/actionAddPhoneToBasket';
 import { GET_PROFILE_DATA } from '../actions/getProfileData';
-import { UPDATE_CURRENT_PAGE } from '../actions/updateCurrentPage';
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -27,11 +26,6 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         searchTextStore: action.payload,
-      };
-    case UPDATE_CURRENT_PAGE:
-      return {
-        ...state,
-        currentPage: action.payload,
       };
     case GET_PROFILE_DATA:
       return {

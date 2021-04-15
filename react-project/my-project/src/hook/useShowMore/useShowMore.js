@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
 export const useShowMore = ({ items = [], limit }) => {
-  //   debugger;
   const [currentPageState, setCurrentPageState] = useState(0);
   const [rows, setRows] = useState(items.slice(0, limit));
 
