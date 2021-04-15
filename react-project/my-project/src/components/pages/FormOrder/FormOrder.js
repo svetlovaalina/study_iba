@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import useFetch from 'use-http';
 import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import classes from './FormOrder.module.css';
@@ -8,8 +9,9 @@ import { Button } from 'react-bootstrap';
 import { validationSchema } from '../../../utils/formHelper/formOrderValidation';
 import { FormGroup } from '../../common/FormGroup';
 import { ModalWindow } from '../../common/ModalWindow';
-import useFetch from 'use-http';
 import Spinner from 'react-bootstrap/Spinner';
+import { Form } from 'react-bootstrap';
+import { RichTextEditor } from 'src/components/common/RichTextEditor';
 
 export const FormOrder = () => {
   const [isSuccessfulMessageShow, setIsSuccessfulMessageShow] = useState(false);
@@ -20,6 +22,7 @@ export const FormOrder = () => {
   const sendFormRef = useRef(null);
   const [orderName, setOrderName] = useState();
   let history = useHistory();
+  const commentRef = useRef(null);
 
   useEffect(() => {
     if (userProfile) {
@@ -43,8 +46,9 @@ export const FormOrder = () => {
   const { post, response, loading, error } = useFetch('https://jsonplaceholder.typicode.com');
 
   async function sendForm(values) {
+    const orderComment = commentRef.current.editor.getData();
     const orderContent = JSON.parse(localStorage.getItem('phoneListBasket')).map((item) => ({ id: item.id, amount: item.amount }));
-    const responseJSON = await post('/posts', { ...values, orderContent: orderContent });
+    const responseJSON = await post('/posts', { ...values, orderContent: orderContent, orderComment: orderComment });
     if (response.ok) {
       setOrderId(responseJSON.id);
       setOrderName(responseJSON.name);
@@ -121,6 +125,10 @@ export const FormOrder = () => {
                 touched={touched}
                 errors={errors}
               />
+              <Form.Group controlId="formName" className={classes.formGroup}>
+                <Form.Label>Comment :</Form.Label>
+                <RichTextEditor commentRef={commentRef} />
+              </Form.Group>
 
               <Button variant="primary" type="submit" disabled={isSubmitting} className={classes.buttonSend}>
                 Send

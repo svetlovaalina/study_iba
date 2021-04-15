@@ -3,7 +3,6 @@
   height: auto;
   width: 90%;
   margin: 2.5rem auto;
-  color: snow;
   -webkit-box-shadow: 5px 5px 5px 0 #00000066;
   -moz-box-shadow: 5px 5px 5px 0 #00000066;
   box-shadow: 5px 5px 5px 0 #00000066;
@@ -72,4 +71,16 @@ h1 {
 .alert {
   position: absolute;
   top: 120px;
+}
+
+/* :global .ck.ck-editor {
+  margin: 1.5rem 1rem !important;
+} */
+
+:global .ck.ck-toolbar > .ck.ck-toolbar__grouped-dropdown > .ck.ck-button.ck-dropdown__button {
+  display: none;
+}
+
+:global .ck-file-dialog-button > .ck-button {
+  display: none !important;
 }
