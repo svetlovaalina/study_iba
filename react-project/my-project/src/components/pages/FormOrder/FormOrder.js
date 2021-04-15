@@ -151,3 +151,5 @@ export const FormOrder = () => {
     null
   );
 };
+
+export { FormOrder as default } from './FormOrder.js';

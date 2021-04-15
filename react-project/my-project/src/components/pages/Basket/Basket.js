@@ -69,3 +69,5 @@ export const Basket = () => {
     </div>
   );
 };
+
+export { Basket as default } from './Basket.js';

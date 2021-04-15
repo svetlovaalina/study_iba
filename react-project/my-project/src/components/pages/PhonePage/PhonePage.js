@@ -145,3 +145,5 @@ export const PhonePage = () => {
     null
   );
 };
+
+export { PhonePage as default } from './PhonePage.js';
