@@ -6,17 +6,17 @@ import Alert from 'react-bootstrap/Alert';
 import { CSSTransition } from 'react-transition-group';
 import { ButtonShowMore } from '../../common/ButtonShowMore';
 import { useShowMore } from '../../../hook/useShowMore/useShowMore';
-import { limit } from '../../../const/const';
+import { maxPhoneNumberOnPage } from '../../../const/const';
 
 export const PhoneCardList = ({ error, loading, phoneListStore, sortTypeStore, searchTextStore, animationCall, phoneListChanged }) => {
   // const phoneListChanged = phoneListStore
   //   .sort((prevPhone, phone) => (prevPhone[sortTypeStore] < phone[sortTypeStore] ? -1 : 1))
   //   .filter((phoneListObj) => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()));
-  // const maxCountPage = phoneListStore.length / limit;
-  // const [itemRows, isShowMoreVisible, showMore] = useShowMore({ items: phoneListChanged, limit });
+  // const maxCountPage = phoneListStore.length / maxPhoneNumberOnPage;
+  // const [itemRows, isShowMoreVisible, showMore] = useShowMore({ items: phoneListChanged, maxPhoneNumberOnPage });
   const animationList = useRef(null);
 
-  const [itemRows, isShowMoreVisible, showMore] = useShowMore({ items: phoneListChanged, limit });
+  const [itemRows, isShowMoreVisible, showMore] = useShowMore({ items: phoneListChanged, maxPhoneNumberOnPage });
 
   return (
     <div className={classes.container}>
