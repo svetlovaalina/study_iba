@@ -1,22 +1,16 @@
+@import '../../../styles/mixins.scss';
+
 .container {
   min-height: 15rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   border-radius: 4px;
   padding: 0.5rem;
-}
-
-@media only screen and (max-width: 37.5em) {
-  .container {
+  @include apply-to('mdMax') {
     width: 100%;
     display: block;
     overflow: hidden;
   }
-}
-
-@media only screen and (min-width: 37.5em) and (max-width: 50em) {
-  .container {
+  @include apply-from-to('mdMin', 'lgMax') {
     width: 100%;
     padding: 0 0.5rem;
     margin: 1rem 0;
@@ -34,15 +28,9 @@
 }
 
 .mobileDescription {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-item-align: center;
-      align-self: center;
+  flex-direction: column;
+  align-self: center;
   height: 13rem;
   overflow: hidden;
   margin: 1rem;
@@ -65,4 +53,21 @@
   text-decoration: unset;
   font-weight: 500;
 }
-/*# sourceMappingURL=PhoneCard.module.css.map */
+
+// @media only screen and (max-width: 37.5em) {
+//   .container {
+//     width: 100%;
+//     display: block;
+//     overflow: hidden;
+//   }
+// }
+
+// @media only screen and (min-width: 37.5625em) and (max-width: 50em) {
+//   .container {
+//     width: 100%;
+//     padding: 0 0.5rem;
+//     margin: 1rem 0;
+//     display: block;
+//     overflow: hidden;
+//   }
+// }

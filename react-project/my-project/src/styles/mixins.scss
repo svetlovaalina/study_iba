@@ -1,0 +1,121 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+$breakpoints: (
+  // Extra small screen / phone
+  'xs':
+    (
+      min-width: 0,
+    ),
+  // Small screen / phone
+  'sm':
+    (
+      min-width: 20em,
+    ),
+  // 320px
+  // Medium screen / tablet
+  'mdMax':
+    (
+      max-width: 37.5em,
+    ),
+  'mdMin': (
+    min-width: 37.5em,
+  ),
+  // 600px
+  // Large screen / desktop
+  'lgMax':
+    (
+      max-width: 50em,
+    ),
+  // 800px
+  // Extra large screens / wide desktop
+  'xl':
+    (
+      min-width: 82em,
+    ),
+  // 1312px
+  'xxl':
+    (
+      min-width: 99em,
+    ),
+  // 1584px
+);
+
+// font-smoothing light text on dark backgrounds
+@mixin light-on-dark() {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/// Responsive manager
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+/// @link http://sass-guidelin.es/#breakpoint-manager Sass Guidelines - Breakpoint Manager
+
+// @media only screen and (max-width: 37.5em) {
+//   .container {
+//     width: 100%;
+//     display: block;
+//     overflow: hidden;
+//   }
+// }
+
+@mixin apply-to($breakpoint) {
+  $query: map-get($breakpoints, $breakpoint);
+  @media only screen and #{if(type-of($query) == 'string', unquote($query), inspect($query))} {
+    @content;
+  }
+}
+@mixin apply-from-to($breakpointFrom, $breakpointTo) {
+  $queryFrom: map-get($breakpoints, $breakpointFrom);
+  $queryTo: map-get($breakpoints, $breakpointTo);
+  @media only screen and 
+  #{if(type-of($queryFrom) == 'string', unquote($queryFrom), inspect($queryFrom))}  
+  and    #{if(type-of($queryTo) == 'string', unquote($queryTo), inspect($queryTo))} {
+    @content;
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  $query: map-get($breakpoints, $breakpoint);
+
+  @if not $query {
+    @error 'No value found for `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.';
+  }
+
+  /* stylelint-disable-next-line */
+  @media #{if(type-of($query) == 'string', unquote($query), inspect($query))} {
+    @content;
+  }
+}
+
+// a11y - alias for accessibility related stuff
+@mixin a11y-outline($offset: 2px, $outlineColor: $gray-dark) {
+  transition: outline-offset 0s;
+  outline: 1px dotted $outlineColor;
+  outline-offset: $offset;
+}
+
+// IE specific styles
+@mixin apply-to-IE() {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+// FireFox specific styles
+@mixin apply-to-FF {
+  @-moz-document url-prefix() {
+    @content;
+  }
+}
+
+// transition mixin for animation
+@mixin transition {
+  -webkit-transition: all ease-in-out 0.2s;
+  -moz-transition: all ease-in-out 0.2s;
+  -ms-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}

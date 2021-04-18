@@ -5,11 +5,11 @@
 }
 
 .iconSuccessMessage {
-  color: green;
+  color: #008000;
   margin-right: 0.5rem;
 }
 
 .iconErrorMessage {
-  color: red;
+  color: #ff0000;
   margin-right: 0.5rem;
 }
