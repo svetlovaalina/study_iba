@@ -1,0 +1,131 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.containerPhone {
+  @include apply-to('mdMax') {
+    width: 100%;
+    padding: 0 1rem;
+    overflow: hidden;
+  }
+  @include apply-from-to('mdMin', 'lgMax') {
+    width: 100%;
+    padding: 0 2.5rem;
+    overflow: hidden;
+  }
+}
+
+.phoneImagesShortDescription {
+  display: flex;
+  flex-direction: row;
+  @include apply-to('mdMax') {
+    flex-direction: column;
+  }
+  @include apply-from-to('mdMin', 'lgMax') {
+    flex-direction: column;
+  }
+}
+
+.imageContainer {
+  width: 100%;
+  padding-left: 0.8rem;
+  height: auto;
+  margin: 1rem;
+  @include apply-to('mdMax') {
+    width: 95%;
+  }
+  @include apply-from-to('mdMin', 'lgMax') {
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.idAndDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0.1rem;
+}
+
+.idAndDescription h1 {
+  font-family: 'COURIER NEW', $basicFontFamily;
+  font-size: 3em;
+  margin: 1.2rem 0;
+}
+
+.cardDescription {
+  margin-right: 1.2rem;
+}
+
+.cardDescription p {
+  margin: 0.2rem;
+  font-family: 'CENTURY SCHOOLBOOK', $basicFontFamily;
+  font-size: 1.4em;
+  animation-name: animationText;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0, 0, 0, 1.03);
+  padding: 0.5rem;
+}
+
+.detailsDescription {
+  font-family: 'Akaya Kanadaka', $basicFontFamily;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.5rem 0rem 0rem 2rem;
+}
+
+.propDescription {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  margin: 1.2rem;
+
+  @include apply-to('mdMax') {
+    width: 40%;
+    margin: 1.1rem;
+  }
+  @include apply-from-to('mdMin', 'lgMax') {
+    width: 30%;
+    margin: 0.3rem;
+  }
+}
+
+.propDescription h3 {
+  font-size: 1.7rem;
+  word-break: break-all;
+}
+
+.propDescription h4,
+.propDescription p {
+  font-size: 1.2rem;
+}
+
+@keyframes animationText {
+  0% {
+    margin-left: 100%;
+    width: 100%;
+  }
+  100% {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+:global .carousel .thumbs-wrapper .control-arrow {
+  background: #5c022f3b;
+}
+
+:global .carousel .slide {
+  background: $white !important;
+}
+
+:global .carousel-root {
+  width: 90%;
+}
+
+:global .carousel-root .carousel.carousel-slider .control-arrow {
+  margin: auto 0;
+  padding: 0.2rem;
+  height: 50px;
+}

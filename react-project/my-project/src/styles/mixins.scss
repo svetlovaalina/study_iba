@@ -29,6 +29,11 @@ $breakpoints: (
       max-width: 50em,
     ),
   // 800px
+  'lgMin':
+    (
+      min-width: 50em,
+    ),
+  // 800px
   // Extra large screens / wide desktop
   'xl':
     (

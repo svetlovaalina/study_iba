@@ -1,15 +1,15 @@
+@import '../../../styles/variables.scss';
+
 .navBarLink:hover {
   text-decoration: none;
   color: #0071a7c7;
-  cursor: -webkit-grab;
   cursor: grab;
 }
 
 :global nav.bg-primary {
-  background-color: #2fccd1 !important;
+  background-color: $turquoise !important;
 }
 
 :global .navbar-brand a {
-  color: #ffffff !important;
+  color: $white !important;
 }
-/*# sourceMappingURL=NavBar.module.css.map */

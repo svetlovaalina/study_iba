@@ -1,3 +1,47 @@
+@media only screen and (max-width: 37.5em) {
+  .containerPhone {
+    width: 100%;
+    padding: 0 1rem;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (min-width: 37.5em) and (max-width: 50em) {
+  .containerPhone {
+    width: 100%;
+    padding: 0 2.5rem;
+    overflow: hidden;
+  }
+}
+
+.phoneImagesShortDescription {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .phoneImagesShortDescription {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 37.5em) and (max-width: 50em) {
+  .phoneImagesShortDescription {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .imageContainer {
   width: 100%;
   padding-left: 0.8rem;
@@ -5,30 +49,44 @@
   margin: 1rem;
 }
 
+@media only screen and (max-width: 37.5em) {
+  .imageContainer {
+    width: 95%;
+  }
+}
+
+@media only screen and (min-width: 37.5em) and (max-width: 50em) {
+  .imageContainer {
+    max-width: 95%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .idAndDescription {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-left: 0.1rem;
 }
 
-.phoneImagesShortDescription {
-  display: flex;
-  flex-direction: row;
-}
-
-.cardDescription p {
-  margin: 0.2rem;
-  font-family: 'CENTURY SCHOOLBOOK', sans-serif;
-  font-size: 1.4em;
-  animation-name: animationText;
-  animation-duration: 1.5s;
-  animation-timing-function: cubic-bezier(0, 0, 0, 1.03);
-  padding: 0.5rem;
-}
-
 .idAndDescription h1 {
-  font-family: 'COURIER NEW', sans-serif;
+  font-family: "COURIER NEW", monospace;
   font-size: 3em;
   margin: 1.2rem 0;
 }
@@ -37,18 +95,53 @@
   margin-right: 1.2rem;
 }
 
+.cardDescription p {
+  margin: 0.2rem;
+  font-family: "CENTURY SCHOOLBOOK", monospace;
+  font-size: 1.4em;
+  -webkit-animation-name: animationText;
+          animation-name: animationText;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1.03);
+          animation-timing-function: cubic-bezier(0, 0, 0, 1.03);
+  padding: 0.5rem;
+}
+
 .detailsDescription {
-  font-family: 'Akaya Kanadaka', cursive;
+  font-family: "Akaya Kanadaka", monospace;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: 1.5rem 0rem 0rem 2rem;
 }
 
 .propDescription {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 15%;
   margin: 1.2rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .propDescription {
+    width: 40%;
+    margin: 1.1rem;
+  }
+}
+
+@media only screen and (min-width: 37.5em) and (max-width: 50em) {
+  .propDescription {
+    width: 30%;
+    margin: 0.3rem;
+  }
 }
 
 .propDescription h3 {
@@ -56,15 +149,12 @@
   word-break: break-all;
 }
 
-.propDescription h4 {
-  font-size: 1.2rem;
-}
-
+.propDescription h4,
 .propDescription p {
   font-size: 1.2rem;
 }
 
-@keyframes animationText {
+@-webkit-keyframes animationText {
   0% {
     margin-left: 100%;
     width: 100%;
@@ -75,54 +165,14 @@
   }
 }
 
-@media only screen and (max-width: 50em) and (min-width: 37.5625em) {
-  .phoneImagesShortDescription {
-    display: flex;
-    flex-direction: column;
-  }
-  .containerPhone {
-    width: 100%;
-    padding: 0 2.5rem;
-    overflow: hidden;
-  }
-  .imageContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .imageContainer {
-    max-width: 100%;
-  }
-  .propDescription {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    margin: 0.3rem;
-  }
-}
-
-@media only screen and (max-width: 37.5em) {
-  .containerPhone {
-    width: 100%;
-    padding: 0 1rem;
-    overflow: hidden;
-  }
-  .phoneImagesShortDescription {
-    display: flex;
-    flex-direction: column;
-  }
-  .imageContainer {
+@keyframes animationText {
+  0% {
+    margin-left: 100%;
     width: 100%;
   }
-  .propDescription {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    margin: 1.1rem;
-  }
-  .phoneImagesShortDescription {
-    display: flex;
-    flex-direction: column;
+  100% {
+    margin-left: 0;
+    width: 100%;
   }
 }
 
@@ -143,3 +193,4 @@
   padding: 0.2rem;
   height: 50px;
 }
+/*# sourceMappingURL=PhonePage.module.css.map */

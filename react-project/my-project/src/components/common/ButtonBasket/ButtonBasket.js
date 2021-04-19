@@ -27,7 +27,7 @@ export const ButtonBasket = ({ phoneData }) => {
   };
 
   useEffect(() => {
-    if (localStorageBasket && localStorageBasket.find((x) => x.id === phoneData.id)) {
+    if (localStorageBasket && localStorageBasket.find(x => x.id === phoneData.id)) {
       setStateBasket(go);
     }
   }, []);

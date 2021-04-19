@@ -5,13 +5,15 @@
   display: flex;
   border-radius: 4px;
   padding: 0.5rem;
+  margin: 1rem;
+
   @include apply-to('mdMax') {
-    width: 100%;
+    width: 95%;
     display: block;
     overflow: hidden;
   }
   @include apply-from-to('mdMin', 'lgMax') {
-    width: 100%;
+    width: 95%;
     padding: 0 0.5rem;
     margin: 1rem 0;
     display: block;

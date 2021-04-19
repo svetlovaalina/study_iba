@@ -1,15 +1,15 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
 .container {
   background: #f7f9fa;
   height: auto;
   width: 90%;
   margin: 2.5rem auto;
   -webkit-box-shadow: 5px 5px 5px 0 #00000066;
+  -moz-box-shadow: 5px 5px 5px 0 #00000066;
   box-shadow: 5px 5px 5px 0 #00000066;
-  /* stylelint-disable-next-line */
-}
-
-@media (min-width: 37.5em) {
-  .container {
+  @include respond-to('mdMin') {
     width: 55%;
   }
 }
@@ -18,11 +18,7 @@
   width: 90%;
   text-align: left;
   padding: 2em 0;
-  /* stylelint-disable-next-line */
-}
-
-@media (min-width: 37.5em) {
-  .mxAuto {
+  @include respond-to('mdMin') {
     width: 55%;
     margin: 0 auto;
   }
@@ -38,8 +34,6 @@
   font-size: 1.2em;
   font-weight: 400;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -48,13 +42,13 @@
 }
 
 label {
-  color: #2fccd1;
+  color: $turquoise;
   font-size: 1.2em;
   font-weight: 400;
 }
 
 .errorMessage {
-  color: #ff0000;
+  color: $red;
   padding: 0.5em 0.2em;
   height: 1em;
   position: absolute;
@@ -76,4 +70,3 @@ label {
 :global .ck-toolbar > .ck-toolbar__items .ck-dropdown:nth-child(3n) {
   display: none !important;
 }
-/*# sourceMappingURL=FormOrder.module.css.map */

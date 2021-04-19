@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,QAAQ,CAAC;EACP,MAAM,EAAE,WAAW;EACnB,WAAW,ECIK,SAAS;CDH1B",
+    "sources": [
+        "Counter.module.scss",
+        "../../../styles/variables.scss"
+    ],
+    "names": [],
+    "file": "Counter.module.css"
+}

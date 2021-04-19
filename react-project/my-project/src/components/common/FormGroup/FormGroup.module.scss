@@ -1,12 +1,13 @@
+@import '../../../styles/variables.scss';
+
 .formGroup {
   margin: 1.5rem 1rem;
 }
 
 .errorMessage {
-  color: #ff0000;
+  color: $red;
   padding: 0.5em 0.2em;
   height: 1em;
   position: absolute;
   font-size: 0.8em;
 }
-/*# sourceMappingURL=FormGroup.module.css.map */
