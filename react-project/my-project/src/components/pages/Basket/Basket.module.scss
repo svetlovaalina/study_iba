@@ -1,0 +1,36 @@
+@import '../../../styles/variables.scss';
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonMakeOrder {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 1rem 1.5rem;
+}
+
+.phoneCardBasket {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 0 2rem 3rem 2rem;
+  border: $basicBorder;
+}
+
+.counterAndDelete {
+  display: flex;
+  flex-direction: column;
+}
+
+.deleteButton {
+  justify-self: start;
+  align-self: flex-end;
+  margin: 0.1rem;
+}
+
+.alert {
+  width: max-content;
+  margin: 2rem auto;
+}

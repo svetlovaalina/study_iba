@@ -53,14 +53,6 @@ $breakpoints: (
 /// @requires $breakpoints
 /// @link http://sass-guidelin.es/#breakpoint-manager Sass Guidelines - Breakpoint Manager
 
-// @media only screen and (max-width: 37.5em) {
-//   .container {
-//     width: 100%;
-//     display: block;
-//     overflow: hidden;
-//   }
-// }
-
 @mixin apply-to($breakpoint) {
   $query: map-get($breakpoints, $breakpoint);
   @media only screen and #{if(type-of($query) == 'string', unquote($query), inspect($query))} {

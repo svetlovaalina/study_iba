@@ -1,7 +1,12 @@
 .container {
   margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .phoneCard {
@@ -9,39 +14,52 @@
 }
 
 .alert {
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   margin: 2rem auto;
 }
 
 .listAnimation {
-  transform-origin: top center;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
 }
 
 :global .animationList-enter {
-  transform: translateY(-30px);
+  -webkit-transform: translateY(-30px);
+          transform: translateY(-30px);
   opacity: 0;
 }
 
 :global .animationList-enter-active {
   opacity: 1;
-  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  -webkit-transition: opacity 1000ms, -webkit-transform 1000ms;
+  transition: opacity 1000ms, -webkit-transform 1000ms;
   transition: opacity 1000ms, transform 1000ms;
+  transition: opacity 1000ms, transform 1000ms, -webkit-transform 1000ms;
 }
 
 :global .animationList-exit {
   opacity: 0;
-  transform: translateY(-30px);
+  -webkit-transform: translateY(-30px);
+          transform: translateY(-30px);
 }
 
 :global .animationList-exit-active {
   opacity: 1;
-  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  -webkit-transition: opacity 1000ms, -webkit-transform 1000ms;
+  transition: opacity 1000ms, -webkit-transform 1000ms;
   transition: opacity 1000ms, transform 1000ms;
+  transition: opacity 1000ms, transform 1000ms, -webkit-transform 1000ms;
 }
 
 /* /////////////FOR PHONE CARD//////////////// */
-
 .containerPhoneCard {
   margin: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid #cacaca;
 }
+/*# sourceMappingURL=PhoneCardList.module.css.map */
