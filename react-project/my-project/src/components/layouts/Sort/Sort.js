@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import classes from './Sort.module.css';
+import classes from './Sort.module.scss';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FormControl from '@material-ui/core/FormControl';
@@ -12,10 +12,10 @@ import { sortTypeSelector } from '../../../store/selectors/sortTypeSelector';
 
 export const Sort = () => {
   const dispatch = useDispatch();
-  const sortTypeStore = useSelector(sortTypeSelector); //state => state.sortTypeStore
+  const sortTypeStore = useSelector(sortTypeSelector);
   const [open, setOpen] = useState(false);
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     dispatch(updateSortType(event.target.value));
   };
 

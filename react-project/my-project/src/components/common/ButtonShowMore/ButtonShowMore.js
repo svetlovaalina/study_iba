@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './ButtonShowMore.module.css';
+import classes from './ButtonShowMore.module.scss';
 import Button from 'react-bootstrap/Button';
 
 export const ButtonShowMore = ({ showMore }) => {

@@ -1,7 +1,0 @@
-:global .ck.ck-toolbar > .ck.ck-toolbar__grouped-dropdown > .ck.ck-button.ck-dropdown__button {
-  display: none;
-}
-
-:global .ck-file-dialog-button > .ck-button {
-  display: none !important;
-}

@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './PhoneCard.module.css';
+import classes from './PhoneCard.module.scss';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 // import PropTypes from 'prop-types';

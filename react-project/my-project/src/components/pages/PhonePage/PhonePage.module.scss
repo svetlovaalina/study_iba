@@ -3,6 +3,7 @@
 
 .containerPhone {
   @include apply-to('mdMax') {
+    font-size: 1em;
     width: 100%;
     padding: 0 1rem;
     overflow: hidden;

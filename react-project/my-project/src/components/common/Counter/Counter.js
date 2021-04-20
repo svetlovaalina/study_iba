@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import classes from './Counter.module.css';
+import classes from './Counter.module.scss';
 
 export const Counter = ({ idphone, localStorageBasket, setLocalStorageBasket }) => {
-  const [counter, setCounter] = useState(localStorageBasket.find((item) => item.id === idphone).amount || 1);
+  const [counter, setCounter] = useState(localStorageBasket.find(item => item.id === idphone).amount || 1);
 
   const handleIncrement = () => {
     setCounter(counter + 1);

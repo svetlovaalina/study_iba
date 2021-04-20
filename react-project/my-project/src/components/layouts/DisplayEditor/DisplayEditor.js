@@ -1,5 +1,5 @@
 import React from 'react';
-// import classes from './DisplayEditor.module.css';
+// import classes from './DisplayEditor.module.scss';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Search } from '../Search';

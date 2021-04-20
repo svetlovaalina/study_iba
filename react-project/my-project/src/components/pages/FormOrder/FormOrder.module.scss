@@ -6,6 +6,7 @@
   height: auto;
   width: 90%;
   margin: 2.5rem auto;
+
   -webkit-box-shadow: 5px 5px 5px 0 #00000066;
   -moz-box-shadow: 5px 5px 5px 0 #00000066;
   box-shadow: 5px 5px 5px 0 #00000066;
@@ -55,18 +56,18 @@ label {
   font-size: 0.8em;
 }
 
-:global .ck.ck-toolbar > .ck.ck-toolbar__grouped-dropdown > .ck.ck-button.ck-dropdown__button {
-  display: none;
-}
+// :global .ck.ck-toolbar > .ck.ck-toolbar__grouped-dropdown > .ck.ck-button.ck-dropdown__button {
+//   display: none;
+// }
 
-:global .ck-file-dialog-button > .ck-button {
-  display: none !important;
-}
+// :global .ck-file-dialog-button > .ck-button {
+//   display: none !important;
+// }
+
+// :global .ck-toolbar > .ck-toolbar__items .ck-dropdown:nth-child(3n) {
+//   display: none !important;
+// }
 
 :global .ck.ck-editor__editable_inline > :last-child {
   height: 7rem;
-}
-
-:global .ck-toolbar > .ck-toolbar__items .ck-dropdown:nth-child(3n) {
-  display: none !important;
 }

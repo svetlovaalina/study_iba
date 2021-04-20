@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import classes from './ButtonBasket.module.css';
+import classes from './ButtonBasket.module.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';

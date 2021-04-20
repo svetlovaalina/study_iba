@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import classes from './Basket.module.css';
+import classes from './Basket.module.scss';
 import { PhoneCard } from '../../layouts/PhoneCard';
 import { ButtonMakeOrder } from '../../common/ButtonMakeOrder';
 import { Counter } from '../../common/Counter';
@@ -14,7 +14,7 @@ export const Basket = () => {
   const deletePhoneButton = useRef(null);
 
   const handleClose = () => setShow(false);
-  const handleShow = (event) => {
+  const handleShow = event => {
     setShow(true);
     setPhoneToDelete(event.currentTarget.dataset.idphone);
   };
@@ -22,7 +22,7 @@ export const Basket = () => {
   const [localStorageBasket, setLocalStorageBasket] = useState(JSON.parse(localStorage.getItem('phoneListBasket')));
 
   const deleteButton = () => {
-    setLocalStorageBasket(localStorageBasket.filter((el) => el.id !== phoneToDelete));
+    setLocalStorageBasket(localStorageBasket.filter(el => el.id !== phoneToDelete));
     setPhoneToDelete('');
     setShow(false);
   };
@@ -50,7 +50,7 @@ export const Basket = () => {
       </Modal>
 
       {localStorageBasket?.length ? (
-        localStorageBasket.map((item) => (
+        localStorageBasket.map(item => (
           <div className={classes.phoneCardBasket} key={item.id}>
             <PhoneCard id={item.id} name={item.name} imageUrl={item.images[0]} snippet={item.description} />
             <div className={classes.counterAndDelete}>

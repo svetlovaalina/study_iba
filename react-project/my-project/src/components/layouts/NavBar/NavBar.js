@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './NavBar.module.css';
+import classes from './NavBar.module.scss';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';

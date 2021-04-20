@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Search.module.css';
+import classes from './Search.module.scss';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
@@ -11,7 +11,7 @@ import { searchTextSelector } from '../../../store/selectors/searchTextSelector'
 export const Search = () => {
   const dispatch = useDispatch();
   const searchTextStore = useSelector(searchTextSelector);
-  const onInputChange = (event) => {
+  const onInputChange = event => {
     dispatch(updateSearchText(event.currentTarget.value));
   };
 

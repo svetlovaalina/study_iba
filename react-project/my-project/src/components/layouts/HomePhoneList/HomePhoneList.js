@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import classes from './HomePhoneList.module.css';
+// import classes from './HomePhoneList.module.scss';
 import { PhoneCardList } from '../PhoneCardList';
 import useFetch from 'use-http';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,7 +24,7 @@ export const HomePhoneList = () => {
   }, []);
 
   useEffect(() => {
-    setAnimationCall((prevState) => !prevState); //!animationCall
+    setAnimationCall(prevState => !prevState); //!animationCall
   }, [searchTextStore, sortTypeStore]);
 
   const getPhones = async () => {
@@ -38,7 +38,7 @@ export const HomePhoneList = () => {
 
   const phoneListChanged = phoneListStore
     .sort((prevPhone, phone) => (prevPhone[sortTypeStore] < phone[sortTypeStore] ? -1 : 1))
-    .filter((phoneListObj) => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()));
+    .filter(phoneListObj => phoneListObj.name.toLowerCase().includes(searchTextStore.toLowerCase()));
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
-import classes from './FormGroup.module.css';
+import classes from './FormGroup.module.scss';
 
 export const FormGroup = ({ fieldLabel, nameControl, namePlaceholder, handleChange, handleBlur, values, touched, errors }) => {
   return (

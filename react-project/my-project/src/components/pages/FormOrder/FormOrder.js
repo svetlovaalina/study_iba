@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import useFetch from 'use-http';
 import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
-import classes from './FormOrder.module.css';
+import classes from './FormOrder.module.scss';
 import { useSelector } from 'react-redux';
 import { userProfileSelector } from '../../../store/selectors/userProfileSelector';
 import { Button } from 'react-bootstrap';
@@ -47,7 +47,7 @@ export const FormOrder = () => {
 
   async function sendForm(values) {
     const orderComment = commentRef.current.editor.getData();
-    const orderContent = JSON.parse(localStorage.getItem('phoneListBasket')).map((item) => ({ id: item.id, amount: item.amount }));
+    const orderContent = JSON.parse(localStorage.getItem('phoneListBasket')).map(item => ({ id: item.id, amount: item.amount }));
     const responseJSON = await post('/posts', { ...values, orderContent: orderContent, orderComment: orderComment });
     if (response.ok) {
       setOrderId(responseJSON.id);

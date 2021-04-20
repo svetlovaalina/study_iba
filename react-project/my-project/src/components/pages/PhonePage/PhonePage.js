@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import classes from './PhonePage.module.css';
+import classes from './PhonePage.module.scss';
 import { useParams } from 'react-router-dom';
 import useFetch from 'use-http';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import classes from './PhoneCardList.module.css';
+import classes from './PhoneCardList.module.scss';
 import { PhoneCard } from '../PhoneCard';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
@@ -24,7 +24,7 @@ export const PhoneCardList = ({ error, loading, phoneListStore, sortTypeStore, s
       {loading && <Spinner animation="border" className="spinner" />}
       <CSSTransition in={animationCall} timeout={1000} nodeRef={animationList} classNames="animationList">
         <div className={classes.listAnimation} ref={animationList}>
-          {itemRows.map((item) => (
+          {itemRows.map(item => (
             <PhoneCard
               className={classes.containerPhoneCard}
               key={item.id}

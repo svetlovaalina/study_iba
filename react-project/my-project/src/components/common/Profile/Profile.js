@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import classes from './Profile.module.css';
+import classes from './Profile.module.scss';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/NavBar';
@@ -21,7 +21,7 @@ export const Profile = ({ className }) => {
   const buttonRef = useRef(null);
   let location = useLocation();
 
-  const handleClick = (event) => {
+  const handleClick = event => {
     setAnchorEl(event.currentTarget);
     setOpenPopover(true);
   };
@@ -46,7 +46,7 @@ export const Profile = ({ className }) => {
         client_id: process.env.CLIENT_ID,
         cookiepolicy: 'single_host_origin',
       });
-      window.auth2.isSignedIn.listen((isSignedIn) => {
+      window.auth2.isSignedIn.listen(isSignedIn => {
         if (isSignedIn) {
           const userProfile = window.auth2.currentUser.get().getBasicProfile();
           dispatch(getProfileData(userProfile));
@@ -64,9 +64,9 @@ export const Profile = ({ className }) => {
     });
   };
 
-  const attachSignIn = (element) => {
+  const attachSignIn = element => {
     if (!logInState) {
-      window.auth2.attachClickHandler(element, {}, (googleUser) => {});
+      window.auth2.attachClickHandler(element, {}, googleUser => {});
     }
   };
 
@@ -80,7 +80,7 @@ export const Profile = ({ className }) => {
         <div id="gSignInWrapper">
           <div id="customBtn" ref={buttonRef} className="customGPlusSignIn">
             <Navbar.Brand>
-              <Link to={location} onClick={(event) => event.preventDefault} className={cn(className)}>
+              <Link to={location} onClick={event => event.preventDefault} className={cn(className)}>
                 Log in
               </Link>
             </Navbar.Brand>
