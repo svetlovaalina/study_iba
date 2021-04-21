@@ -8,7 +8,7 @@ import { Profile } from '../../common/Profile';
 
 export const NavBar = () => {
   return (
-    <div>
+    <div className={classes.container}>
       <Navbar bg="primary" variant="dark" className="d-flex justify-content-between">
         <Navbar.Brand>
           <Link to="/" className={classes.navBarLink}>
@@ -22,6 +22,14 @@ export const NavBar = () => {
             </Link>
           </Navbar.Brand>
         </div>
+        <div>
+          <Navbar.Brand>
+            <Link to="/store-description" className={classes.navBarLink}>
+              Store Description
+            </Link>
+          </Navbar.Brand>
+        </div>
+
         <Profile className={classes.navBarLink} />
       </Navbar>
     </div>
