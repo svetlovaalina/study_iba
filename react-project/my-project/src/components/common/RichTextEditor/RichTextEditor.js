@@ -10,7 +10,7 @@ export const RichTextEditor = ({ commentRef }) => {
       editor={ClassicEditor}
       config={{
         toolbar: {
-          items: ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', '|', 'bulletedList', 'numberedList', '|', 'undo', 'redo'],
+          items: ['heading', '|', 'bold', 'italic', '|', 'bulletedList', 'numberedList', '|', 'undo', 'redo'],
         },
       }}
       data="<p></p>"
