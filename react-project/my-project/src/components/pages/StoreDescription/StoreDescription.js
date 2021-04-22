@@ -24,7 +24,7 @@ export const StoreDescription = () => {
   return (
     <div className={classes.container}>
       <div сlassName={classes.descriptionAndMap}>
-        <h1> Contacts </h1>
+        {/* <h1> Contacts </h1> */}
         <h2> Our location: </h2>
         <p> Материк ул. Притыцкого 101, Минск </p>
 
