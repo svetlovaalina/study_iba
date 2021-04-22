@@ -8,6 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import Card from 'react-bootstrap/Card';
 import { ButtonBasket } from '../../common/ButtonBasket';
+import { ButtonShare } from '../../common/ButtonShare';
 
 export const PhonePage = () => {
   const { id } = useParams();
@@ -42,6 +43,9 @@ export const PhonePage = () => {
             )}
           </div>
           <div className={classes.idAndDescription}>
+            <div>
+              <ButtonShare />
+            </div>
             <div>
               <ButtonBasket phoneData={phoneData} />
             </div>
