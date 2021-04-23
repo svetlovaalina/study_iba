@@ -1,10 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './AboutUs.module.scss';
+import Spinner from 'react-bootstrap/Spinner';
 import { Loader } from '@googlemaps/js-api-loader';
-import { Footer } from 'src/components/layouts/Footer';
+// import { Footer } from 'src/components/layouts/Footer';
 
 export const AboutUs = () => {
-  let map;
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if ('loading' in HTMLIFrameElement.prototype) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 0);
+    }
+  }, [loading]);
 
   return (
     <div className={classes.container}>
@@ -13,16 +22,20 @@ export const AboutUs = () => {
         <p> Материк ул. Притыцкого 101, Минск </p>
 
         {/* <div id="map" className={classes.mapContainer}></div> */}
+        {loading && <Spinner animation="border" className="spinner" />}
+
         <iframe
+          // class="iframePlaceholder"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.466472130115!2d27.43105991542034!3d53.90568628010004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbdb290a4f3cef%3A0x329f1c7878957ec!2z0JzQsNGC0LXRgNC40Lo!5e0!3m2!1sru!2sby!4v1619041815261!5m2!1sru!2sby"
           width="800"
           height="550"
           style={{ border: 0 }}
           allowfullscreen=""
-          // loading="lazy"
+          // onload={viewLoader}
+          loading="lazy"
         ></iframe>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

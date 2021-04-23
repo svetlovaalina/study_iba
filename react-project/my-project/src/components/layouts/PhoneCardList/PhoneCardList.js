@@ -8,7 +8,7 @@ import { ButtonShowMore } from '../../common/ButtonShowMore';
 import { useShowMore } from '../../../hook/useShowMore/useShowMore';
 import { MAX_PHONE_NUMBER_ON_PAGE } from '../../../const/const';
 
-export const PhoneCardList = ({ error, loading, phoneListStore, sortTypeStore, searchTextStore, animationCall, phoneListChanged }) => {
+export const PhoneCardList = ({ error, loading, animationCall, phoneListChanged }) => {
   const animationList = useRef(null);
 
   const [itemRows, isShowMoreVisible, showMore] = useShowMore({ items: phoneListChanged, MAX_PHONE_NUMBER_ON_PAGE });

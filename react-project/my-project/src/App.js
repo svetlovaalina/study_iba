@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-// import classes from './App.module.css';
+import classes from './App.module.scss';
 import { Home } from 'src/components/pages/Home';
 import { AboutUs } from 'src/components/pages/AboutUs';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -14,7 +14,7 @@ const PhonePage = lazy(() => import('src/components/pages/PhonePage/PhonePage'))
 
 function App() {
   return (
-    <div>
+    <div className={classes.container}>
       <Router>
         <NavBar />
         <Suspense fallback={<Spinner animation="border" className="spinner" />}>
@@ -28,7 +28,7 @@ function App() {
             <Route path="/" component={Home} />
           </Switch>
         </Suspense>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </div>
   );
