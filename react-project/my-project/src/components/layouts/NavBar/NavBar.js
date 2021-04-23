@@ -24,8 +24,8 @@ export const NavBar = () => {
         </div>
         <div>
           <Navbar.Brand>
-            <Link to="/store-description" className={classes.navBarLink}>
-              Store Description
+            <Link to="/about-us" className={classes.navBarLink}>
+              About us
             </Link>
           </Navbar.Brand>
         </div>

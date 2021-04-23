@@ -8,8 +8,8 @@ import Modal from 'react-bootstrap/Modal';
 export const ButtonShare = () => {
   const currentPhoneButton = useRef(null);
   let shareData = {
-    title: 'MDN',
-    text: 'Learn web development on MDN!',
+    title: `${window.location.href}`,
+    text: 'See, what phone I have just found!',
     url: window.location.href,
   };
 
@@ -17,7 +17,7 @@ export const ButtonShare = () => {
     if (window.navigator.share) {
       window.navigator
         .share(shareData)
-        .then(() => console.log('All good!'))
+        .then(() => console.log('Navigator.share works in this browser'))
         .catch(e => console.error(e));
     } else {
       setShow(true);
@@ -54,9 +54,7 @@ export const ButtonShare = () => {
       </Modal>
 
       <Button variant="light" className={classes.buttonAddToBasket} ref={currentPhoneButton} onClick={handleShow}>
-        {/* onClick={handleShow} */}
-        Share
-        <ShareIcon />
+        <ShareIcon /> Share
       </Button>
     </div>
   );
