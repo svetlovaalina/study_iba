@@ -17,12 +17,15 @@ input {
   // margin-left: 1rem;
   margin-bottom: 0.2rem;
   text-align: center;
-  border: 0.5px solid #cacaca6e;
+  border: none;
   &:focus-visible {
-    border: 0.7px solid #cacaca8e !important;
+    color: brown;
+    // border: 0.7px solid #cacaca8e !important;
   }
 }
-
+.input:focus-visible {
+  border: none !important;
+}
 .modalBody {
   color: #0000009f;
 }

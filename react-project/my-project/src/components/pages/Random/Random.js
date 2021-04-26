@@ -12,7 +12,7 @@ export const Random = () => {
   const dispatch = useDispatch();
   let todayDate = new Date();
   const [today, setToday] = useState(todayDate.toLocaleDateString());
-  // const [today, setToday] = useState('03.05.2021');
+  // const [today, setToday] = useState('05.05.2021');
 
   useEffect(() => {
     getRandomPhone();
@@ -22,14 +22,15 @@ export const Random = () => {
   const [localStorageRandom, setLocalStorageRandom] = useState(JSON.parse(localStorage.getItem('randomPhone')));
 
   const getRandomPhone = () => {
+    debugger;
     if (
       (phoneListStore.length && !localStorageRandom) ||
       (phoneListStore.length && localStorageRandom && localStorageRandom.date !== today)
     ) {
       console.log(`Now I'm generating Today's phone`);
-      const random = phoneListStore[Math.floor(Math.random() * phoneListStore.length)];
-      setLocalStorageRandom(random);
-      localStorage.setItem('randomPhone', JSON.stringify({ ...random, date: today }));
+      const randomId = phoneListStore[Math.floor(Math.random() * phoneListStore.length)].id;
+      setLocalStorageRandom(randomId);
+      localStorage.setItem('randomPhone', JSON.stringify({ ...randomId, date: today }));
     }
     if (phoneListStore.length && localStorageRandom && localStorageRandom.date === today) {
       console.log('This is up-to-date information');

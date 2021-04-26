@@ -15,7 +15,7 @@ export const ButtonShare = () => {
 
   const handleShow = event => {
     if (window.navigator.share) {
-      window.navigator
+      return window.navigator
         .share(shareData)
         .then(() => console.log('Navigator.share works in this browser'))
         .catch(e => console.error(e));
@@ -43,6 +43,7 @@ export const ButtonShare = () => {
         </Modal.Header>
         <Modal.Body className={classes.modalBody}> Shared link</Modal.Body>
         <input type="text" value={window.location.href} id="myInput"></input>
+
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancel

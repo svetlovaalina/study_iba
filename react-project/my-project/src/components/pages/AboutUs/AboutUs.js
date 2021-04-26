@@ -7,13 +7,9 @@ import { Loader } from '@googlemaps/js-api-loader';
 export const AboutUs = () => {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if ('loading' in HTMLIFrameElement.prototype) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 0);
-    }
-  }, [loading]);
+  const loadingFun = () => {
+    setLoading(false);
+  };
 
   return (
     <div className={classes.container}>
@@ -25,18 +21,15 @@ export const AboutUs = () => {
         {loading && <Spinner animation="border" className="spinner" />}
 
         <iframe
-          // class="iframePlaceholder"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.466472130115!2d27.43105991542034!3d53.90568628010004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbdb290a4f3cef%3A0x329f1c7878957ec!2z0JzQsNGC0LXRgNC40Lo!5e0!3m2!1sru!2sby!4v1619041815261!5m2!1sru!2sby"
           width="800"
           height="550"
           style={{ border: 0 }}
-          allowfullscreen=""
-          // onload={viewLoader}
+          allowFullScreen=""
+          onLoad={loadingFun}
           loading="lazy"
         ></iframe>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };
-//
