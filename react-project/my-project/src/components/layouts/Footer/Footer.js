@@ -9,7 +9,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 export const Footer = () => {
   return (
     <div className={classes.container}>
-      <Navbar bg="primary" variant="dark" fixed="bottom" className="d-flex justify-content-between">
+      <Navbar bg="primary" variant="dark" className="d-flex justify-content-between">
         <div className={classes.siteTag}>
           <p> ©2021 My-project</p>
         </div>

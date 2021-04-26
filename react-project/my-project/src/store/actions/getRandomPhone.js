@@ -1,0 +1,1 @@
+export const GET_RANDOM_PHONE = 'GET_RANDOM_PHONE';

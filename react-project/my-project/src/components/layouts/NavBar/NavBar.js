@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './NavBar.module.scss';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Navbar from 'react-bootstrap/NavBar';
 import { Profile } from '../../common/Profile';
 
@@ -11,22 +11,29 @@ export const NavBar = () => {
     <div className={classes.container}>
       <Navbar bg="primary" variant="dark" className="d-flex justify-content-between">
         <Navbar.Brand>
-          <Link to="/" className={classes.navBarLink}>
+          <NavLink exact to="/" className={classes.navBarLink} activeStyle={{ fontWeight: 'bold' }}>
             My-project
-          </Link>
+          </NavLink>
         </Navbar.Brand>
         <div className="ml-auto p-2">
           <Navbar.Brand>
-            <Link to="/basket" className={classes.navBarLink}>
+            <NavLink to="/basket" className={classes.navBarLink} activeStyle={{ fontWeight: 'bold' }}>
               Basket
-            </Link>
+            </NavLink>
           </Navbar.Brand>
         </div>
         <div>
           <Navbar.Brand>
-            <Link to="/about-us" className={classes.navBarLink}>
+            <NavLink to="/about-us" className={classes.navBarLink} activeStyle={{ fontWeight: 'bold' }}>
               About us
-            </Link>
+            </NavLink>
+          </Navbar.Brand>
+        </div>
+        <div>
+          <Navbar.Brand>
+            <NavLink to="/random" className={classes.navBarLink} activeStyle={{ fontWeight: 'bold' }}>
+              Random
+            </NavLink>
           </Navbar.Brand>
         </div>
 

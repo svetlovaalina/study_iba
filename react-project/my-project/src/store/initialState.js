@@ -4,4 +4,5 @@ export const initialState = {
   sortTypeStore: 'age',
   searchTextStore: '',
   profileData: null,
+  randomPhone: [{}],
 };

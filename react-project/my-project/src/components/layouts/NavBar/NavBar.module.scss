@@ -8,15 +8,17 @@
   color: #0071a7c7;
   cursor: grab;
 }
+
 .container {
   -webkit-box-shadow: 5px 5px 5px 0 #02608b5e;
   -moz-box-shadow: 5px 5px 5px 0 #02608b5e;
   box-shadow: 5px 5px 5px 0 #02608b5e;
 }
+
 :global nav.bg-primary {
   background-color: $colorHeader !important;
 }
 
 :global .navbar-brand a {
-  color: $white !important;
+  color: $white;
 }

@@ -4,6 +4,7 @@ import { UPDATE_SORT_TYPE } from '../actions/updateSortType';
 import { UPDATE_SEARCH_TEXT } from '../actions/updateSearchText';
 import { ADD_TO_BASKET } from '../actions/actionAddPhoneToBasket';
 import { GET_PROFILE_DATA } from '../actions/getProfileData';
+import { GET_RANDOM_PHONE } from '../actions/getRandomPhone';
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -31,6 +32,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         profileData: action.payload,
+      };
+    case GET_RANDOM_PHONE:
+      return {
+        ...state,
+        randomPhone: action.payload,
       };
     default:
       return state;

@@ -1,0 +1,19 @@
+@import '../../../styles/variables.scss';
+
+// #map {
+//   height: 100%;
+// }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+h2 {
+  font-size: 3.2em;
+  line-height: 100%;
+  margin: 1.8rem 0 1.68rem 0;
+  color: #02608b5e;
+}

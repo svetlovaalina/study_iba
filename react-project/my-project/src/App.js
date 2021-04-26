@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import classes from './App.module.scss';
 import { Home } from 'src/components/pages/Home';
 import { AboutUs } from 'src/components/pages/AboutUs';
+import { Random } from 'src/components/pages/Random';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +23,7 @@ function App() {
             <Route path="/phonePage/:id" component={PhonePage} />
             <Route path="/about-us" component={AboutUs} />
             <Route path="/basket" component={Basket} />
+            <Route path="/random" component={Random} />
 
             <Route path="/form-order" component={FormOrder} />
 

@@ -24,7 +24,7 @@ export const HomePhoneList = () => {
   }, []);
 
   useEffect(() => {
-    setAnimationCall(prevState => !prevState); //!animationCall
+    setAnimationCall(prevState => !prevState);
   }, [searchTextStore, sortTypeStore]);
 
   const getPhones = async () => {
