@@ -14,6 +14,9 @@ export const Footer = () => {
           <p> ©2021 My-project</p>
         </div>
         <div className={classes.sotialContainer}>
+          <>
+            <p>Contact us: </p>
+          </>
           <div className={classes.vk}>
             <a href="https://vk.com/" className={classes.iconVk} target="_blank"></a>
           </div>
@@ -21,6 +24,12 @@ export const Footer = () => {
             <a href="mailto:stevtola.alina33@mail.ru" target="_blank">
               <MailOutlineIcon className={classes.iconMail} />
             </a>
+          </div>
+          <div className={classes.yt}>
+            <a href="https://www.youtube.com/" className={classes.iconYt} target="_blank"></a>
+          </div>
+          <div className={classes.ig}>
+            <a href="https://www.youtube.com/" className={classes.iconIg} target="_blank"></a>
           </div>
         </div>
       </Navbar>
