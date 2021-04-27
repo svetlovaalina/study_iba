@@ -22,6 +22,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', $basicFontFamily;
 }
+input {
+  text-align: start;
+}
 
 /* For loading */
 .spinner {

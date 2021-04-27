@@ -12,7 +12,7 @@ import { ButtonShare } from '../../common/ButtonShare';
 
 export const PhonePage = () => {
   const { id } = useParams();
-  const { get, loading, error, data: phoneData } = useFetch(`http://angular.github.io/angular-phonecat/step-14/app/phones/${id}.json`);
+  const { get, loading, error, data: phoneData } = useFetch(`https://angular.github.io/angular-phonecat/step-14/app/phones/${id}.json`);
 
   useEffect(() => {
     get();
@@ -36,7 +36,7 @@ export const PhonePage = () => {
               <Carousel showArrows>
                 {phoneData.images.map((item, i) => (
                   <div key={i}>
-                    <img src={`http://angular.github.io/angular-phonecat/step-14/app/${item}`} alt="Phone" />
+                    <img src={`https://angular.github.io/angular-phonecat/step-14/app/${item}`} alt="Phone" />
                   </div>
                 ))}
               </Carousel>

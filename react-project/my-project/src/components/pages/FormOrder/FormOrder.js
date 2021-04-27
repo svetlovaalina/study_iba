@@ -11,7 +11,7 @@ import { FormGroup } from '../../common/FormGroup';
 import { ModalWindow } from '../../common/ModalWindow';
 import Spinner from 'react-bootstrap/Spinner';
 import { Form } from 'react-bootstrap';
-import { RichTextEditor } from 'src/components/common/RichTextEditor';
+import { RichTextEditor } from '../../common/RichTextEditor';
 
 export const FormOrder = () => {
   const [isSuccessfulMessageShow, setIsSuccessfulMessageShow] = useState(false);

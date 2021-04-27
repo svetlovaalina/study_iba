@@ -19,8 +19,7 @@ input {
   text-align: center;
   border: none;
   &:focus-visible {
-    color: brown;
-    // border: 0.7px solid #cacaca8e !important;
+    outline: none;
   }
 }
 .input:focus-visible {

@@ -1,8 +1,11 @@
 import React, { lazy, Suspense } from 'react';
 import classes from './App.module.scss';
-import { Home } from 'src/components/pages/Home';
-import { AboutUs } from 'src/components/pages/AboutUs';
-import { Random } from 'src/components/pages/Random';
+// import { Home } from 'src/components/pages/Home';
+import { Home } from './components/pages/Home';
+// import { AboutUs } from 'src/components/pages/AboutUs';
+
+import { AboutUs } from './components/pages/AboutUs';
+import { Random } from './components/pages/Random';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,7 +14,7 @@ import { Footer } from './components/layouts/Footer';
 
 const Basket = lazy(() => import('./components/pages/Basket/Basket'));
 const FormOrder = lazy(() => import('./components/pages/FormOrder/FormOrder'));
-const PhonePage = lazy(() => import('src/components/pages/PhonePage/PhonePage'));
+const PhonePage = lazy(() => import('./components/pages/PhonePage/PhonePage'));
 
 function App() {
   return (
