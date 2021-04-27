@@ -8,7 +8,7 @@ export const PhoneCard = ({ name, snippet, imageUrl, id, className }) => {
   return (
     <div key={id} className={cn(className, classes.container)}>
       <div className={classes.imageContainer}>
-        <img className={classes.image} src={'https://angular.github.io/angular-phonecat/step-14/app/' + imageUrl} alt="Phone " />
+        <img className={classes.image} src={'http://angular.github.io/angular-phonecat/step-14/app/' + imageUrl} alt="Phone " />
       </div>
       <div className={classes.mobileDescription}>
         <Link to={'/phonePage/' + id} className={classes.mobileName}>

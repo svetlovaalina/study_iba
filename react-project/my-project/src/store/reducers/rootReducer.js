@@ -1,5 +1,5 @@
 import { initialState } from '../initialState';
-import { GET_PHONE_LIST } from '../actions/getPhoneList';
+import { SET_PHONE_LIST } from '../actions/setPhoneList';
 import { UPDATE_SORT_TYPE } from '../actions/updateSortType';
 import { UPDATE_SEARCH_TEXT } from '../actions/updateSearchText';
 import { ADD_TO_BASKET } from '../actions/actionAddPhoneToBasket';
@@ -8,7 +8,7 @@ import { GET_RANDOM_PHONE } from '../actions/getRandomPhone';
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_PHONE_LIST:
+    case SET_PHONE_LIST:
       return {
         ...state,
         phoneListStore: action.payload,

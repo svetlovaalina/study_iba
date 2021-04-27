@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { PhoneCardList } from '../PhoneCardList';
 import useFetch from 'use-http';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPhoneList } from '../../../store/actionCreators/getPhoneList';
+import { setPhoneList } from '../../../store/actionCreators/setPhoneList';
 import { sortTypeSelector } from '../../../store/selectors/sortTypeSelector';
 import { searchTextSelector } from '../../../store/selectors/searchTextSelector';
 import { phoneListSelector } from '../../../store/selectors/phoneListSelector';
@@ -15,7 +15,7 @@ export const HomePhoneList = () => {
   const [animationCall, setAnimationCall] = useState(false);
   const dispatch = useDispatch();
 
-  const { get, response, loading, error } = useFetch('https://angular.github.io/angular-phonecat/step-14/app/phones/phones.json', {
+  const { get, response, loading, error } = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json', {
     cache: 'no-store',
   });
 
@@ -31,7 +31,7 @@ export const HomePhoneList = () => {
     if (!phoneListStore.length) {
       const phones = await get('');
       if (response.ok) {
-        dispatch(getPhoneList(phones));
+        dispatch(setPhoneList(phones));
       }
     }
   };

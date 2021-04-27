@@ -7,6 +7,7 @@ export const FormGroup = ({ fieldLabel, nameControl, namePlaceholder, handleChan
     <Form.Group controlId="formName" className={classes.formGroup}>
       <Form.Label>{fieldLabel} :</Form.Label>
       <Form.Control
+        className={classes.controlForm}
         type="text"
         name={nameControl}
         placeholder={namePlaceholder}

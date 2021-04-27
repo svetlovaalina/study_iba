@@ -5,9 +5,8 @@ import useFetch from 'use-http';
 import { PhoneCard } from '../../layouts/PhoneCard';
 import Alert from 'react-bootstrap/Alert';
 
-// import { phoneListSelector } from 'src/store/selectors/phoneListSelector';
-// import { getPhoneList } from 'src/store/actionCreators/getPhoneList';
-import { getPhoneList } from '../../../store/actionCreators/getPhoneList';
+import Spinner from 'react-bootstrap/Spinner';
+import { setPhoneList } from '../../../store/actionCreators/setPhoneList';
 import { phoneListSelector } from '../../../store/selectors/phoneListSelector';
 
 export const Random = () => {
@@ -16,7 +15,8 @@ export const Random = () => {
   const dispatch = useDispatch();
   const [today, setToday] = useState(new Date().toLocaleDateString());
   // const [today, setToday] = useState('5.05.2021');
-  const { get, response, loading, error } = useFetch('https://angular.github.io/angular-phonecat/step-14/app/phones/phones.json', {
+
+  const { get, response, loading, error } = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json', {
     cache: 'no-store',
   });
   const [phoneToday, setPhoneToday] = useState(null);
@@ -25,11 +25,15 @@ export const Random = () => {
     if (!phoneListStore.length) {
       const phones = await get('');
       if (response.ok) {
-        dispatch(getPhoneList(phones));
+        dispatch(setPhoneList(phones));
       }
     }
   };
   const getRandomPhone = () => {
+    if (!phoneListStore.length) {
+      getPhones();
+      return;
+    }
     if (
       (phoneListStore.length && !localStorageRandom) ||
       (phoneListStore.length && localStorageRandom && localStorageRandom.date !== today)
@@ -40,16 +44,14 @@ export const Random = () => {
 
       localStorage.setItem('randomPhone', JSON.stringify({ id: randomId, date: today }));
       setPhoneToday(phoneListStore.find(phone => phone.id === randomId));
+      return;
     }
     if (phoneListStore.length && localStorageRandom && localStorageRandom.date === today) {
       console.log('This is up-to-date information');
       setPhoneToday(phoneListStore.find(phone => phone.id === localStorageRandom.id));
     }
-    if (!phoneListStore.length) {
-      getPhones();
-    }
   };
-
+  //Number
   useEffect(() => {
     getRandomPhone();
     console.log(today);
@@ -64,9 +66,7 @@ export const Random = () => {
             <PhoneCard id={phoneToday.id} name={phoneToday.name} imageUrl={phoneToday.imageUrl} snippet={phoneToday.snippet} />
           </div>
         ) : (
-          <Alert variant="danger" className={classes.alert}>
-            Oops!
-          </Alert>
+          <Spinner animation="border" className="spinner" />
         )}
       </div>
     </div>

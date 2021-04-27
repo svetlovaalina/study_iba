@@ -11,3 +11,6 @@
   position: absolute;
   font-size: 0.8em;
 }
+:global .form-control {
+  text-align: start;
+}
