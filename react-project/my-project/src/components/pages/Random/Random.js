@@ -3,35 +3,26 @@ import classes from './Random.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import useFetch from 'use-http';
 import { PhoneCard } from '../../layouts/PhoneCard';
-import Alert from 'react-bootstrap/Alert';
-
 import Spinner from 'react-bootstrap/Spinner';
 import { setPhoneList } from '../../../store/actionCreators/setPhoneList';
 import { phoneListSelector } from '../../../store/selectors/phoneListSelector';
+import { fetchPhones } from '../../../store/thunk/getPhoneListThunk';
 
 export const Random = () => {
-  const phoneListStore = useSelector(phoneListSelector);
   const [localStorageRandom, setLocalStorageRandom] = useState(JSON.parse(localStorage.getItem('randomPhone')));
-  const dispatch = useDispatch();
-  const [today, setToday] = useState(new Date().toLocaleDateString());
-  // const [today, setToday] = useState('5.05.2021');
 
+  const [phoneToday, setPhoneToday] = useState(null);
+  const [today, setToday] = useState(new Date().toLocaleDateString());
+  const dispatch = useDispatch();
+  // const [today, setToday] = useState('5.05.2021');
   const { get, response, loading, error } = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json', {
     cache: 'no-store',
   });
-  const [phoneToday, setPhoneToday] = useState(null);
+  const phoneListStore = useSelector(phoneListSelector);
 
-  const getPhones = async () => {
-    if (!phoneListStore.length) {
-      const phones = await get('');
-      if (response.ok) {
-        dispatch(setPhoneList(phones));
-      }
-    }
-  };
   const getRandomPhone = () => {
     if (!phoneListStore.length) {
-      getPhones();
+      dispatch(fetchPhones(phoneListStore, get, response));
       return;
     }
     if (
@@ -51,7 +42,7 @@ export const Random = () => {
       setPhoneToday(phoneListStore.find(phone => phone.id === localStorageRandom.id));
     }
   };
-  //Number
+
   useEffect(() => {
     getRandomPhone();
     console.log(today);
