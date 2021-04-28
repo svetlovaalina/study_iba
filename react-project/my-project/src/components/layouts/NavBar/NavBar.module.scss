@@ -1,4 +1,4 @@
-@import '../../../styles/variables.scss';
+// @import '../../../styles/variables.scss';
 
 .navBarLink {
   font-size: 1.2em;
@@ -16,6 +16,7 @@
 }
 
 :global nav.bg-primary {
+  // background: linear-gradient(to right top, #88b8ff, #53c8ff, #00d6ff, #00e2f2, #12ebd8);
   background-color: $colorHeader !important;
 }
 
