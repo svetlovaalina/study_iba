@@ -5,14 +5,40 @@ import { UPDATE_SEARCH_TEXT } from '../actions/updateSearchText';
 import { ADD_TO_BASKET } from '../actions/actionAddPhoneToBasket';
 import { GET_PROFILE_DATA } from '../actions/getProfileData';
 import { GET_RANDOM_PHONE } from '../actions/getRandomPhone';
+import { FETCH_PHONES_BEGIN } from '../actions/fetchPhoneList';
+import { FETCH_PHONES_SUCCESS } from '../actions/fetchPhoneList';
+import { FETCH_PHONES_FAILURE } from '../actions/fetchPhoneList';
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_PHONE_LIST:
+    case FETCH_PHONES_BEGIN:
+      // Mark the state as "loading" so we can show a spinner or something
+      // Also, reset any errors. We're starting fresh.
       return {
         ...state,
+        loading: true,
+        error: null,
+      };
+    case FETCH_PHONES_SUCCESS:
+      // All done: set loading "false".
+      // Also, replace the items with the ones from the server
+      return {
+        ...state,
+        loading: false,
         phoneListStore: action.payload,
       };
+    case FETCH_PHONES_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+        // phoneListStore: [],
+      };
+    // case SET_PHONE_LIST:
+    //   return {
+    //     ...state,
+    //     phoneListStore: action.payload,
+    //   };
     case ADD_TO_BASKET:
       return {
         ...state,
