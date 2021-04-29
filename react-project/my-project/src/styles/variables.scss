@@ -1,11 +1,23 @@
 $white: #ffffff;
 $red: #ff0000;
-$colorHeader: #2fccd1;
-// $colorHeader: linear-gradient(red, orange, yellow, green, blue);
+$colorHeaderOld: #2fccd1;
+$colorHeaderGradient: linear-gradient(
+  to left top,
+  #b8528c,
+  #ad5a9e,
+  #9e64ae,
+  #8b6dbb,
+  #7476c5,
+  #5b80cc,
+  #3c89d0,
+  #0091d0,
+  #009bcc,
+  #00a3c3,
+  #00aab5,
+  #02b0a5
+);
 $green: #008000;
 $black: black;
-
-$grab: grab;
 
 $basicBorder: 1px solid #cacaca;
 

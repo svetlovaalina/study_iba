@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import useFetch from 'use-http';
 import { PhoneCard } from '../../layouts/PhoneCard';
 import Spinner from 'react-bootstrap/Spinner';
-import { setPhoneList } from '../../../store/actionCreators/setPhoneList';
 import { phoneListSelector } from '../../../store/selectors/phoneListSelector';
 import { fetchPhones } from '../../../store/thunk/getPhoneListThunk';
 
@@ -13,8 +12,10 @@ export const Random = () => {
 
   const [phoneToday, setPhoneToday] = useState(null);
   const [today, setToday] = useState(new Date().toLocaleDateString());
-  const dispatch = useDispatch();
+
   // const [today, setToday] = useState('5.05.2021');
+
+  const dispatch = useDispatch();
   const { get, response, loading, error } = useFetch('http://angular.github.io/angular-phonecat/step-14/app/phones/phones.json', {
     cache: 'no-store',
   });
@@ -45,7 +46,6 @@ export const Random = () => {
 
   useEffect(() => {
     getRandomPhone();
-    console.log(today);
   }, [phoneListStore]);
 
   return (

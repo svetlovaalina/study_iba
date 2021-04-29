@@ -16,8 +16,8 @@
 }
 
 :global nav.bg-primary {
-  // background: linear-gradient(to right top, #88b8ff, #53c8ff, #00d6ff, #00e2f2, #12ebd8);
-  background-color: $colorHeader !important;
+  // background-color: $colorHeader !important;
+  background: $colorHeaderGradient;
 }
 
 :global .navbar-brand a {
