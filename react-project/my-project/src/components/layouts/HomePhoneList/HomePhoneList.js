@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import classes from './HomePhoneList.module.scss';
 import { fetchPhones } from '../../../store/actions/fetchPhoneList';
-
 import { PhoneCardList } from '../PhoneCardList';
-import useFetch from 'use-http';
 import { useDispatch, useSelector } from 'react-redux';
 import { sortTypeSelector } from '../../../store/selectors/sortTypeSelector';
 import { searchTextSelector } from '../../../store/selectors/searchTextSelector';

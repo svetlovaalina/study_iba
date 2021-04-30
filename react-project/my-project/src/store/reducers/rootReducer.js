@@ -12,16 +12,12 @@ import { FETCH_PHONES_FAILURE } from '../actions/fetchPhoneList';
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PHONES_BEGIN:
-      // Mark the state as "loading" so we can show a spinner or something
-      // Also, reset any errors. We're starting fresh.
       return {
         ...state,
         loading: true,
         error: null,
       };
     case FETCH_PHONES_SUCCESS:
-      // All done: set loading "false".
-      // Also, replace the items with the ones from the server
       return {
         ...state,
         loading: false,
@@ -34,11 +30,7 @@ export const reducer = (state = initialState, action) => {
         error: action.payload,
         // phoneListStore: [],
       };
-    // case SET_PHONE_LIST:
-    //   return {
-    //     ...state,
-    //     phoneListStore: action.payload,
-    //   };
+
     case ADD_TO_BASKET:
       return {
         ...state,
